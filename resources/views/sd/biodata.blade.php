@@ -358,7 +358,7 @@
                             <tr>
                                 <td><label for="mahasiswa_baru">Mahasiswa Baru</label></td>
                                 @if ($data->mahasiswa_baru)
-                                    @if ($data->mahasiswa_baru == 1)
+                                    @if ($data->mahasiswa_baru != 2)
                                         <td>: Ya</td>
                                     @else
                                         <td>: Tidak</td>

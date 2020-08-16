@@ -119,8 +119,8 @@ class AuthController extends Controller
             }
             if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap == 0){
                 $date = date("d-m-Y H:i:s");
-                $batas = "15-08-2020 16:00:00";
-                $depan = "15-08-2020 09:00:00";
+                $batas = "16-08-2020 16:00:00";
+                $depan = "16-08-2020 09:00:00";
                 $datebatas = date("d-m-Y H:i:s", strtotime($batas));
                 $datedepan = date("d-m-Y H:i:s", strtotime($depan));
                 // dd($date,$datebatas);

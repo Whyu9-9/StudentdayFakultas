@@ -111,7 +111,7 @@ class AdminController extends Controller
         }
 
         if($req->has('maba')){
-            if($req->maba == 1 || $req->maba == 2){
+            if($req->maba == 1 || $req->maba == 2|| $req->maba == 3|| $req->maba == 4){
                 $data->where('mahasiswa_baru', $req->maba);
                 $filter['maba'] = $req->maba;
             }

@@ -346,7 +346,7 @@
                                     <tr>
                                         <td><label for="mahasiswa_baru">Mahasiswa baru</label></td>
                                         <td> 
-                                            <input type="text" class="form-control" id="mahasiswa_baru" value="{{ $data['mahasiswa_baru'] == '1' ? 'Ya' : 'Tidak' }}" readonly>
+                                            <input type="text" class="form-control" id="mahasiswa_baru" value="{{ $data['mahasiswa_baru'] != '2' ? 'Ya' : 'Tidak' }}" readonly>
                                         </td>
                                     </tr>
                                     <tr>

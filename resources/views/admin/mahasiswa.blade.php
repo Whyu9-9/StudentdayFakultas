@@ -85,12 +85,22 @@
                                 @if(isset($filter['maba']))
                                     @if($filter['maba'] == 1) selected @endif
                                 @endif
-                            >Mahasiswa Baru</option>
+                            >SNMPTN</option>
                             <option value="2"
                                 @if(isset($filter['maba']))
                                     @if($filter['maba'] == 2) selected @endif
                                 @endif
                             >Mahasiswa Lama</option>
+                            <option value="3"
+                                @if(isset($filter['maba']))
+                                    @if($filter['maba'] == 3) selected @endif
+                                @endif
+                            >SBMPTN</option>
+                            <option value="4"
+                                @if(isset($filter['maba']))
+                                    @if($filter['maba'] == 4) selected @endif
+                                @endif
+                            >MANDIRI</option>
                         </select>
                     </div>
                     <div class="col-md-2 col-sm-12">
@@ -157,9 +167,13 @@
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
                                         data-mahasiswa-baru=": 
                                         @if($mahasiswa->mahasiswa_baru == 1)
-                                            Ya
+                                            SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
-                                            Tidak
+                                            Mahasiswa Lama
+                                        @elseif($mahasiswa->mahasiswa_baru == 3)
+                                            SBMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 4)
+                                            MANDIRI
                                         @else
                                             Belum ditentukan
                                         @endif
@@ -208,10 +222,14 @@
                                         data-nama-ayah=": {{ $mahasiswa->nama_ayah }}" }}
                                         data-nama-ibu=": {{ $mahasiswa->nama_ibu }}"
                                         data-vegetarian=":
-                                        @if($mahasiswa->vegetarian == 1)
-                                           Ya
-                                        @elseif($mahasiswa->vegetarian == 2)
-                                            Tidak
+                                        @if($mahasiswa->mahasiswa_baru == 1)
+                                            SNMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 2)
+                                            Mahasiswa Lama
+                                        @elseif($mahasiswa->mahasiswa_baru == 3)
+                                            SBMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 4)
+                                            MANDIRI
                                         @else
                                             Belum ditentukan
                                         @endif
@@ -284,9 +302,13 @@
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
                                         data-mahasiswa-baru=": 
                                         @if($mahasiswa->mahasiswa_baru == 1)
-                                            Ya
+                                            SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
-                                            Tidak
+                                            Mahasiswa Lama
+                                        @elseif($mahasiswa->mahasiswa_baru == 3)
+                                            SBMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 4)
+                                            MANDIRI
                                         @else
                                             Belum ditentukan
                                         @endif
@@ -349,9 +371,13 @@
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
                                         data-mahasiswa-baru=": 
                                         @if($mahasiswa->mahasiswa_baru == 1)
-                                            Ya
+                                            SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
-                                            Tidak
+                                            Mahasiswa Lama
+                                        @elseif($mahasiswa->mahasiswa_baru == 3)
+                                            SBMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 4)
+                                            MANDIRI
                                         @else
                                             Belum ditentukan
                                         @endif
@@ -418,9 +444,13 @@
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
                                         data-mahasiswa-baru=": 
                                         @if($mahasiswa->mahasiswa_baru == 1)
-                                            Ya
+                                            SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
-                                            Tidak
+                                            Mahasiswa Lama
+                                        @elseif($mahasiswa->mahasiswa_baru == 3)
+                                            SBMPTN
+                                        @elseif($mahasiswa->mahasiswa_baru == 4)
+                                            MANDIRI
                                         @else
                                             Belum ditentukan
                                         @endif
@@ -676,7 +706,7 @@
                                             <td id="penyakit-khusus-show"></td>
                                         </tr>
                                         <tr>
-                                            <td>Mahasiswa baru</td>
+                                            <td>Jalur Masuk</td>
                                             <td id="mahasiswa-baru-show">: 
                                                 
                                             </td>
