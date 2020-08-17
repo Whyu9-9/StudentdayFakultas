@@ -4,6 +4,102 @@
     active
 @endsection
 
+@section('custom_style')
+    <style type="text/css">
+        @media screen {
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 400;
+                src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 700;
+                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+            }
+        }
+
+        /* CLIENT-SPECIFIC STYLES */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* RESET STYLES */
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* MOBILE STYLES */
+        @media screen and (max-width:600px) {
+            h1 {
+                font-size: 32px !important;
+                line-height: 32px !important;
+            }
+        }
+
+        /* ANDROID CENTER FIX */
+        div[style*="margin: 16px 0;"] {
+            margin: 0 !important;
+        }
+    </style>
+        @endsection
+
 @section('content')
     <h2 class="mb-4"><i class="fa fa-sticky-note"></i> Penugasan</h2>
     
@@ -34,384 +130,62 @@
         </div>  
     @endif
     
-    @if(Auth::user()->lengkap == 6)
-        @if (isset($cek))
-        <div class="alert alert-danger">
-            <i class="fa fa-exclamation-circle"></i> Terdapat Kesalahan pada Verifikasi Ulang. <br>
-            <ul>
-                <?php
-                    $i = count($cek);
-                ?>
-                @foreach ($cek as $note)
-                    <li style="margin-left: -9px;">{{date($note->created_at)}} - {{$note->notes}}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        
-        <div class="card">
-            <div class="card-header">
-                <h3>Tugas Khusus</h3>
-                <a href="https://drive.google.com/drive/folders/1IV9a69E5z11QD11X8hpw5pIVlol2LBab?usp=sharing" target="_blank">Link Soal Tugas Khusus</a>
-            </div>
-            <div class="card-body text-center">
-                <table class="table table-bordered">
-                    <thead>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <!-- LOGO -->
+            <tr>
+                <td bgcolor="#fff" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                         <tr>
-                            <th>No</th>
-                            <th>Keterangan</th>
-                            @if(count($tugas_khusus) == 0)
-                            <th>File</th>
-                            <th>Action</th>
-                            @else
-                            <th>Status</th>
-                            @endif
+                            <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #c3862d">PENGUMPULAN</p>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @if(count($tugas_khusus) == 0)
-                        <form action="/beranda-sd-penugasan" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#fff" align="center" style="padding: 0px 10px 0px 10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                        <tr>
+                            <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 10px 0px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 3px; line-height: 48px;">
+                                <h1 style="font-size: 20px; font-weight: 700; margin: 2;"></h1> 
+                                {{-- <img src="https://pasargro.com/assets/img/cart-template/logo.png" width="155" height="150" style="display: block; border: 0px;" /> --}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 20px 20px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 400;">
+                                <p>Silahkan Mengumpulkan Penugasan Dengan Menekan Tombol Dibawah Ini.</p>
+                                <p>
+                                    <a style="background-color:goldenrod;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" style="color: #d8a547 !important;"><strong>Tombol</strong></a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            @if($cek != null && $cek != [])
+            <tr>
+                <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <td bgcolor="#010000" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                             <tr>
-                                <td>1</td>
-                                <td>Tugas Khusus
-                                    <!--if(!$hasil)
-                                    <div id="time"></div></td>
-                                    endif-->
-                                <td>
-                                    <!--if($hasil)
-                                    <strong>Expired</strong>
-                                    else-->
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input berkas" id="tugas" name="tugas">
-                                        <label id="label-tugas" class="custom-file-label" for="tugas">Choose file</label>
-                                        <input type="hidden" name="tipe" value="tugas_khusus">
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">Upload</button>
-                                    <!--if($hasil)
-                                    <strong>Expired</strong>
-                                    else
-                                    <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kirim</button>
-                                    endif-->
-                                    {{-- <button class="btn btn-success">Unduh</button>
-                                    <button class="btn btn-danger">Hapus</button> --}}
-                                </td>
+                                <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #ff0000">TUGAS KHUSUS</p>
                             </tr>
-                        </form>
-                        @else
-                            <tr>
-                                <td>1</td>
-                                <td>Tugas Khusus</td>
-                                <td colspan="2">
-                                    <span class="badge badge-success">Sudah Upload Tugas</span>
-                                </td>
-                            </tr>
-                        @endif
-                    </tbody>
-                </table>
-                
-                @if($errors->has('tugas'))
-                    <span class="text-danger" role="alert">
-                        <strong>{{ $errors->first('tugas') }}</strong>
-                    </span> 
-                @endif
-            </div>
-        </div>
-    @endif
-    
-    
-    @if (Auth::user()->lengkap == 8)
-        <div class="card">
-            <div class="card-header">
-                <h3>Jawab Soal</h3>
-            </div>
-            <div class="card-body text-center">
-                <table class="table table-bordered">
-                    <thead>
+                        </table>
+                    </td>
                         <tr>
-                            <th>No</th>
-                            <th>Keterangan</th>
-                            @if(count($jawab_soal) == 0)
-                            <th>File</th>
-                            <th>Action</th>
-                            @else
-                            <th>Status</th>
-                            @endif
+                            <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #ff0000; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                
+                                <p>{{$cek}} Silahkan Melakukan Pengumpulan Tugas Khusus Dengan Menekan Tombol dibawah ini <br><br> <a style="background-color:#ff0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tombol</a> </p>
+                                
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                            {{-- @if(count($jawab_soal) == 0)
-                                @foreach ($listTugas as $i => $list)
-                                    @if ($list->tipe == 'jawab_soal')
-                                    @endif
-                                @endforeach
-                            @else --}}
-                            <?php
-                                $countjawabsoal = count($jawab_soal);
-                            ?>
-                                @foreach ($listTugas as $i => $list)
-                                    @if($list->tipe == 'jawab_soal')
-                                        @foreach ($jawab_soal as $j => $soal)
-                                            @if ($soal->penugasan_id == $list->id)
-                                                <tr>
-                                                    <td>{{$i+1}}</td>
-                                                    <td>{{$list->keterangan}}</td>
-                                                    <td colspan="2">
-                                                        <span class="badge badge-success">Sudah Upload Tugas</span>
-                                                    </td>
-                                                </tr>
-                                            @elseif($j == $countjawabsoal)
-                                                <form action="{{ route('beranda-sd-penugasan-soal', ['id'=>$list->id]) }}" method="post" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <tr>
-                                                        <td>{{$i+1}}</td>
-                                                        <td>{{$list->keterangan}}</td>
-                                                        <td>
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input berkas" id="tugas" name="tugas">
-                                                                <label id="label-resume" class="custom-file-label" for="resume">Choose file</label>
-                                                                <input type="hidden" name="tipe" value="jawab_soal">
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            @if ($list->file != null)
-                                                                <a href="{{ route('beranda-sd-penugasan-download-soal', ['id'=>$list->id]) }}" class="btn btn-danger text-white">Soal</a>
-                                                            @endif
-                                                            <button type="submit" class="btn btn-primary">Upload</button>
-                                                        </td>
-                                                    </tr>
-                                                </form>
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                @endforeach
-                            {{-- @endif --}}
-                    </tbody>
-                </table>
-                
-                @if($errors->has('tugas'))
-                    <span class="text-danger" role="alert">
-                        <strong>{{ $errors->first('tugas') }}</strong>
-                    </span> 
-                @endif
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <h3>Essay</h3>
-            </div>
-            <div class="card-body text-center">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Keterangan</th>
-                            @if(count($essay) == 0)
-                            <th>File</th>
-                            <th>Action</th>
-                            @else
-                            <th>Status</th>
-                            @endif
-                        </tr>
-                    </thead>
-                    <tbody>
-                            @if(count($essay) == 0)
-                            <form action="{{ route('beranda-sd-penugasan-essay') }}" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        @foreach ($listTugas as $list)
-                                        @if($list->tipe == 'essay')
-                                            {{$list->keterangan}}
-                                        @endif
-                                        @endforeach
-                                        <!--if(!$hasil)
-                                        <div id="time"></div></td>
-                                        endif-->
-                                    <td>
-                                        <!--if($hasil)
-                                        <strong>Expired</strong>
-                                        else-->
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input berkas" id="tugas" name="tugas">
-                                            <label id="label-resume" class="custom-file-label" for="tugas">Choose file</label>
-                                            <input type="hidden" name="tipe" value="essay">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">Upload</button>
-                                        <!--if($hasil)
-                                        <strong>Expired</strong>
-                                        else
-                                        <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kirim</button>
-                                        endif-->
-                                        {{-- <button class="btn btn-success">Unduh</button>
-                                        <button class="btn btn-danger">Hapus</button> --}}
-                                    </td>
-                                </tr>
-                            </form>
-                            @else
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        @foreach ($listTugas as $list)
-                                            @if($list->tipe == 'essay')
-                                                {{$list->keterangan}}
-                                            @endif
-                                        @endforeach</td>
-                                    <td colspan="2">
-                                        <span class="badge badge-success">Sudah Upload Tugas</span>
-                                    </td>
-                                </tr>
-                            @endif
-                    </tbody>
-                </table>
-                
-                @if($errors->has('tugas'))
-                    <span class="text-danger" role="alert">
-                        <strong>{{ $errors->first('tugas') }}</strong>
-                    </span> 
-                @endif
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <h3>Resume</h3>
-            </div>
-            <div class="card-body text-center">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Keterangan</th>
-                            @if(count($resume) == 0)
-                            <th>File</th>
-                            <th>Action</th>
-                            @else
-                            <th>Status</th>
-                            @endif
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($checktime == null)
-                            <tr>
-                                <td colspan="4">Waktu Upload Belum Tersedia</td>
-                            </tr>
-                        @else
-                            @if(count($resume) == 0)
-                            <form action="/beranda-sd-resume" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <tr>
-                                    <td>1</td>
-                                    <td>Acara Pertama
-                                        @if(!$hasil)
-                                        <div id="time"></div></td>
-                                        @endif
-                                    <td>
-                                        @if($hasil)
-                                        <strong>Expired</strong>
-                                        @else
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input berkas" id="resume" name="resume">
-                                            <label id="label-resume" class="custom-file-label" for="resume">Choose file</label>
-                                        </div>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($hasil)
-                                        <strong>Expired</strong>
-                                        @else
-                                        <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Kirim</button>
-                                        @endif
-                                        {{-- <button class="btn btn-success">Unduh</button>
-                                        <button class="btn btn-danger">Hapus</button> --}}
-                                    </td>
-                                </tr>
-                            </form>
-                            @else
-                                <tr>
-                                    <td>1</td>
-                                    <td>Acara Pertama</td>
-                                    <td colspan="2">
-                                        <span class="badge badge-success">Sudah Upload Resume</span>
-                                    </td>
-                                </tr>
-                            @endif
-                        @endif
-                    </tbody>
-                </table>
-                
-                @if($errors->has('resume'))
-                    <span class="text-danger" role="alert">
-                        <strong>{{ $errors->first('resume') }}</strong>
-                    </span> 
-                @endif
-            </div>
-        </div>
-    @elseif(Auth::user()->lengkap == 0 || Auth::user()->lengkap == 1 || Auth::user()->lengkap == 3)
-        <div class="alert alert-warning">
-            <i class="fa fa-exclamation-circle"></i> Pendaftaran Student Day anda belum terverifikasi. <br>
-            <a href="/beranda-sd/{{ Auth::user()->id }}/edit" class="btn btn-primary mt-3"><i class="fa fa-edit"></i> Lihat biodata</a>
-        </div>
-    @elseif(Auth::user()->lengkap == 2 || Auth::user()->lengkap == 9)
-        <div class="alert alert-danger">
-            <i class="fa fa-exclamation-circle"></i> Terdapat Kesalahan pada biodata. Perbaiki kesalahan lalu ajukan perbaikan pendaftaran kembali. <br>
-            <a href="/beranda-sd/{{ Auth::user()->id }}/edit" class="btn btn-primary mt-3"><i class="fa fa-edit"></i> Perbaiki biodata</a>
-        </div>
-    @elseif(Auth::user()->lengkap == 4 || Auth::user()->lengkap == 5 || Auth::user()->lengkap == 7)
-        <div class="alert alert-primary">
-            <i class="fa fa-exclamation-circle"></i> Akun Anda belum terverifikasi. Tunggu hingga semua data terverifikasi untuk dapat mengerjakan penugasan. <br>
-        </div>
-    @endif
+                    </table>
+                </td>
+            </tr>
+            @endif
+        </table>
 @endsection
 
 @section('custom_javascript')
-    <script>
-        $("#tugas").change(function() {
-            var name = this.files[0].name;
-            var label = this.nextElementSibling;
-            label.textContent = name;
-        })
-
-        $(".berkas").change(function() {
-            var name = this.files[0].name;
-            var label = this.nextElementSibling;
-            label.textContent = name;
-        })        
-    </script>
-
-    <script src="/js/countdown.min.js"></script>
     
-    <script> 
-    function timekeeper(){
-        $.ajax({
-            url: '/get/time/resume',
-            type: 'GET',
-            success: function(data){
-                var time = new Date(data);
-                // console.log(time);
-                
-                var timerId =countdown(time, function(ts) {
-                    // console.log(ts);
-                    document.getElementById('time').innerHTML = ts.toHTML("strong");
-                },
-                countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
-            },
-            error: function(data){
-            },
-        });
-    }
-    timekeeper();
-    // var timerId =countdown(new Date('2020-08-05T05:41:00'), function(ts) {
-    //     console.log(ts);
-    //     document.getElementById('test').innerHTML = ts.toHTML("strong");
-    // },
-    // countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
-
-        // later on this timer may be stopped
-        // window.clearInterval(timerId);
-    </script>
 @endsection
