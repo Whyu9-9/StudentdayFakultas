@@ -146,7 +146,7 @@ Route::post('/beranda-sd-verifikasi/penugasan/{id}/verifikasi', 'DashboardSdCont
 Route::get('/beranda-sd/verifikasi/penugasan/{id}', 'DashboardSdController@penugasanPdf')->name('get-penugasan');
 Route::get('/beranda-sd/verifikasi/edit/{id}/youtube', 'DashboardSdController@editYoutube')->name('beranda-sd.verifikasi-youtube');
 Route::post('/beranda-sd/verifikasi/edit/{id}/youtube', 'DashboardSdController@postYoutube')->name('beranda-sd.verifikasi-youtube-post');
-Route::get('/beranda-sd/verifikasi/{id}/edit', 'DashboardSdController@editVerifikasi')->name('beranda-sd.edit-verifikasi');
+Route::get('/beranda-sd/verifikasi/edit/{id}', 'DashboardSdController@editVerifikasi')->name('beranda-sd.edit-verifikasi');
 Route::get('/beranda-sd-penugasan', 'DashboardSdController@tugas')->name('beranda-sd-penugasan');
 Route::post('/beranda-sd-penugasan', 'DashboardSdController@penugasanPost');
 Route::post('/beranda-sd-penugasan-soal/{id}', 'DashboardSdController@penugasanSoalPost')->name('beranda-sd-penugasan-soal');

@@ -31,7 +31,10 @@
                 <div class="row">
                     <div class="col-md-8 px-5">
                         {{ csrf_field() }}
+                        @if(Auth::user()->penyakit_khusus != null)
                         <label for="riwayat"><strong>Riwayat Penyakit</strong></label>
+                        <br>
+                        <small class="">Jika ada kesalahan, Segera ubah. Jika tidak, langsung klik tombol "Ajukan Verifikasi Ulang"</small>
                         <div class="mb-3">
                             <div class="input-group">
                                 <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}">
@@ -45,6 +48,9 @@
                         </div>
 
                         <label for="scan-riwayat"><strong>Scan Bukti Riwayat Penyakit</strong></label>
+                        <br>
+                        <small class="">Jika ada kesalahan, Segera ubah. Jika tidak, langsung klik tombol "Ajukan Verifikasi Ulang"</small>
+                        <br>
                         <small class="">*format pdf.</small>
                         <div class="mb-3">
                             <div class="custom-file">
@@ -58,9 +64,24 @@
                                 </span> 
                             @endif
                         </div>
-                        
+                        @endif
+                        <label for="basic-url"><strong>Youtube URL</strong></label>
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                {{-- <span class="input-group-text" id="span-url">{{Auth::user()->youtube}}</span> --}}
+                                <a>{{Auth::user()->youtube}}</a>
+                                @if(Auth::user()->lengkap == 6)
+                                    <a href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2">Edit</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                         @if (Auth::user()->mahasiswa_baru == 2)
                             <label for="bukti-pembayaran"><strong>Bukti Pembayaran</strong></label>
+                            <br>
+                            <small class="">Jika ada kesalahan, Segera ubah. Jika tidak, langsung klik tombol "Ajukan Verifikasi Ulang"</small>
+                            <br>
                             <small class="">*format pdf.</small>
                             <div class="mb-3">
                                 <div class="custom-file">
@@ -79,6 +100,8 @@
                     </div>
                     <div class="col-md-4 px-5 border-left">
                         <label for="basic-url"><strong>Profile Picture</strong></label>
+                        <br>
+                        <small class="">Jika ada kesalahan, Segera ubah. Jika tidak, langsung klik tombol "Ajukan Verifikasi Ulang"</small>
                         <div class="mb-3">
                             <img id="show-profileimage" class="float-left my-3" src="{{Auth::user()->profile != null ?  asset('/public'.Auth::user()->profile) : '/img/foto3x4.jpg'}}" style="border-style:solid; height: 200px; width: 150px;" alt="not found">
                             <div class="custom-file">

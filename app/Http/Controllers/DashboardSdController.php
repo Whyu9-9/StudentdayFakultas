@@ -354,7 +354,11 @@ class DashboardSdController extends Controller
                 'user_id' => Auth::user()->id,
                 'tipe' => 'verifikasi'
             ])->orderBy('created_at', 'desc')->take('1')->get();
-            return view('sd.verifikasi',compact('data','notes'));
+            $ilmiah = Notes::where([
+                'user_id' => Auth::user()->id,
+                'tipe' => 'verifikasi',
+            ])->get();
+            return view('sd.verifikasi',compact('data','notes','ilmiah'));
         }
     }
 
@@ -809,7 +813,8 @@ class DashboardSdController extends Controller
     }
 
     public function editVerifikasi(){
-        return view('sd.edit-verifikasi');
+        $data = User::where('id',Auth::user()->id)->first();
+        return view('sd.edit-verifikasi',compact('data'));
     }
 
     public function editYoutube(){
@@ -834,7 +839,7 @@ class DashboardSdController extends Controller
         $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
         $mahasiswa->save();
 
-        return redirect('/beranda-sd-verifikasi')->withSuccess('Berhasil Update URL Youtube');
+        return redirect('/beranda-sd/verifikasi/edit/'.Auth::user()->id)->withSuccess('Berhasil Update URL Youtube');
         
     }
 

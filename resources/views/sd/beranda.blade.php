@@ -69,6 +69,7 @@
         <strong>Bagi Mahasiswa diharapkan melakukan refresh pada website secara berkala setiap 1 Jam untuk mendapatkan status pendaftaran sesuai tanggal dan waktu registrasi hingga status "terdaftar"</strong> 
     <br>
 </div>
+@if (Auth::user()->lengkap < 4)
 <div class="modal fade" id="pengumumannotif" tabindex="-1" aria-labelledby="pengumumannotifLabel" aria-hidden="show">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -89,6 +90,7 @@
         </div>
     </div>
 </div>
+@endif
 @if(Auth::user()->lengkap == 4)
     <div class="alert alert-info">
         <i class="fa fa-check text-success"></i> Selamat anda telah terdaftar, silahkan akses QR Code untuk masuk ke dalam group LINE, klik tombol berikut untuk mengakses QR Code <a class="btn btn-info" href="{{ route('beranda-sd-qrcode') }}" >Klik Disini</a>
