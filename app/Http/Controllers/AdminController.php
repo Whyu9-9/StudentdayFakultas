@@ -1048,7 +1048,7 @@ class AdminController extends Controller
             'Nama Ayah',
             'Nama Ibu',
             'Penyakit Khusus',
-            'Mahasiswa Baru ?',
+            'Jalur Masuk',
             'Angkatan',
             'Prestasi', 
             'Pengalaman Organisasi', 
@@ -1085,9 +1085,13 @@ class AdminController extends Controller
             $mhs  = "";
             if($row->mahasiswa_baru){
                 if($row->mahasiswa_baru == 2){
-                    $mhs = "Tidak";
-                }else{
-                    $mhs = "Iya";
+                    $mhs = "Mahasiswa Lama";
+                }elseif($row->mahasiswa_baru == 1){
+                    $mhs = "SNMPTN";
+                }elseif($row->mahasiswa_baru == 3){
+                    $mhs = "SBMPTN";
+                }elseif($row->mahasiswa_baru == 4){
+                    $mhs = "MANDIRI";
                 }
             }
             $mahasiswa[] = [

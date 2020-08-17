@@ -113,26 +113,41 @@ class AuthController extends Controller
                 'konten' => 'Log In'
             ]);
 
-            if(Auth::user()->mahasiswa_baru == 2){
+            if(Auth::user()->mahasiswa_baru == 2 && Auth::user()->lengkap > 10){
                 Auth::logout($this->user());
                 return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Lama Belum dimulai']);
             }
+            
+
             if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap == 0){
-                $date = date("d-m-Y H:i:s");
-                $batas = "16-08-2020 16:00:00";
-                $depan = "16-08-2020 09:00:00";
-                $datebatas = date("d-m-Y H:i:s", strtotime($batas));
-                $datedepan = date("d-m-Y H:i:s", strtotime($depan));
-                // dd($date,$datebatas);
-                // if($date < $datedepan){
-                //     Auth::logout($this->user());
-                //     return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Lama Belum Dimulai']);
-                // }
-                if($date > $datebatas){
+                $checkprodi = User::where('id',Auth::user()->id)->first();
+                if($checkprodi->program_studi == 8){
+                
+                    $date = date("d-m-Y H:i:s");
+                    $depan = "16-08-2020 08:00:00";
+                    $batas = "16-08-2020 16:00:00";
+                    $datebatas = date("d-m-Y H:i:s", strtotime($batas));
+                    $datedepan = date("d-m-Y H:i:s", strtotime($depan));
+                    // dd($date,$datebatas);
+                    // if($date < $datedepan){
+                    //     Auth::logout($this->user());
+                    //     return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Belum Dimulai']);
+                    // }
+                    
+                    if($date > $datebatas){
+                        Auth::logout($this->user());
+                        return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Sudah Selesai']);
+                    }else{
+                        return $this->handleUserWasAuthenticated($request, $throttles);
+                    }
+                }else{
                     Auth::logout($this->user());
-                    return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Telah Selesai']);
+                    // dd($checkprodi->program_studi == 5);
+                    return redirect('/login')->withErrors(['nim' => 'Sesi Program Studi Anda Belum Dimulai']);
                 }
 
+            }else{
+                return $this->handleUserWasAuthenticated($request, $throttles);
             }
 
             return $this->handleUserWasAuthenticated($request, $throttles);

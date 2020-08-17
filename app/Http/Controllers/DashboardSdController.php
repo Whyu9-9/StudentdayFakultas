@@ -325,9 +325,9 @@ class DashboardSdController extends Controller
     }
 
     public function verifikasi(){
-        if(Auth::user()->lengkap != 8){
+        /*if(Auth::user()->lengkap != 8){
             return redirect()->route('beranda-sd.biodata');
-        }
+        }*/
         if(Auth::user()->lengkap == 0){
             return redirect()->route('beranda-sd.biodata');
         }else if(Auth::user()->lengkap == 4 || Auth::user()->lengkap == 5 || Auth::user()->lengkap == 6 || Auth::user()->lengkap == 7 || Auth::user()->lengkap == 8){
@@ -341,16 +341,32 @@ class DashboardSdController extends Controller
     }
 
     public function verifikasipost(Request $request, $id){
-        if(Auth::user()->lengkap != 8){
+        /*if(Auth::user()->lengkap != 8){
             return redirect()->route('beranda-sd.biodata');
-        }
+        }*/
         $checkuser = User::find($id);
-        if($checkuser->mahasiswa_baru === 2){
-            if($checkuser->penyakit_khusus === null){      
+        if($checkuser->mahasiswa_baru == 2){
+            if($checkuser->penyakit_khusus == null){  
+                if(auth::user()->lengkap == 6){    
+                $validator = Validator::make($request->all(), 
+                    [
+                        'profileimage' => 'image',
+                        'bukti-pembayaran' => 'mimes:pdf'
+                        // 'angkatan' => 'required',
+                    ]
+                );
+    
+                if ($validator->fails()) {
+                    Session::flash('error', 'Gagal Upload Verifikasi');
+                    return redirect()->back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+            }else{
                 $validator = Validator::make($request->all(), 
                     [
                         'url' => 'required',
-                        'profileimage' => 'image',
+                        'profileimage' => 'required|image',
                         'bukti-pembayaran' => 'required|mimes:pdf'
                         // 'angkatan' => 'required',
                     ]
@@ -362,7 +378,7 @@ class DashboardSdController extends Controller
                                 ->withErrors($validator)
                                 ->withInput();
                 }
-    
+            }
                 $mahasiswa = User::find($id);
                 if ($request->hasFile('profileimage')) {
                     $image = $request->file('profileimage');
@@ -380,22 +396,48 @@ class DashboardSdController extends Controller
                     $destination = public_path('/bukti-pembayaran-mala');
                     $pdf->move($destination, $name);
                     $pdf_bukti = '/bukti-pembayaran-mala/'.$name;
+                }else{
+                    $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
                 
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
-                $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                if(Auth::user()->youtube == null){
+                    $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                }
                 $mahasiswa->profile = $profilepath;
-                $mahasiswa->lengkap = 5;
+                if(Auth::user()->lengkap == 6){
+                    $mahasiswa->lengkap = 7;
+                }else{
+                    $mahasiswa->lengkap = 5;
+                }
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
                 $mahasiswa->save();
                 
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }else{
+                if(auth::user()->lengkap == 6){
+                $validator = Validator::make($request->all(), 
+                    [
+                        'profileimage' => 'image',
+                        'riwayat' => 'string',
+                        'scan-riwayat' => 'mimes:pdf',
+                        'bukti-pembayaran' => 'mimes:pdf'
+                        // 'angkatan' => 'required',
+                    ]
+                );
+    
+                if ($validator->fails()) {
+                    Session::flash('error', 'Gagal Upload Verifikasi');
+                    return redirect()->back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+            }else{
                 $validator = Validator::make($request->all(), 
                     [
                         'url' => 'required',
-                        'profileimage' => 'image',
+                        'profileimage' => 'required|image',
                         'riwayat' => 'string',
                         'scan-riwayat' => 'required|mimes:pdf',
                         'bukti-pembayaran' => 'required|mimes:pdf'
@@ -409,7 +451,7 @@ class DashboardSdController extends Controller
                                 ->withErrors($validator)
                                 ->withInput();
                 }
-    
+            }
                 $mahasiswa = User::find($id);
                 if ($request->hasFile('profileimage')) {
                     $image = $request->file('profileimage');
@@ -428,6 +470,8 @@ class DashboardSdController extends Controller
                     $destination = public_path('/bukti-pembayaran-mala');
                     $pdf->move($destination, $name);
                     $pdf_bukti = '/bukti-pembayaran-mala/'.$name;
+                }else{
+                    $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
     
                 if($request->hasFile('scan-riwayat')){
@@ -436,13 +480,21 @@ class DashboardSdController extends Controller
                     $destination = public_path('/riwayat-penyakit');
                     $pdf->move($destination, $name);
                     $scanpath = '/riwayat-penyakit/'.$name;
+                }else{
+                    $scanpath = $mahasiswa->scan_penyakit;
                 }
                 
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
-                $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                if(Auth::user()->youtube == null){
+                    $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                }
                 $mahasiswa->scan_penyakit = $scanpath;
                 $mahasiswa->profile = $profilepath;
-                $mahasiswa->lengkap = 5;
+                if(auth::user()->lengkap == 6){
+                    $mahasiswa->lengkap=7;
+                }else{
+                    $mahasiswa->lengkap = 5;
+                }
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
                 $mahasiswa->save();
                 
@@ -450,7 +502,22 @@ class DashboardSdController extends Controller
                 return redirect()->route('beranda-sd.verifikasi');
             }
         }else{
-            if($checkuser->penyakit_khusus === null){      
+            if($checkuser->penyakit_khusus === null){
+                if(auth::user()->lengkap == 6){      
+                $validator = Validator::make($request->all(), 
+                    [
+                        'profileimage' => 'image'
+                        // 'angkatan' => 'required',
+                    ]
+                );
+
+                if ($validator->fails()) {
+                    Session::flash('error', 'Gagal Upload Verifikasi');
+                    return redirect()->back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+            }else{
                 $validator = Validator::make($request->all(), 
                     [
                         'url' => 'required',
@@ -465,7 +532,7 @@ class DashboardSdController extends Controller
                                 ->withErrors($validator)
                                 ->withInput();
                 }
-
+            }
                 $mahasiswa = User::find($id);
                 if ($request->hasFile('profileimage')) {
                     $image = $request->file('profileimage');
@@ -484,22 +551,47 @@ class DashboardSdController extends Controller
                     $destination = public_path('/bukti-pembayaran-mala');
                     $pdf->move($destination, $name);
                     $pdf_bukti = '/bukti-pembayaran-mala/'.$name;
+                }else{
+                    $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
                 
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
-                $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                if(Auth::user()->youtube == null){
+                    $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                }
                 $mahasiswa->profile = $profilepath;
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
-                $mahasiswa->lengkap = 5;
+                if(auth::user()->lengkap == 6){
+                    $mahasiswa->lengkap = 7;
+                }else{
+                    $mahasiswa->lengkap = 5;
+                }
                 $mahasiswa->save();
                 
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }else{
+                if(auth::user()->lengkap == 6){
+                $validator = Validator::make($request->all(), 
+                    [
+                        'profileimage' => 'image',
+                        'riwayat' => 'required',
+                        'scan-riwayat' => 'mimes:pdf'
+                        // 'angkatan' => 'required',
+                    ]
+                );
+
+                if ($validator->fails()) {
+                    Session::flash('error', 'Gagal Upload Verifikasi');
+                    return redirect()->back()
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+            }else{
                 $validator = Validator::make($request->all(), 
                     [
                         'url' => 'required',
-                        'profileimage' => 'image',
+                        'profileimage' => 'required|image',
                         'riwayat' => 'required',
                         'scan-riwayat' => 'required|mimes:pdf'
                         // 'angkatan' => 'required',
@@ -512,7 +604,7 @@ class DashboardSdController extends Controller
                                 ->withErrors($validator)
                                 ->withInput();
                 }
-
+            }
                 $mahasiswa = User::find($id);
                 if ($request->hasFile('profileimage')) {
                     $image = $request->file('profileimage');
@@ -530,6 +622,8 @@ class DashboardSdController extends Controller
                     $destination = public_path('/riwayat-penyakit');
                     $pdf->move($destination, $name);
                     $scanpath = '/riwayat-penyakit/'.$name;
+                }else{
+                    $scanpath = $mahasiswa->scan_penyakit;
                 }
 
                 if($request->hasFile('bukti-pembayaran')){
@@ -538,14 +632,22 @@ class DashboardSdController extends Controller
                     $destination = public_path('/bukti-pembayaran-mala');
                     $pdf->move($destination, $name);
                     $pdf_bukti = '/bukti-pembayaran-mala/'.$name;
+                }else{
+                    $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
                 
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
-                $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                if(Auth::user()->youtube == null){
+                    $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+                }
                 $mahasiswa->scan_penyakit = $scanpath;
                 $mahasiswa->profile = $profilepath;
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
-                $mahasiswa->lengkap = 5;
+                if(auth::user()->lengkap ==6 ){
+                    $mahasiswa->lengkap = 7;
+                }else{
+                    $mahasiswa->lengkap = 5;
+                }
                 $mahasiswa->save();
                 
                 Session::flash('success', 'Verifikasi Berhasil');
@@ -603,7 +705,7 @@ class DashboardSdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function qrCode(){
-        if(Auth::user()->lengkap != 4){
+        if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap == 9){
             return redirect()->route('beranda-sd.biodata');
         }
         $user = User::where('id',Auth::user()->id)->first();
@@ -688,17 +790,15 @@ class DashboardSdController extends Controller
         return view('sd.edit-biodata', compact('data', 'program_studi', 'angkatans', 'gol_darahs', 'jenis_kelamins', 'agamas'));
     }
 
+    public function editVerifikasi(){
+        return view('sd.edit-verifikasi');
+    }
+
     public function editYoutube(){
-        if(Auth::user()->lengkap != 8){
-            return redirect()->route('beranda-sd.biodata');
-        }
         return view('sd.edit-youtube');
     }
 
     public function postYoutube($id, Request $request){
-        if(Auth::user()->lengkap != 8){
-            return redirect()->route('beranda-sd.biodata');
-        }
         $validator = Validator::make($request->all(), 
             [
                 'url' => 'required',

@@ -65,16 +65,15 @@
     </div>
     @elseif(Auth::user()->lengkap == 6)
     <div class="alert alert-danger">
-        <i class="fa fa-check-circle"></i> Terdapat kesalahan pada data verifikasi ulang.
-        <ul>
-            <?php
-                    $i = count($notes);
-                ?>
-                @foreach ($notes as $note)
-                    <li style="margin-left: -8px;">{{date($note->created_at)}} - {{$note->notes}}</li>
-                @endforeach
-        </ul>
-        <a href="{{ route('beranda-sd-penugasan') }}" class="btn btn-danger">Perbaiki Kesalahan</a>
+        <?php
+            $i = count($notes);
+        ?>
+        @foreach ($notes as $note)
+            <p>
+                <i class="fa fa-exclamation-circle"></i> Note dari ADMIN: <strong>{{$note->notes}}</strong>
+                <p style="margin-left:18px;">Dikirim Pada: {{date($note->created_at)}}</p>
+            </p>
+        @endforeach
     </div>
     @elseif(Auth::user()->lengkap == '7')
     <div class="alert alert-warning">
@@ -101,7 +100,6 @@
                 <div class="row">
                     <div class="col-md-8 px-5">
                         {{ csrf_field() }}
-                        
                         <label for="riwayat"><strong>Riwayat Penyakit</strong></label>
                         <div class="mb-3">
                             <div class="input-group">
@@ -208,7 +206,9 @@
                             <div class="input-group-prepend">
                                 {{-- <span class="input-group-text" id="span-url">{{Auth::user()->youtube}}</span> --}}
                                 <a>{{Auth::user()->youtube}}</a>
-                                <a href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2">Edit</a>
+                                @if(Auth::user()->lengkap == 6)
+                                    <a href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2">Edit</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -222,6 +222,9 @@
                             </div>
                         </div>
                     </div>
+                    @endif
+                    @if(Auth::user()->lengkap == 6)
+                    <a href="/beranda-sd/verifikasi/{{ Auth::user()->id }}/edit" class="btn btn-secondary"><i class="fa fa-edit"></i> Ubah Data Verifikasi</a>
                     @endif
                 </div>
                 <div class="col-md-4 px-5 border-left">
