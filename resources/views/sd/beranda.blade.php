@@ -32,6 +32,32 @@
         <div class="alert alert-success">
             <p class="mb-0"><i class="fa fa-check text-success"></i> Pendaftaran Terverifikasi</p>
         </div>
+    @elseif(Auth::user()->lengkap == 5)
+        <div class="alert alert-primary">
+            <p class="mb-0">
+                <i class="fa fa-dot-circle text-warning"></i> Mengajukan Verifikasi Ulang Student Day
+            </p>
+        </div>
+    @elseif(Auth::user()->lengkap == 6)
+        <p class="mb-0">
+            <div class="alert alert-danger">
+                <p class="mb-0">
+                    <i class="fa fa-exclamation-circle text-danger"></i> Terdapat Kesalahan pada Data Verifikasi Ulang
+                </p>
+            </div>
+        </p>
+    @elseif(Auth::user()->lengkap == 7)
+        <p class="mb-0">
+            <div class="alert alert-primary">
+                <i class="fa fa-dot-circle text-primary"></i> Mengajukan perbaikan kesalahan Data Verifikasi Ulang
+            </div>
+        </p>
+    @elseif(Auth::user()->lengkap == 8)
+        <p class="mb-0">
+            <div class="alert alert-success">
+                <i class="fa fa-check-double text-success"></i> Terverifikasi
+            </div>
+        </p>
     @elseif(Auth::user()->lengkap == 9)
         <div class="alert alert-primary py-1 mb-0 mr-2">
             <p class="mb-0"><i class="fa fa-dot-circle text-primary"></i> Mengajukan Perbaikan Biodata</p>

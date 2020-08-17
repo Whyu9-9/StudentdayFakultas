@@ -37,7 +37,7 @@
     @endif
     <div class="card mb-4">
         <div class="card-body">
-            <a href="{{ route('admin.mahasiswa-create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus-circle mr-1"></i>Tambah mahasiswa</a>
+            <!--<a href="{{ route('admin.mahasiswa-create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus-circle mr-1"></i>Tambah mahasiswa</a>-->
             <a href="/export-excel?lengkap={{isset($filter['lengkap']) ? $filter['lengkap'] : ''}}&prodi={{isset($filter['prodi']) ? $filter['prodi'] : ''}}&maba={{isset($filter['maba']) ? $filter['maba'] : ''}}"
             {{-- @if(isset($filter['lengkap']))
                 href="/export-excel?lengkap={{$filter['lengkap']}}"
@@ -493,7 +493,7 @@
                                         <!-- log Buton -->
                                         <a style="margin-bottom: 3px; display: block;" href="/log/{{ $mahasiswa->id }}" class="btn btn-info btn-sm"><i class="fa fa-list"></i> Log</a>
                                         <!-- Edit Buton -->
-                                        <a style="margin-bottom: 3px; display: block;" href="{{ route('admin.mahasiswa-edit', $mahasiswa->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                        <!--<a style="margin-bottom: 3px; display: block;" href="{{ route('admin.mahasiswa-edit', $mahasiswa->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>-->
                                         <!-- Note Buton -->
                                         <a style="margin-bottom: 3px; display: block;" href="/note/{{ $mahasiswa->id }}" class="btn btn-secondary btn-sm"><i class="fa fa-sticky-note"></i> Note</a>
                                         <a style="margin-bottom: 3px; display: block;" href="/penugasan/{{ $mahasiswa->id }}" class="btn btn-success btn-sm"><i class="fa fa-sticky-note"></i> Tugas</a>

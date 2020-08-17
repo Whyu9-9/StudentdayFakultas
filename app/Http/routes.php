@@ -135,6 +135,7 @@ Route::get('/beranda-sd-evaluasi-pdf', 'DashboardSdController@evaluasiPdf')->nam
 Route::get('/beranda-sd-verifikasi', 'DashboardSdController@verifikasi')->name('beranda-sd.verifikasi');
 Route::post('/beranda-sd-verifikasi/{id}', 'DashboardSdController@verifikasipost')->name('beranda-sd.verifikasi-post');
 Route::get('/buku-panduan', 'DashboardSdController@panduanPdf');
+Route::get('/cover-buku-panduan', 'DashboardSdController@coverpanduanPdf');
 Route::get('/ganti-password', 'PasswordController@gantiPasswordForm');
 Route::post('/ganti-password', 'PasswordController@gantiPassword');
 Route::get('/beranda-sd-verifikasi-scan-download/{id}', 'DashboardSdController@getpdfscan');

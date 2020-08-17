@@ -278,6 +278,24 @@ class DashboardSdController extends Controller
         return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
     }
 
+    public function coverpanduanPdf(){
+
+        if(Auth::user()->lengkap != 8){
+            return redirect('/beranda-sd-biodata');
+        }
+        Log::create([
+            'mahasiswa_id' => Auth::user()->id,
+            'tipe' => 11,
+            'konten' => 'Mendownload berkas Cover Buku Panduan'
+        ]);
+        $file="berkas/buku_panduan.pdf";
+        $headers = array(
+              'Content-Type: application/pdf',
+            );
+
+        return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
+    }
+
     public function getpdfscan($id){
         $mahasiswa = User::find($id);
         $file= public_path(). $mahasiswa->scan_penyakit;
@@ -315,12 +333,12 @@ class DashboardSdController extends Controller
     public function getKetentuanVerifikasi(){
         $mahasiswa = User::find(Auth::user()->id);
         if($mahasiswa->lengkap >= 4 && $mahasiswa->lengkap !== 9){
-            $file = public_path().'/berkas/PENGUMUMAN_KERTAS_BURAM .pdf';
+            $file = public_path().'/berkas/KETENTUAN_VERIFIKASI .pdf';
             $headers = [
                 'Content-Type' => 'application/pdf ',
             ];
     
-            return response()->download($file, 'PENGUMUMAN KERTAS BURAM .pdf', $headers);
+            return response()->download($file, 'KETENTUAN VERIFIKASI .pdf', $headers);
         }
     }
 
@@ -832,7 +850,7 @@ class DashboardSdController extends Controller
         if(Auth::user()->ganti_pass == 0){
             return redirect('/ganti-password')->with('info', 'Password harus diganti terlebih dahulu');
         }
-
+        
         $checkorpres = 0;
 
         $validator = Validator::make($request->all(), 
@@ -1014,6 +1032,11 @@ class DashboardSdController extends Controller
         }
         
         $mahasiswa->save();
+        Log::create([
+            'mahasiswa_id' => Auth::user()->id,
+            'tipe' => 3,
+            'konten' => 'Mengubah biodata'
+        ]);
         // $mahasiswa->angkatan = $request->angkatan;
         Session::flash('success', 'Biodata berhasil diperbaharui');
         return redirect()->route('beranda-sd.biodata');
