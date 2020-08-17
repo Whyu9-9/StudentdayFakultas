@@ -71,9 +71,7 @@
                             <div class="input-group-prepend">
                                 {{-- <span class="input-group-text" id="span-url">{{Auth::user()->youtube}}</span> --}}
                                 <a>{{Auth::user()->youtube}}</a>
-                                @if(Auth::user()->lengkap == 6)
-                                    <a href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2">Edit</a>
-                                @endif
+                                <a style="margin-left:5px;" class="btn btn-info btn-sm" href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2"><i class="fa fa-edit"></i> Edit</a>
                             </div>
                         </div>
                     </div>
