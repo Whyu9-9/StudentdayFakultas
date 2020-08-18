@@ -984,7 +984,7 @@
             }else if(lengkap == 5 || lengkap == 6 || lengkap == 7){
               //<textarea class="form-control" id="note" name="note" rows="3"></textarea>
                 $('#modal-footer-verifikasi form').attr('action', '/admin-mahasiswa/'+mahasiswaid+'/note-verifikasi');
-                $('#modal-footer-verifikasi form .input .inputform').html('<textarea class="form-control" id="note" name="note" rows="2"></textarea><textarea class="form-control mt-3" id="note_ilmiah" name="note_ilmiah" rows="2"></textarea><small>* Isi form hanya jika terdapat kesalahan oleh peserta.</small><hr>');
+                $('#modal-footer-verifikasi form .input .inputform').html('<textarea class="form-control" id="note" name="note" rows="2" placeholder="Form Note dari Admin Sekre"></textarea><textarea class="form-control mt-3" id="note_ilmiah" name="note_ilmiah" rows="2" placeholder="Form Notes dari Admin Ilmiah..."></textarea><small>* Isi form hanya jika terdapat kesalahan oleh peserta.</small><hr>');
                 $('#modal-footer-verifikasi form .input .buttonform .float-left').html('<button id="btn-note-verif" type="submit" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i> Kirim Note</button>');
                 $('#modal-footer-verifikasi form .input .buttonform .float-right .modal-verify').html('<button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-verifikasi"><i name="verif" class="fa fa-save"></i> Verifikasi</button>');
                 $('#btn-verif-accept').attr('href', '/admin-mahasiswa/'+mahasiswaid+'/verify');
