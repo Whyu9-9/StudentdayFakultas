@@ -1115,16 +1115,14 @@ class DashboardSdController extends Controller
     }
 
     public function tugas(){
+        if(Auth::user()->lengkap != 8){
+            return redirect()->route('beranda-sd.biodata');
+        }
         $cek = Notes::where([
             'user_id' => Auth::user()->id,
-            'tipe' => 'verifikasi'
-        ])->orderBy('created_at', 'desc')->take(1)->get();
-        $listTugas = PenugasanSetting::all();
-        $tugas = Penugasan::where('user_id', Auth::user()->id)->get();
-        $tugas_khusus = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'tugas_khusus'])->get();
-        $essay = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'essay'])->get();
-        $jawab_soal = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'jawab_soal'])->get();
-
+            'tipe' => 'ilmiah'
+        ])->orderBy('created_at', 'desc')->get();
+        //dd($cek);
 
         $now = Carbon::now();
         $checktime = ResumeTime::where('prodi_id', Auth::user()->program_studi)->first();
@@ -1137,7 +1135,7 @@ class DashboardSdController extends Controller
         $resumetime = ResumeTime::all();
         $resume = Resume::where('user_id', Auth::user()->id)->get();
 
-        return view('sd.penugasan', compact('tugas','cek','listTugas','essay', 'tugas_khusus', 'jawab_soal', 'resume', 'resumetime','hasil', 'checktime'));
+        return view('sd.penugasan', compact('cek', 'resumetime','hasil', 'checktime'));
     }
 
     public function penugasanPost(Request $request){
