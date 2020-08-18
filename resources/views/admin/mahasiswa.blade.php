@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2 class="mb-4"><i class="fa fa-user"></i> Mahasiswa</h2>  
+    <h2 class="mb-4"><i class="fa fa-user"></i> Mahasiswa</h2>
     <div class="alert alert-warning" role="alert">
         <i class="fa fa-info-circle"></i> Klik pada baris data untuk melihat detail
     </div>
@@ -51,10 +51,10 @@
                     <div class="col-md-8 col-sm-12 row">
                         <select name="lengkap" class="form-control col-md-4 ml-3">
                             <option value="">Semua</option>
-                            
+
                             <?php
                                 $arr = ['Belum Daftar', 'Mengajukan Pendaftaran', 'Kesalahan (Pendaftaran)', 'Perbaikan (Pendaftaran)',
-                                        'Terdaftar', 'Mengajukan Verifikasi', 'Kesalahan (Verifikasi)', 'Perbaikan (Verifikasi)', 'Terverifikasi', 
+                                        'Terdaftar', 'Mengajukan Verifikasi', 'Kesalahan (Verifikasi)', 'Perbaikan (Verifikasi)', 'Terverifikasi',
                                         'Mengajukan Perbaikan Biodata'];
                             ?>
                             @foreach($arr as $i => $r)
@@ -128,12 +128,12 @@
                                 <tr>
                                     <th
                                         data-toggle="modal" data-target="#mahasiswa"
-                                        data-profile="{{ $mahasiswa->profile }}" 
-                                        data-nim=": {{ $mahasiswa->nim }}" 
+                                        data-profile="{{ $mahasiswa->profile }}"
+                                        data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}" 
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
-                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}" 
+                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":{{ $mahasiswa->kelamin['nama'] }} "
                                         data-agama=": {{ $mahasiswa->mhsagama['nama'] }}"
                                         data-gol-darah=":{{ $mahasiswa->goldarah['nama'] }} "
@@ -165,7 +165,7 @@
                                         @endif
                                         "
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
-                                        data-mahasiswa-baru=": 
+                                        data-mahasiswa-baru=":
                                         @if($mahasiswa->mahasiswa_baru == 1)
                                             SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
@@ -189,15 +189,15 @@
                                     </th>
                                     <td
                                         data-toggle="modal" data-target="#mahasiswa"
-                                        data-profile="{{ $mahasiswa->profile }}" 
-                                        data-nim=": {{ $mahasiswa->nim }}" 
+                                        data-profile="{{ $mahasiswa->profile }}"
+                                        data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}" 
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
-                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}" 
-                                        data-jenis-kelamin=": 
+                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
+                                        data-jenis-kelamin=":
                                         {{ $mahasiswa->kelamin['nama'] }}"
-                                        data-agama=": 
+                                        data-agama=":
                                         {{ $mahasiswa->mhsagama['nama'] }}
                                         "
                                         data-gol-darah=":
@@ -236,7 +236,7 @@
                                         "
                                         data-kondisi-mahasiswa={{$mahasiswa->mahasiswa_baru}}
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
-                                        data-mahasiswa-baru=": 
+                                        data-mahasiswa-baru=":
                                         @if($mahasiswa->mahasiswa_baru == 1)
                                             Ya
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
@@ -251,22 +251,22 @@
                                         data-lengkap="{{ $mahasiswa->lengkap }}"
                                         data-mahasiswa="{{ $mahasiswa->id }}"
                                         data-bukti-pembayaran="{{ $mahasiswa->bukti_pembayaran }}"
-                                        
+
                                         style="cursor:pointer"
                                     >
                                         {{ $mahasiswa->nim }}
                                     </td>
                                     <td
                                         data-toggle="modal" data-target="#mahasiswa"
-                                        data-profile="{{ $mahasiswa->profile }}" 
-                                        data-nim=": {{ $mahasiswa->nim }}" 
+                                        data-profile="{{ $mahasiswa->profile }}"
+                                        data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}" 
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
-                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}" 
-                                        data-jenis-kelamin=": 
+                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
+                                        data-jenis-kelamin=":
                                         {{ $mahasiswa->kelamin['nama'] }}"
-                                        data-agama=": 
+                                        data-agama=":
                                         {{ $mahasiswa->mhsagama['nama'] }}
                                         "
                                         data-gol-darah=":
@@ -300,7 +300,7 @@
                                         @endif
                                         "
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
-                                        data-mahasiswa-baru=": 
+                                        data-mahasiswa-baru=":
                                         @if($mahasiswa->mahasiswa_baru == 1)
                                             SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
@@ -320,22 +320,22 @@
                                         data-lengkap="{{ $mahasiswa->lengkap }}"
                                         data-mahasiswa="{{ $mahasiswa->id }}"
                                         data-bukti-pembayaran="{{ $mahasiswa->bukti_pembayaran }}"
-                                        
+
                                         style="cursor:pointer"
                                     >
                                         {{ $mahasiswa->nama }} <strong>{{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}</strong>
                                     </td>
                                     <td
                                         data-toggle="modal" data-target="#mahasiswa"
-                                        data-profile="{{ $mahasiswa->profile }}" 
-                                        data-nim=": {{ $mahasiswa->nim }}" 
+                                        data-profile="{{ $mahasiswa->profile }}"
+                                        data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}" 
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
-                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}" 
-                                        data-jenis-kelamin=": 
+                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
+                                        data-jenis-kelamin=":
                                         {{ $mahasiswa->kelamin['nama'] }}"
-                                        data-agama=": 
+                                        data-agama=":
                                         {{ $mahasiswa->mhsagama['nama'] }}
                                         "
                                         data-gol-darah=":
@@ -369,7 +369,7 @@
                                         @endif
                                         "
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
-                                        data-mahasiswa-baru=": 
+                                        data-mahasiswa-baru=":
                                         @if($mahasiswa->mahasiswa_baru == 1)
                                             SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
@@ -389,7 +389,7 @@
                                         data-lengkap="{{ $mahasiswa->lengkap }}"
                                         data-mahasiswa="{{ $mahasiswa->id }}"
                                         data-bukti-pembayaran="{{ $mahasiswa->bukti_pembayaran }}"
-                                        
+
                                         style="cursor:pointer"
                                     >
                                         {{ $mahasiswa->prodi['nama'] }}
@@ -400,15 +400,15 @@
                                     </td>
                                     <td
                                         data-toggle="modal" data-target="#mahasiswa"
-                                        data-profile="{{ $mahasiswa->profile }}" 
-                                        data-nim=": {{ $mahasiswa->nim }}" 
+                                        data-profile="{{ $mahasiswa->profile }}"
+                                        data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}" 
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
-                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}" 
-                                        data-jenis-kelamin=": 
+                                        data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
+                                        data-jenis-kelamin=":
                                         {{ $mahasiswa->kelamin['nama'] }}"
-                                        data-agama=": 
+                                        data-agama=":
                                         {{ $mahasiswa->mhsagama['nama'] }}
                                         "
                                         data-gol-darah=":
@@ -442,7 +442,7 @@
                                         @endif
                                         "
                                         data-penyakit-khusus=": {{ $mahasiswa->penyakit_khusus }}"
-                                        data-mahasiswa-baru=": 
+                                        data-mahasiswa-baru=":
                                         @if($mahasiswa->mahasiswa_baru == 1)
                                             SNMPTN
                                         @elseif($mahasiswa->mahasiswa_baru == 2)
@@ -462,7 +462,7 @@
                                         data-lengkap="{{ $mahasiswa->lengkap }}"
                                         data-mahasiswa="{{ $mahasiswa->id }}"
                                         data-bukti-pembayaran="{{ $mahasiswa->bukti_pembayaran }}"
-                                        
+
                                         style="cursor:pointer"
                                     >
                                         @if($mahasiswa->lengkap === '0')
@@ -509,8 +509,8 @@
                                         @endif --}}
                                         <!--Delete Button
                                         <button data-toggle="modal" data-target="#delete" class="btn btn-block btn-danger btn-sm"
-                                        data-nim=": {{ $mahasiswa->nim }}" 
-                                        data-nama=": {{ $mahasiswa->nama }}" 
+                                        data-nim=": {{ $mahasiswa->nim }}"
+                                        data-nama=": {{ $mahasiswa->nama }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}">
                                             <i class="fa fa-trash"></i>
                                             Hapus
@@ -526,7 +526,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p class="text-center">Apakah Anda yakin menghapus data berikut?</p> 
+                                                        <p class="text-center">Apakah Anda yakin menghapus data berikut?</p>
                                                         <div class="row justify-content-center">
                                                             <table class="table-borderless">
                                                                 <tr>
@@ -559,7 +559,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                        @endif    
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -707,8 +707,8 @@
                                         </tr>
                                         <tr>
                                             <td>Jalur Masuk</td>
-                                            <td id="mahasiswa-baru-show">: 
-                                                
+                                            <td id="mahasiswa-baru-show">:
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -735,7 +735,7 @@
                             </div>
                         {{-- </form> --}}
                     </div>
-                    
+
                     <div class="tab-pane fade" id="pills-verifikasi" role="tabpanel" aria-labelledby="pills-verifikasi-tab">
                         <div class="modal-body" style="align:center;">
                             <iframe id="youtube" width="470" height="250" src="" frameborder="0" allowfullscreen></iframe>
@@ -744,7 +744,7 @@
                                 <i class="fab fa-youtube"></i>
                                  Youtube
                             </a>
-                            
+
                             <a id="scan-penyakit-mahasiswa" style="margin-bottom: 3px; display: block;" href="#" class="btn btn-success btn-sm">
                                 <i class="fa fa-ambulance"></i>
                                  Surat Sakit
@@ -823,7 +823,7 @@
     </div>
     <!-- End Modal Delete -->
 
-    
+
     <!-- Modal Show -->
     <div class="modal fade" id="modal-note" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -982,8 +982,9 @@
                 $('#modal-footer-register form .input .buttonform .float-right .modal-regist').html('<button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-registrasi"><i name="verif" class="fa fa-save"></i> Terima Pendaftaran</button>')
                 $('#btn-regist-accept').attr('href', '/admin-mahasiswa/'+mahasiswaid+'/registered');
             }else if(lengkap == 5 || lengkap == 6 || lengkap == 7){
+              //<textarea class="form-control" id="note" name="note" rows="3"></textarea>
                 $('#modal-footer-verifikasi form').attr('action', '/admin-mahasiswa/'+mahasiswaid+'/note-verifikasi');
-                $('#modal-footer-verifikasi form .input .inputform').html('<input type="text" name="note" id="note" class="col-12"><small>* Isi form hanya jika terdapat kesalahan oleh peserta.</small><hr>');
+                $('#modal-footer-verifikasi form .input .inputform').html('<textarea class="form-control" id="note" name="note" rows="2"></textarea><textarea class="form-control mt-3" id="note_ilmiah" name="note_ilmiah" rows="2"></textarea><small>* Isi form hanya jika terdapat kesalahan oleh peserta.</small><hr>');
                 $('#modal-footer-verifikasi form .input .buttonform .float-left').html('<button id="btn-note-verif" type="submit" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i> Kirim Note</button>');
                 $('#modal-footer-verifikasi form .input .buttonform .float-right .modal-verify').html('<button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal-verifikasi"><i name="verif" class="fa fa-save"></i> Verifikasi</button>');
                 $('#btn-verif-accept').attr('href', '/admin-mahasiswa/'+mahasiswaid+'/verify');
@@ -994,7 +995,7 @@
     <script>
         $('#delete').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
-            var nim = button.data('nim') 
+            var nim = button.data('nim')
             var nama = button.data('nama')
             var prodi = button.data('prodi')
             var modal = $(this)
@@ -1003,7 +1004,7 @@
             modal.find('.modal-body #prodi').text(prodi)
         })
     </script>
-    
+
     <script>
         $(document).ready(function(){
             $.ajaxSetup({
@@ -1011,13 +1012,13 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            
+
             $(this).on('submit','#formnoteregist',function(event){
                 event.preventDefault();
                 var formData = new FormData(this);
                 var url = this.action;
                 var x = $('#modal-note').modal('show');
-                
+
                 $('#btn-note-accept').on('click', function(e){
                     $.ajax({
                         url: url,
@@ -1047,7 +1048,7 @@
                 var formData = new FormData(this);
                 var url = this.action;
                 var x = $('#modal-note').modal('show');
-                
+
                 $('#btn-note-accept').on('click', function(e){
                     $.ajax({
                         url: url,
@@ -1077,7 +1078,7 @@
     <script>
         $('#youtube').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
-            var youtube = button.data('youtube') 
+            var youtube = button.data('youtube')
             var modal = $(this)
             modal.find('.modal-body #youtube').attr("src",youtube);
         });
@@ -1092,4 +1093,3 @@
         })
     </script>
 @endsection
-
