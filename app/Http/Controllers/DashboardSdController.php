@@ -1115,6 +1115,9 @@ class DashboardSdController extends Controller
     }
 
     public function tugas(){
+        if(Auth::user()->lengkap != 8){
+            return redirect()->route('beranda-sd.biodata');
+        }
         $cek = Notes::where([
             'user_id' => Auth::user()->id,
             'tipe' => 'ilmiah'

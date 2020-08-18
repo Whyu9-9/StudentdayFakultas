@@ -161,7 +161,7 @@
                     </table>
                 </td>
             </tr>
-            @if(count($cek) > 0)
+            @if(count($cek) == 0)
             <tr>
                 <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
