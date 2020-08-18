@@ -275,7 +275,7 @@ class DashboardSdController extends Controller
               'Content-Type: application/pdf',
             );
 
-        return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
+        return Response::download($file, 'Buku Panduan Student Day 2020.pdf', $headers);
     }
 
     public function coverpanduanPdf(){
@@ -288,12 +288,12 @@ class DashboardSdController extends Controller
             'tipe' => 11,
             'konten' => 'Mendownload berkas Cover Buku Panduan'
         ]);
-        $file="berkas/buku_panduan.pdf";
+        $file="berkas/cover_buku_panduan.pdf";
         $headers = array(
               'Content-Type: application/pdf',
             );
 
-        return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
+        return Response::download($file, 'Cover Buku Panduan.pdf', $headers);
     }
 
     public function getpdfscan($id){

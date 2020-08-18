@@ -43,7 +43,7 @@
                         <td>A4 Format Buku Bolak Balik (A4 dibagi 2)</td>
                         <td>Berwarna</td>
                         <td>
-                            <a target="_blank" class="btn btn-success" href="/buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                            <a target="_blank" class="btn btn-success" href="/cover-buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
                         </td>
                     </tr>
                     <tr>
