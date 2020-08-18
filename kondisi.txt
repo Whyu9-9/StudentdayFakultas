@@ -3,6 +3,7 @@
 2 - Registrasi di tolak. Terdapat kesalahan.
 3 - Mahasiswa mengajukan perbaikan kesalahan Registrasi.
 4 - Registrasi di terima. mahasiswa belum verifikasi ulang.
+
 5 - Mahasiswa mengajukan Verifikasi Ulang.
 6 - Verifikasi ulang ditolak. terdapat kesalahan.
 7 - Mahasiswa mengajukan perbaikan kesalahan verifikasi ulang.

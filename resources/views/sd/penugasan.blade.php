@@ -6,6 +6,14 @@
 
 @section('custom_style')
     <style type="text/css">
+    #demo {
+        text-align: center;
+        font-size: 30px;
+        background-color: #dc3545;
+        color:#FFF;
+        padding: 10px;
+        margin :0px 230px 40px 230px;
+    }
         @media screen {
             @font-face {
                 font-family: 'Lato';
@@ -129,7 +137,8 @@
             </button>
         </div>  
     @endif
-    
+    <h3 style="text-align: center;">Sisa Waktu Pengumpulan Tugas</h3>
+    <p id="demo"></p>
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <!-- LOGO -->
             <tr>
@@ -161,7 +170,8 @@
                     </table>
                 </td>
             </tr>
-            @if(count($cek) == 0)
+            @foreach ($cek as $ceks)
+            @if($ceks->notes_ilmiah != NULL)
             <tr>
                 <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -183,9 +193,39 @@
                 </td>
             </tr>
             @endif
+            @endforeach
         </table>
 @endsection
 
 @section('custom_javascript')
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Sep 12, 2020 17:00:00").getTime();
     
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+        
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="demo"
+      document.getElementById("demo").innerHTML = days + " Hari " + hours + " Jam "
+      + minutes + " Menit " + seconds + " Detik ";
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "Waktu Pengumpulan Sudah Habis";
+      }
+    }, 1000);
+    </script>
 @endsection

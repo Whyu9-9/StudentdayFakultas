@@ -1120,8 +1120,8 @@ class DashboardSdController extends Controller
         }
         $cek = Notes::where([
             'user_id' => Auth::user()->id,
-            'tipe' => 'ilmiah'
-        ])->orderBy('created_at', 'desc')->get();
+            'tipe' => 'verifikasi',
+        ])->orderBy('created_at', 'desc')->take('1')->get();
         //dd($cek);
 
         $now = Carbon::now();
