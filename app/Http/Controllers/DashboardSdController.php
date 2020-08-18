@@ -121,21 +121,21 @@ class DashboardSdController extends Controller
                     ->where('users.id', '=', Auth::user()->id)
                     ->get();
         // return $prestasis;
-        
+
         $organisasis = DB::table('organisasis')
                     ->leftJoin('users', 'organisasis.mahasiswa_id', '=', 'users.id')
                     ->select('organisasis.nama')
                     ->where('users.id', '=', Auth::user()->id)
                     ->get();
         // return $organisasis;
-   
+
         $data = DB::table('users')
                 ->leftjoin('angkatans', 'users.angkatan', '=', 'angkatans.id')
                 ->leftjoin('golongan_darahs', 'users.gol_darah', '=', 'golongan_darahs.id')
                 ->leftJoin('jenis_kelamins', 'users.jenis_kelamin', '=', 'jenis_kelamins.id')
                 ->leftjoin('program_studis', 'users.program_studi', '=', 'program_studis.id')
                 ->leftjoin('agamas', 'users.agama', '=', 'agamas.id')
-                ->select('users.*', 'angkatans.tahun as tahun', 'golongan_darahs.nama as goldar', 'jenis_kelamins.nama as jk', 
+                ->select('users.*', 'angkatans.tahun as tahun', 'golongan_darahs.nama as goldar', 'jenis_kelamins.nama as jk',
                         'program_studis.nama as prodi', 'agamas.nama as agama_')
                 ->where('users.id', '=', Auth::user()->id)
                 ->first();
@@ -206,7 +206,7 @@ class DashboardSdController extends Controller
                     ->where('users.id', '=', Auth::user()->id)
                     ->get();
         // return $prestasis;
-        
+
         $organisasis = DB::table('organisasis')
                     ->leftJoin('users', 'organisasis.mahasiswa_id', '=', 'users.id')
                     ->select('organisasis.nama')
@@ -221,10 +221,10 @@ class DashboardSdController extends Controller
                 ->leftjoin('agamas', 'users.agama', '=', 'agamas.id')
                 ->leftjoin('organisasis', 'users.id', '=', 'organisasis.mahasiswa_id')
                 ->leftjoin('prestasis', 'users.id', '=', 'prestasis.mahasiswa_id')
-                ->select('users.*', 'angkatans.tahun as tahun', 'program_studis.nama as prodi', 
+                ->select('users.*', 'angkatans.tahun as tahun', 'program_studis.nama as prodi',
                         'golongan_darahs.nama as goldar', 'agamas.nama as agama_')
                 ->where('users.id', '=', Auth::user()->id)
-                ->first(); 
+                ->first();
 
         Log::create([
             'mahasiswa_id' => Auth::user()->id,
@@ -232,7 +232,7 @@ class DashboardSdController extends Controller
             'konten' => 'Mendownload berkas Form Verifikasi'
         ]);
 
-        // return Response::json($data);       
+        // return Response::json($data);
         $pdf = PDF::loadView('sd.biodata-pdf', compact('data', 'prestasis', 'organisasis'));
         return $pdf->setPaper('a4', 'potrait')->stream();
     }
@@ -337,7 +337,7 @@ class DashboardSdController extends Controller
             $headers = [
                 'Content-Type' => 'application/pdf ',
             ];
-    
+
             return response()->download($file, 'KETENTUAN VERIFIKASI .pdf', $headers);
         }
     }
@@ -368,16 +368,16 @@ class DashboardSdController extends Controller
         }*/
         $checkuser = User::find($id);
         if($checkuser->mahasiswa_baru == 2){
-            if($checkuser->penyakit_khusus == null){  
-                if(auth::user()->lengkap == 6){    
-                $validator = Validator::make($request->all(), 
+            if($checkuser->penyakit_khusus == null){
+                if(auth::user()->lengkap == 6){
+                $validator = Validator::make($request->all(),
                     [
                         'profileimage' => 'image',
                         'bukti-pembayaran' => 'mimes:pdf'
                         // 'angkatan' => 'required',
                     ]
                 );
-    
+
                 if ($validator->fails()) {
                     Session::flash('error', 'Gagal Upload Verifikasi');
                     return redirect()->back()
@@ -385,7 +385,7 @@ class DashboardSdController extends Controller
                                 ->withInput();
                 }
             }else{
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'url' => 'required',
                         'profileimage' => 'required|image',
@@ -393,7 +393,7 @@ class DashboardSdController extends Controller
                         // 'angkatan' => 'required',
                     ]
                 );
-    
+
                 if ($validator->fails()) {
                     Session::flash('error', 'Gagal Upload Verifikasi');
                     return redirect()->back()
@@ -421,7 +421,7 @@ class DashboardSdController extends Controller
                 }else{
                     $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
-                
+
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
                 if(Auth::user()->youtube == null){
                     $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
@@ -434,12 +434,12 @@ class DashboardSdController extends Controller
                 }
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
                 $mahasiswa->save();
-                
+
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }else{
                 if(auth::user()->lengkap == 6){
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'profileimage' => 'image',
                         'riwayat' => 'string',
@@ -448,7 +448,7 @@ class DashboardSdController extends Controller
                         // 'angkatan' => 'required',
                     ]
                 );
-    
+
                 if ($validator->fails()) {
                     Session::flash('error', 'Gagal Upload Verifikasi');
                     return redirect()->back()
@@ -456,7 +456,7 @@ class DashboardSdController extends Controller
                                 ->withInput();
                 }
             }else{
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'url' => 'required',
                         'profileimage' => 'required|image',
@@ -466,7 +466,7 @@ class DashboardSdController extends Controller
                         // 'angkatan' => 'required',
                     ]
                 );
-    
+
                 if ($validator->fails()) {
                     Session::flash('error', 'Gagal Upload Verifikasi');
                     return redirect()->back()
@@ -485,7 +485,7 @@ class DashboardSdController extends Controller
                     $profilepath = $mahasiswa->profile;
                 }
 
-                
+
                 if($request->hasFile('bukti-pembayaran')){
                     $pdf = $request->file('bukti-pembayaran');
                     $name = $mahasiswa->nim.'_'.time().'.'.$pdf->getClientOriginalExtension();
@@ -495,7 +495,7 @@ class DashboardSdController extends Controller
                 }else{
                     $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
-    
+
                 if($request->hasFile('scan-riwayat')){
                     $pdf = $request->file('scan-riwayat');
                     $name = $mahasiswa->nim.'_'.time().'.'.$pdf->getClientOriginalExtension();
@@ -505,7 +505,7 @@ class DashboardSdController extends Controller
                 }else{
                     $scanpath = $mahasiswa->scan_penyakit;
                 }
-                
+
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
                 if(Auth::user()->youtube == null){
                     $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
@@ -519,14 +519,14 @@ class DashboardSdController extends Controller
                 }
                 $mahasiswa->bukti_pembayaran = $pdf_bukti;
                 $mahasiswa->save();
-                
+
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }
         }else{
-            if($checkuser->penyakit_khusus === null){
-                if(auth::user()->lengkap == 6){      
-                $validator = Validator::make($request->all(), 
+            if($checkuser->penyakit_khusus == null){
+                if(auth::user()->lengkap == 6){
+                $validator = Validator::make($request->all(),
                     [
                         'profileimage' => 'image'
                         // 'angkatan' => 'required',
@@ -540,7 +540,7 @@ class DashboardSdController extends Controller
                                 ->withInput();
                 }
             }else{
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'url' => 'required',
                         'profileimage' => 'image'
@@ -576,7 +576,7 @@ class DashboardSdController extends Controller
                 }else{
                     $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
-                
+
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
                 if(Auth::user()->youtube == null){
                     $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
@@ -589,12 +589,12 @@ class DashboardSdController extends Controller
                     $mahasiswa->lengkap = 5;
                 }
                 $mahasiswa->save();
-                
+
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }else{
                 if(auth::user()->lengkap == 6){
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'profileimage' => 'image',
                         'riwayat' => 'required',
@@ -610,7 +610,7 @@ class DashboardSdController extends Controller
                                 ->withInput();
                 }
             }else{
-                $validator = Validator::make($request->all(), 
+                $validator = Validator::make($request->all(),
                     [
                         'url' => 'required',
                         'profileimage' => 'required|image',
@@ -657,7 +657,7 @@ class DashboardSdController extends Controller
                 }else{
                     $pdf_bukti = $mahasiswa->bukti_pembayaran;
                 }
-                
+
                 // $mahasiswa->koordinator = $this->checkkoordinator($id);
                 if(Auth::user()->youtube == null){
                     $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
@@ -671,7 +671,7 @@ class DashboardSdController extends Controller
                     $mahasiswa->lengkap = 5;
                 }
                 $mahasiswa->save();
-                
+
                 Session::flash('success', 'Verifikasi Berhasil');
                 return redirect()->route('beranda-sd.verifikasi');
             }
@@ -737,10 +737,10 @@ class DashboardSdController extends Controller
     public function daftar($id){
         $user = User::find($id);
         if(isset($user)){
-            if($user->jenis_kelamin == null || $user->nama_panggilan == null || $user->agama == null || $user->alasan_kuliah == null || $user->gol_darah == null || $user->tempat_lahir == null || $user->tanggal_lahir == null || $user->alamat == null || $user->alamat_sekarang == null || $user->id_line == null || $user->no_hp == null || $user->email == null || $user->asal_sekolah == null || $user->cita_cita == null || $user->idola == null || $user->moto == null || $user->jumlah_saudara == null || $user->nama_ayah == null || $user->nama_ibu == null || $user->krm == null || $user->minat_bakat == null || $user->profile == null){ 
+            if($user->jenis_kelamin == null || $user->nama_panggilan == null || $user->agama == null || $user->alasan_kuliah == null || $user->gol_darah == null || $user->tempat_lahir == null || $user->tanggal_lahir == null || $user->alamat == null || $user->alamat_sekarang == null || $user->id_line == null || $user->no_hp == null || $user->email == null || $user->asal_sekolah == null || $user->cita_cita == null || $user->idola == null || $user->moto == null || $user->jumlah_saudara == null || $user->nama_ayah == null || $user->nama_ibu == null || $user->krm == null || $user->minat_bakat == null || $user->profile == null){
                 return back()->withErrors('Lengkapi Biodata Sebelum Mendaftar Student Day.');
             }
-            
+
             if($user->checkorpres == 1){
                 $organisasi = Organisasi::where('mahasiswa_id', $id)->get();
                 if(count($organisasi) == 0){
@@ -822,7 +822,7 @@ class DashboardSdController extends Controller
     }
 
     public function postYoutube($id, Request $request){
-        $validator = Validator::make($request->all(), 
+        $validator = Validator::make($request->all(),
             [
                 'url' => 'required',
             ]
@@ -839,8 +839,13 @@ class DashboardSdController extends Controller
         $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
         $mahasiswa->save();
 
+<<<<<<< HEAD
+        return redirect('/beranda-sd-verifikasi')->withSuccess('Berhasil Update URL Youtube');
+
+=======
         return redirect('/beranda-sd/verifikasi/edit/'.Auth::user()->id)->withSuccess('Berhasil Update URL Youtube');
         
+>>>>>>> 6a3d8ea2deb6c20ca377fdabbc32616d2078f293
     }
 
     /**
@@ -855,10 +860,10 @@ class DashboardSdController extends Controller
         if(Auth::user()->ganti_pass == 0){
             return redirect('/ganti-password')->with('info', 'Password harus diganti terlebih dahulu');
         }
-        
+
         $checkorpres = 0;
 
-        $validator = Validator::make($request->all(), 
+        $validator = Validator::make($request->all(),
             [
                 'nama' => 'required|string',
                 'nama_panggilan' => 'required',
@@ -890,7 +895,7 @@ class DashboardSdController extends Controller
                 // 'angkatan' => 'required',
             ]
         );
-        
+
         if ($validator->fails()) {
             Session::flash('error', 'Biodata gagal diperbaharui');
             return redirect()->back()
@@ -930,7 +935,7 @@ class DashboardSdController extends Controller
             $mahasiswa->penyakit_khusus = null;
         }
         // $mahasiswa->mahasiswa_baru = $request->mahasiswa_baru;
-        
+
         if(isset($mahasiswa)){
             if($mahasiswa->krm == null){
                 $valid = Validator::make($request->all(),
@@ -943,7 +948,7 @@ class DashboardSdController extends Controller
                     ->withErrors($valid)
                     ->withInput();
                 }
-                
+
                 if($request->hasFile('krm')){
                     $krm = $request->file('krm');
                     $name = Auth::user()->nim .'_'. time().'.'.$krm->getClientOriginalExtension();
@@ -963,7 +968,7 @@ class DashboardSdController extends Controller
                     ->withErrors($valid)
                     ->withInput();
                 }
-                
+
                 if($request->hasFile('krm')){
                     $krm = $request->file('krm');
                     $name = Auth::user()->nim .'_'. time().'.'.$krm->getClientOriginalExtension();
@@ -990,7 +995,7 @@ class DashboardSdController extends Controller
                     $name = time().'.'.$image->getClientOriginalExtension();
                     $destinationPath = public_path('/userprofile');
                     $image->move($destinationPath, $name);
-                    
+
                     $mahasiswa->profile = '/userprofile/'.$name;
                 }
             }else{
@@ -1010,11 +1015,11 @@ class DashboardSdController extends Controller
                     $name = time().'.'.$image->getClientOriginalExtension();
                     $destinationPath = public_path('/userprofile');
                     $image->move($destinationPath, $name);
-                    
+
                     $mahasiswa->profile = '/userprofile/'.$name;
                 }
             }
-            
+
         }
 
         if($request->has('check_organisasi')){
@@ -1035,7 +1040,7 @@ class DashboardSdController extends Controller
             $mahasiswa->lengkap = "9";
             $mahasiswa->save();
         }
-        
+
         $mahasiswa->save();
         Log::create([
             'mahasiswa_id' => Auth::user()->id,
@@ -1240,7 +1245,7 @@ class DashboardSdController extends Controller
                 return back()->withSuccess('Tugas Berhasil di Upload');
             }
         }
-        
+
     }
 
     public function penugasanEssayPost(Request $request, $id){
@@ -1288,9 +1293,9 @@ class DashboardSdController extends Controller
                 return back()->withSuccess('Tugas Berhasil di Upload');
             }
         }
-        
+
     }
-    
+
     public function penugasanVerifikasiPost($id, Request $request){
         if(Auth::user()->lengkap != 8){
             return redirect()->route('beranda-sd.biodata');
@@ -1310,7 +1315,7 @@ class DashboardSdController extends Controller
         if($request->hasFile('berkas')){
             // update note
             $note = Notes::find($id);
-            
+
             $tugas = $request->file('berkas');
             $name = Auth::user()->nim .'_'. time().'.'.$tugas->getClientOriginalExtension();
             $destinationPath = public_path('/penugasan/verifikasi');
@@ -1320,7 +1325,7 @@ class DashboardSdController extends Controller
             $note->save();
 
             //update status
-            
+
             $tipe = $note->tipe;
             $sisa = Notes::where([
                 'tipe' => $tipe,
@@ -1348,7 +1353,7 @@ class DashboardSdController extends Controller
         }
         // dd($request);
         $validator = Validator::make($request->all(),[
-            
+
         ]);
 
         if ($validator->fails()) {
@@ -1358,7 +1363,7 @@ class DashboardSdController extends Controller
                         ->withInput();
         };
 
-       
+
     }
 
     public function penugasanPdf($id){
