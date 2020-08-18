@@ -1,0 +1,85 @@
+=====QR=====
+https://line.me/R/ti/g/sDKv_mmQRr - mala
+https://line.me/R/ti/g/BckihpJFEv - arsi
+https://line.me/R/ti/g/KCRT6_Mb0r - elektro
+https://line.me/R/ti/g/ctcKvsjC6o - industri
+https://line.me/R/ti/g/YjcAGMOUaU - lingkungan
+https://line.me/R/ti/g/Gm-in8eCFp - mesin
+https://line.me/R/ti/g/JmpDGZWGjg - sipil
+https://line.me/R/ti/g/
+
+*******************
+UDAH
+*******************
+*alamat ( ditambah jadi : alamat asal)
+biodata smua harus isi kecuali : no telepon, hobby
+
+*stts pindah samping biodata (DONE)
+klok salah merah
+belum daftar kuning
+
+*tambahin keterangan jika memiliki prestasi dan pernah mengikuti organisasi, wajib mengisi kolom prestasi dan organisasi
+ini untuk bagian biodata paling bawah diisi kek tombol centang gtu, misalkan itu dicentang.. biodata dan prestasi harus diisi
+
+untuk di prestasi yang boleh masuk itu cuman :
+*kota/kabupaten, provinsi, nasional internasional
+
+*qr code dibesarkan lagi dikit (DONE)
+
+bagi peserta diharpkan melakukan pengecekan status pendaftaran sesuai tanggal dan waktu registrasi hingga status "terdaftar"
+
+verifikasi dsb jangan ditampilin kalau belom tanggalnya (DONE)
+
+cek ulang koordinator biar cuman maba aja. (DONE)
+
+*tambah filter prodi lagi untuk di admin
+
+
+
+=====================================================================
+
+11-12 agustus,  regis mala
+7 agustus pelatihan,  abis rapat teknis
+
+ADMIN - Buat CRUD untuk nentuin tanggal akses menu verifikasi
+ADMIN - Setting resume diganti jadi setting untuk penugasan, soal dan essay (kasih tanggal batas pengumpulan) + hardcode untuk waktu resume mulai dan limit
+
+USER - Tambah foto pengumuman verifikasi di menu qrcode dan link gdrive ketentuan video
+USER - Sub Menu Penugasan isinya soal, essay, resume dan tugas khusus untuk kesalahan
+USER - Soal Penugasan dari link gdrive ditampilin diatas pernyataan note
+USER - Foto Bebas Rapi diatas deket pas foto (?)
+USER - Status mahsiswa ditambahin untuk pengajuan tugas khusus (tuker sama perbaikan (pendaftaran))
+
+ADMIN - Tanggal akses menu verifikasi menentukan tampilan menu verif(hide/tidak)
+
+USER - Tambah foto penguguman verifikasi di menu qr code,  ama link gdrive ketentuan video. 
+
+USER - Buat dropdown penugasan isinya soal, essay, resume, tugas khusus kalo salah. 
+
+USER - Semua tugas di kumpul saat hari h. Kalo dapet tugas hari h kumpul h plus 1.
+
+USER - Foto bebas rapi di atas deket pas foto
+
+USER - Soal penugasan di berikan lewat link g drive yang di tampilkan diatas pernyataan note.
+
+USER - Status mahasiswa ditambah 1 lagi untuk pengajuan tugas khusus. 
+
+ADMIN - Setting resume dibagi 2 buat setting penugasan soal,  dan essay,  ama setting resume yang bisa di hardcode aja buat mulai dan limit pengumpulan
+
+USER - Buat menu verif muncul tanggal 22 
+(bisa di hardcode)
+
+=====================================================================
+
+USER - Veget di biodata di ilangin. (Done)
+USER - Mahasiswa baru/lama di lok (Done)
+USER - Cetak berkas (Done)
+	(-) Nametag ilang
+	(-) Kartu evaluasi ilang, 
+	(-) form verifikasi di hapus. 
+	(+) Tambah buku panduan. 
+USER - Prestasi tambah upload berkas (Done)
+USER - Web,  hilangin penugasan di kesalahan pendaftaran. (Done)
+USER - Url yutub setelah submit jangan di lock.  (Done) !!!! CEK MAKSUDNYA YUTUB NYA INI BISA DI GANTI?
+USER - Mahasiswa lama tambahin upload bukti pembayaran regis (done)
+USER - Pengumuman mala bayar kontribusi di pengunguman pake session flash. (Done)

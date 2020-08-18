@@ -1,0 +1,1693 @@
+# Webalizer V2.23-08 Incremental Data - 07/17/2020 23:54:19
+2020 7 17 23 54 19
+4176 3376 338 96 45 95 176293324 948 376 0 0 0
+31 2 345 1 17
+152 132 6218900 30 26 23 0 0
+193 157 9553488 40 32 18 0 0
+326 283 12401777 22 49 20 0 0
+122 94 3954680 27 32 22 0 0
+62 45 2469947 21 25 20 0 0
+211 173 8041821 34 54 24 0 0
+128 104 6006103 15 28 14 0 0
+103 78 3856857 26 26 22 0 0
+102 85 3369054 22 21 16 0 0
+447 365 16002976 30 78 28 0 0
+284 225 10661284 43 64 31 0 0
+370 278 19203535 29 89 25 0 0
+241 182 6561898 33 41 22 0 0
+672 494 23519311 43 246 37 0 0
+106 86 3034141 15 18 12 0 0
+87 68 5034759 24 28 19 0 0
+570 527 36402793 31 91 23 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+47 35 1973571 12 0 0
+57 45 1498156 12 0 0
+105 88 3608867 33 0 0
+119 104 6888894 22 0 0
+63 54 2250106 16 0 0
+359 334 20029714 34 0 0
+120 85 7659691 23 0 0
+21 11 247245 12 0 0
+105 95 9779929 25 0 0
+187 154 7173745 28 0 0
+194 140 6260510 32 0 0
+173 126 6796562 21 0 0
+85 71 2663808 21 0 0
+76 64 2278197 20 0 0
+259 215 11059550 54 0 0
+109 66 2932517 29 0 0
+120 85 5298116 43 0 0
+5 3 650245 3 0 0
+174 147 10423348 41 0 0
+469 405 25474961 73 0 0
+277 218 10562808 88 0 0
+327 239 7661262 140 0 0
+646 526 19128843 142 0 0
+79 66 3992679 24 0 0
+0
+0
+0
+3376
+0
+0
+0
+0
+0
+12
+0
+17
+316
+0
+22
+0
+0
+0
+0
+0
+0
+314
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+103
+0
+0
+16
+0
+0
+# -urls- 
+/thumbnail/1563525365.jpg
+1 9 0 2019505 0 0 0 0
+/img/logo-sd-2020.png
+1 1 0 49817 0 0 0 0
+/css/font-awesome.min.css
+0 97 0 880253 0 0 0 0
+/js/jquery.min.js
+0 110 0 3420061 0 0 0 0
+/thumbnail/1561698709.jpg
+1 8 0 14159092 0 0 0 0
+/vendor/phpunit/phpunit/src/Util/PHP/
+0 1 0 1158 0 0 0 0
+/ganti-password
+0 6 0 17464 0 0 0 0
+/admin/login
+0 8 0 17538 0 0 0 0
+/icons/unknown.gif
+1 1 0 728 0 0 0 0
+/sd-pengumuman/21
+0 1 0 3906 0 0 0 0
+/download-form-kehadiran
+0 2 0 294380 2 1 0 0
+/sd-pengumuman/23
+0 2 0 7779 0 0 0 0
+/sd-pengumuman
+0 12 0 83027 2 0 0 0
+/gallery
+0 39 0 274420 19 7 0 0
+/beranda-sd
+0 11 0 47310 1 1 0 0
+/js/my-login.js
+0 16 0 33880 0 0 0 0
+/js/jquery-migrate.min.js
+0 100 0 341423 0 0 0 0
+/webfonts/fa-regular-400.woff
+0 28 0 427224 0 0 0 0
+/css/datatables.min.css
+0 9 0 23598 0 0 0 0
+/vendor/phpunit/
+0 1 0 1110 0 0 0 0
+/css/bootadmin.min.css
+0 9 0 12435 0 0 0 0
+/thumbnail/1563525518.jpg
+1 9 0 2369428 0 0 0 0
+/icons/folder.gif
+1 1 0 708 0 0 0 0
+/sd-pengumuman/18
+0 1 0 3905 0 0 0 0
+/js/bootstrap.min.js
+0 108 0 1596414 0 0 0 0
+/prestasi
+0 2 0 11727 1 0 0 0
+/dies-natalis
+0 25 0 227871 11 6 0 0
+/webfonts/fa-brands-400.woff
+0 30 0 2133237 0 0 0 0
+/beranda-sd-name-tag-pdf
+0 1 0 619265 0 1 0 0
+/granat
+0 53 0 362659 22 9 0 0
+/css/fonts/fontawesome-webfont.woff2
+0 24 0 1819691 0 0 0 0
+/thumbnail/1564974737.jpg
+1 11 0 2948141 0 0 0 0
+/img/ftunud.png
+1 25 0 1279666 0 0 0 0
+/js/waypoints.min.js
+0 96 0 346116 0 0 0 0
+/organisasi
+0 2 0 6383 0 0 0 0
+/sd-pengumuman/23.0
+0 1 0 3954 0 0 0 0
+/favicon.ico
+0 103 0 185208 0 0 0 0
+/icons/blank.gif
+1 1 0 631 0 0 0 0
+/beranda-sd-biodata-pdf
+0 2 0 325610 0 0 0 0
+/vendor/phpunit/phpunit/
+0 1 0 1382 0 0 0 0
+/img/first.jpg
+1 16 0 9398794 0 0 0 0
+/beranda-sd-cetak-berkas
+0 6 0 32421 1 0 0 0
+/.env
+0 4 0 24269 0 0 0 0
+/webfonts/fa-solid-900.woff
+0 30 0 1735382 0 0 0 0
+/thumbnail/1563525273.jpg
+1 8 0 2491336 0 0 0 0
+/webfonts/fa-solid-900.woff2
+0 67 0 3027118 0 0 0 0
+/img/logo-sd-2019.png
+1 23 0 7494032 0 0 0 0
+/js/hoverIntent.js
+0 94 0 286221 0 0 0 0
+/beranda-sd/2727/edit
+0 8 0 43395 2 0 0 0
+/vendor/phpunit/phpunit/build.xml
+0 1 0 7977 0 0 0 0
+/css/style.css
+0 93 0 428350 0 0 0 0
+/sd/cekkk
+0 1 0 1320 0 0 0 0
+/sd-pengumuman/24
+0 10 0 48715 2 0 0 0
+/js/popper.min.js
+0 103 0 822628 0 0 0 0
+/js/main.js
+0 91 0 194643 0 0 0 0
+/login
+0 76 0 282669 17 12 0 0
+/js/easing.min.js
+0 96 0 131144 0 0 0 0
+/webfonts/fa-regular-400.woff2
+0 14 0 177100 0 0 0 0
+/thumbnail/1563525468.jpg
+1 9 0 1926436 0 0 0 0
+/css/bootstrap.min.css
+0 117 0 2601052 0 0 0 0
+/sd
+0 44 0 278287 5 6 0 0
+/css/animate.min.css
+0 94 0 375397 0 0 0 0
+/webfonts/fa-brands-400.woff2
+0 58 0 3549986 0 0 0 0
+/css/my-login.css
+0 17 0 37467 0 0 0 0
+/js/bootadmin.min.js
+0 10 0 12930 0 0 0 0
+/thumbnail/1564901691.jpg
+1 8 0 2724948 0 0 0 0
+/sd-pengumuman/15
+0 2 0 7984 0 0 0 0
+/vendor/phpunit/phpunit/src/
+0 1 0 994 0 0 0 0
+/js/datatables.min.js
+0 10 0 342470 0 0 0 0
+/thumbnail/1564901539.jpg
+1 8 0 2780938 0 0 0 0
+/sd/login
+0 1 0 1316 0 0 0 0
+/img/second.jpg
+1 52 0 26117362 0 0 0 0
+/css/fontawesome-all.css
+0 100 0 1020190 0 0 0 0
+/
+0 204 0 1806342 213 72 0 0
+/vendor/phpunit/phpunit/src/Util/
+0 1 0 1297 0 0 0 0
+/thumbnail/pengumuman_download_mandiri.jpg
+1 71 0 25113655 0 0 0 0
+/sd-pengumuman/16
+0 1 0 3956 0 0 0 0
+/img/granat.png
+1 29 0 16642069 0 0 0 0
+/img/favicon.png
+1 75 0 196802 0 0 0 0
+/css/fonts/fontawesome-webfont.woff
+0 29 0 2803260 0 0 0 0
+/sd-pengumuman/19
+0 4 0 20664 2 2 0 0
+/webfonts/fa-brands-400.ttf
+0 1 0 112160 0 0 0 0
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+0 5 0 16996 0 0 0 0
+/img/smft.jpeg
+0 67 0 3383562 0 0 0 0
+/robots.txt
+0 138 0 776685 0 0 0 0
+/js/superfish.min.js
+0 94 0 233378 0 0 0 0
+/img/smft2.jpeg
+0 17 0 4013204 0 0 0 0
+/js/wow.min.js
+0 99 0 363444 0 0 0 0
+/thumbnail/1564901775.jpg
+1 10 0 3050684 0 0 0 0
+/vendor/
+0 1 0 1437 0 0 0 0
+/icons/back.gif
+1 1 0 837 0 0 0 0
+/deva
+0 3 0 13003 0 0 0 0
+/lib/magnific-popup/magnific-popup.css
+0 103 0 313210 0 0 0 0
+/lib/magnific-popup/magnific-popup.min.js
+0 92 0 739421 0 0 0 0
+/beranda-sd-biodata
+0 25 0 94701 6 1 0 0
+/js/bootstrap.bundle.min.js
+0 101 0 2021746 0 0 0 0
+# End Of Table - urls
+# -sites- (monthly)
+157.55.39.229
+0 1 1 9259 1 1594959662 0 0
+/
+207.46.13.117
+0 2 1 74386 1 1594479403 0 0
+/
+223.255.228.93
+0 1 1 373854 0 0 0 0
+-
+103.10.67.147
+0 27 26 1213191 1 1594374186 0 0
+-
+66.220.149.25
+0 1 1 9061 1 1593655206 0 0
+/
+180.249.41.90
+0 27 27 1261674 1 1593590922 0 0
+/
+40.77.167.60
+0 3 3 47594 1 1595021348 0 0
+/granat
+114.5.219.151
+0 260 203 4023347 2 1594766022 0 0
+-
+47.56.238.201
+0 2 0 45326 2 1594236366 0 0
+-
+114.122.134.219
+0 1 1 604 0 0 0 0
+-
+178.154.200.213
+0 12 12 49316 3 1594903250 0 0
+/sd-pengumuman/24
+223.255.228.107
+0 26 26 1188254 1 1594810254 0 0
+/
+46.229.168.131
+0 1 1 5682 0 0 0 0
+-
+173.252.111.4
+0 1 1 9047 1 1594591561 0 0
+/
+114.119.162.174
+0 1 1 5487 0 0 0 0
+-
+147.92.179.119
+0 3 2 367453 1 1593716540 0 0
+/
+114.122.132.145
+0 2 2 298868 1 1594764250 0 0
+/beranda-sd/2727/edit
+40.77.167.171
+0 6 2 53342 5 1594078797 0 0
+/
+158.140.173.25
+0 8 8 396635 0 0 0 0
+-
+114.119.165.172
+0 2 1 6044 0 0 0 0
+-
+114.119.167.44
+0 1 1 5487 0 0 0 0
+-
+54.36.149.30
+0 1 1 5468 0 0 0 0
+-
+173.252.127.116
+0 1 1 357968 0 0 0 0
+-
+115.178.239.16
+0 37 34 1591474 1 1594526390 0 0
+/login
+66.249.70.14
+0 23 16 774812 4 1594419194 0 0
+-
+157.55.39.47
+0 12 10 715017 10 1594264821 0 0
+/
+69.171.251.116
+0 1 1 9050 1 1594199088 0 0
+/
+180.249.116.100
+0 26 26 1256460 1 1594231401 0 0
+/
+114.122.133.1
+0 5 3 27590 1 1594763878 0 0
+/login
+209.17.96.194
+0 1 1 15025 1 1593860143 0 0
+/
+54.36.148.30
+0 1 1 5468 0 0 0 0
+-
+66.249.71.144
+0 28 17 350898 13 1594964359 0 0
+/login
+36.90.68.99
+0 1 1 577118 0 0 0 0
+-
+66.249.71.152
+0 6 0 3250 4 1594903653 0 0
+/
+114.122.137.88
+0 4 4 83205 0 0 0 0
+-
+114.125.118.224
+0 24 23 731220 1 1594558810 0 0
+/sd
+46.229.168.142
+0 2 1 15029 2 1594916272 0 0
+/
+118.99.110.144
+0 18 15 4157544 1 1595013325 0 0
+/sd-pengumuman/18
+40.77.167.45
+0 3 0 71593 3 1593649055 0 0
+-
+114.125.81.115
+0 1 0 481 1 1594759131 0 0
+/
+207.46.13.224
+0 1 0 22658 1 1594300726 0 0
+/
+114.125.86.138
+0 52 39 1877918 1 1594759464 0 0
+/login
+167.205.160.3
+0 27 27 1265585 1 1593783631 0 0
+/
+114.119.166.177
+0 1 1 5487 0 0 0 0
+-
+157.55.39.107
+0 9 2 59001 3 1594715157 0 0
+/
+173.252.83.118
+0 1 1 9061 1 1594133616 0 0
+/
+157.55.39.23
+0 16 8 50208 0 0 0 0
+-
+207.46.13.33
+0 2 1 9111 1 1594997729 0 0
+/
+54.36.148.219
+0 1 1 5468 0 0 0 0
+-
+157.55.39.249
+0 1 1 9257 1 1594309234 0 0
+/
+114.119.166.189
+0 2 1 6044 0 0 0 0
+-
+46.229.168.144
+0 1 1 5682 0 0 0 0
+-
+114.124.246.156
+0 1 0 481 1 1593642125 0 0
+/
+114.122.137.200
+0 4 4 74194 0 0 0 0
+-
+180.249.119.41
+0 29 27 1268890 1 1594045385 0 0
+-
+114.119.165.67
+0 1 1 5487 0 0 0 0
+-
+69.171.251.2
+0 1 1 9053 1 1594171221 0 0
+/
+40.77.167.107
+0 6 5 99191 2 1594607069 0 0
+/granat
+114.119.167.38
+0 2 1 6044 0 0 0 0
+-
+125.167.179.8
+0 56 52 2464201 1 1593683792 0 0
+-
+114.122.132.13
+0 1 1 9225 1 1594764219 0 0
+/beranda-sd/2727/edit
+209.17.96.138
+0 1 1 15019 1 1594495835 0 0
+/
+66.249.79.128
+0 1 1 8864 1 1594865455 0 0
+/gallery
+5.255.253.97
+0 1 1 5678 0 0 0 0
+-
+211.249.40.11
+0 1 1 357973 0 0 0 0
+-
+180.254.223.97
+0 40 36 2616804 1 1594926527 0 0
+/
+203.78.121.98
+0 24 24 864063 1 1595013410 0 0
+/granat
+114.119.160.183
+0 2 1 6044 0 0 0 0
+-
+114.119.167.208
+0 2 1 6044 0 0 0 0
+-
+128.199.158.156
+0 2 1 9798 1 1594069763 0 0
+/
+223.255.228.109
+0 1 1 373854 0 0 0 0
+-
+207.46.13.217
+0 1 0 537 1 1593846385 0 0
+/
+167.172.252.208
+0 2 1 15660 1 1593806758 0 0
+/
+180.249.119.58
+0 26 25 1199645 1 1594045350 0 0
+/
+46.229.168.162
+0 3 3 24825 2 1594975089 0 0
+/dies-natalis
+46.229.168.137
+0 1 1 5682 0 0 0 0
+-
+114.122.139.164
+0 16 6 159465 1 1594809279 0 0
+/login
+114.5.108.57
+0 20 20 516775 1 1593618889 0 0
+/
+173.252.79.23
+0 1 1 9046 1 1594331810 0 0
+/
+207.46.13.223
+0 2 1 44387 1 1593918497 0 0
+-
+114.122.138.121
+0 6 6 402463 1 1594202936 0 0
+/
+114.122.136.17
+0 12 4 146449 0 0 0 0
+-
+183.253.80.124
+0 2 1 9786 1 1593576751 0 0
+/
+114.122.136.129
+0 4 2 13004 1 1594667121 0 0
+/login
+40.77.167.93
+0 2 0 23211 0 0 0 0
+-
+66.249.65.114
+0 7 4 88222 2 1594195056 0 0
+-
+66.220.149.117
+0 1 1 9049 1 1594708294 0 0
+/
+180.249.100.138
+0 22 22 641475 1 1593688202 0 0
+/
+114.122.132.0
+0 2 2 4930 1 1594764234 0 0
+/beranda-sd-biodata
+157.55.39.134
+0 6 1 52714 0 0 0 0
+-
+114.122.141.165
+0 12 4 146449 0 0 0 0
+-
+114.122.138.47
+0 4 4 71719 0 0 0 0
+-
+114.119.162.130
+0 2 1 6044 0 0 0 0
+-
+40.77.167.2
+0 1 0 537 1 1594952628 0 0
+/
+114.119.163.127
+0 2 1 6044 0 0 0 0
+-
+180.249.116.254
+0 25 25 1183800 1 1594810263 0 0
+/
+203.78.114.228
+0 19 19 725320 1 1593898206 0 0
+/granat
+114.122.134.44
+0 2 1 25936 1 1594764616 0 0
+/beranda-sd
+46.229.168.130
+0 3 2 98336 2 1594473795 0 0
+/download-form-kehadiran
+140.213.160.202
+0 23 20 2279922 3 1595018365 0 0
+/login
+147.92.179.116
+0 2 2 362092 1 1593785081 0 0
+/
+114.122.136.190
+0 12 4 146449 0 0 0 0
+-
+120.188.83.181
+0 27 25 1239303 1 1593778907 0 0
+-
+120.188.86.86
+0 24 24 1416773 1 1594380695 0 0
+/granat
+173.252.79.8
+0 1 1 9048 1 1594018524 0 0
+/
+114.122.133.114
+0 1 1 235096 0 0 0 0
+-
+157.55.39.2
+0 8 7 40470 0 0 0 0
+-
+46.229.168.140
+0 1 1 5682 0 0 0 0
+-
+209.17.96.66
+0 1 0 481 1 1593637163 0 0
+/
+209.17.97.66
+0 1 0 481 1 1593802334 0 0
+/
+114.119.165.56
+0 1 1 5487 0 0 0 0
+-
+40.77.167.159
+0 1 0 537 1 1594388823 0 0
+/
+114.119.162.233
+0 2 1 6044 0 0 0 0
+-
+110.139.188.173
+0 75 63 2013176 1 1594760990 0 0
+/login
+114.122.137.186
+0 8 4 26015 2 1594486765 0 0
+/login
+178.154.200.32
+0 1 1 5719 0 0 0 0
+-
+114.119.162.44
+0 1 1 5487 0 0 0 0
+-
+114.122.134.176
+0 2 1 20068 0 0 0 0
+-
+207.46.13.146
+0 1 1 8864 1 1593934022 0 0
+/gallery
+66.249.71.151
+0 7 0 3826 3 1593940670 0 0
+/
+209.17.97.58
+0 1 1 15019 1 1594195579 0 0
+/
+114.119.165.101
+0 1 1 5487 0 0 0 0
+-
+66.249.79.130
+0 2 2 15818 1 1594473784 0 0
+/dies-natalis
+114.122.132.33
+0 1 0 22658 1 1594760961 0 0
+-
+114.119.164.162
+0 2 1 6044 0 0 0 0
+-
+114.122.132.159
+0 5 5 370289 0 0 0 0
+-
+207.46.13.220
+0 2 1 6276 0 0 0 0
+-
+52.204.97.54
+0 570 530 27902814 2 1594964534 0 0
+/sd-pengumuman
+46.229.168.154
+0 1 1 8825 1 1594322967 0 0
+/gallery
+114.122.136.0
+0 16 6 159453 1 1594723108 0 0
+/login
+114.122.133.47
+0 1 1 3426 1 1594765200 0 0
+/beranda-sd-biodata
+147.92.179.114
+0 2 1 9487 1 1594492069 0 0
+/
+40.77.167.46
+0 1 0 537 1 1594123228 0 0
+/
+207.46.13.142
+0 2 1 6276 0 0 0 0
+-
+182.1.95.217
+0 24 24 866620 1 1594550559 0 0
+/granat
+175.158.49.237
+0 1 1 9078 1 1594027664 0 0
+/granat
+114.119.162.245
+0 1 1 5487 0 0 0 0
+-
+180.252.69.23
+0 7 6 422468 1 1593632477 0 0
+-
+157.55.39.7
+0 1 0 537 1 1594918244 0 0
+/
+159.203.101.159
+0 1 1 15143 1 1594009913 0 0
+/
+114.125.120.56
+0 25 25 1178722 1 1594121875 0 0
+/
+66.249.79.149
+0 2 0 1108 0 0 0 0
+-
+114.119.164.155
+0 1 1 5487 0 0 0 0
+-
+207.46.13.189
+0 15 6 227345 8 1594909827 0 0
+/sd
+147.92.179.112
+0 2 1 9481 1 1594492068 0 0
+/
+77.22.17.62
+0 6 2 85415 1 1593814274 0 0
+/
+66.249.79.250
+0 1 0 537 1 1593611925 0 0
+/
+209.17.97.98
+0 1 0 481 1 1594249067 0 0
+/
+64.233.173.49
+0 1 1 577118 0 0 0 0
+-
+140.213.170.185
+0 51 49 1544035 2 1595018424 0 0
+/granat
+157.55.39.0
+0 4 2 12552 0 0 0 0
+-
+114.119.161.226
+0 1 1 373622 0 0 0 0
+-
+173.252.95.111
+0 1 1 9045 1 1593636540 0 0
+/
+211.249.40.30
+0 1 1 357973 0 0 0 0
+-
+158.140.173.87
+0 8 8 72545 0 0 0 0
+-
+37.49.224.57
+0 1 0 537 1 1593851913 0 0
+/
+162.254.204.46
+0 1 0 537 1 1594386001 0 0
+/
+114.119.166.162
+0 2 1 6044 0 0 0 0
+-
+114.122.135.14
+0 4 2 26217 1 1594764638 0 0
+/beranda-sd
+157.55.39.28
+0 5 5 28495 0 0 0 0
+-
+40.77.167.165
+0 1 1 9258 1 1594355363 0 0
+/
+157.55.39.148
+0 1 0 22658 1 1594381037 0 0
+-
+207.46.13.236
+0 3 3 17097 0 0 0 0
+-
+114.79.19.202
+0 26 25 1179951 1 1593908757 0 0
+/
+114.119.165.134
+0 2 1 6044 0 0 0 0
+-
+114.122.135.144
+0 16 6 159459 1 1594219104 0 0
+/login
+114.119.164.232
+0 2 1 6044 0 0 0 0
+-
+114.119.161.121
+0 2 1 6044 0 0 0 0
+-
+147.92.179.106
+0 9 5 395897 2 1594492066 0 0
+/
+40.77.167.137
+0 2 0 58186 2 1594228600 0 0
+-
+114.119.160.97
+0 1 1 576886 0 0 0 0
+-
+114.122.136.123
+0 1 0 537 1 1594202936 0 0
+/
+103.10.67.149
+0 48 47 7217988 1 1594974245 0 0
+/gallery
+114.122.136.56
+0 4 2 13008 1 1594582861 0 0
+/login
+114.122.143.77
+0 16 6 159462 1 1594394516 0 0
+/login
+66.249.66.79
+0 21 16 230248 9 1594818389 0 0
+/
+40.77.167.208
+0 1 1 8647 0 0 0 0
+-
+66.249.70.25
+0 2 0 1108 0 0 0 0
+-
+114.122.133.26
+0 1 1 7562 1 1594763879 0 0
+/login
+114.122.132.190
+0 4 2 13010 1 1594763255 0 0
+/login
+66.249.65.119
+0 4 0 2162 3 1594198806 0 0
+/
+66.249.71.142
+0 19 13 217569 7 1594962995 0 0
+/
+207.46.13.138
+0 1 0 35528 1 1593998489 0 0
+-
+114.119.164.107
+0 1 1 5487 0 0 0 0
+-
+114.124.168.104
+0 25 25 1183797 1 1594499692 0 0
+/
+114.122.137.122
+0 6 6 1107484 1 1594202942 0 0
+/granat
+173.252.87.119
+0 1 1 9049 1 1593636535 0 0
+/
+114.122.132.115
+0 15 14 976648 1 1593655208 0 0
+/
+66.249.79.241
+0 4 2 61579 0 0 0 0
+-
+66.249.66.90
+0 6 0 3283 2 1594631704 0 0
+/
+157.55.39.212
+0 21 15 1104366 9 1594911397 0 0
+/
+114.119.160.161
+0 2 1 6044 0 0 0 0
+-
+66.249.70.16
+0 15 9 186515 6 1594419185 0 0
+-
+114.119.160.180
+0 1 1 576886 0 0 0 0
+-
+114.122.133.32
+0 4 3 329331 1 1594765197 0 0
+/beranda-sd
+66.249.79.239
+0 2 2 14933 1 1593701334 0 0
+/
+114.5.216.152
+0 26 23 506356 3 1595023462 0 0
+/sd
+114.122.139.98
+0 24 8 292898 0 0 0 0
+-
+66.249.66.78
+0 25 21 235555 8 1594815433 0 0
+/
+114.119.164.159
+0 2 1 6044 0 0 0 0
+-
+114.119.162.97
+0 1 1 5487 0 0 0 0
+-
+46.229.168.141
+0 3 3 20204 1 1593869672 0 0
+/gallery
+157.55.39.25
+0 2 1 6276 0 0 0 0
+-
+66.220.149.10
+0 1 1 9049 1 1594171217 0 0
+/
+207.46.13.162
+0 1 1 358219 0 0 0 0
+-
+66.249.70.27
+0 4 0 2167 2 1594419100 0 0
+/
+66.249.79.248
+0 1 0 551 0 0 0 0
+-
+36.78.212.196
+0 1 1 577118 0 0 0 0
+-
+182.253.98.197
+0 208 159 15827184 8 1594926645 0 0
+/sd
+5.2.67.22
+0 2 0 22950 1 1594408530 0 0
+-
+114.119.164.229
+0 1 1 5487 0 0 0 0
+-
+114.79.17.149
+0 44 39 5670510 1 1594708367 0 0
+-
+140.213.151.97
+0 37 32 1908834 1 1594479694 0 0
+-
+147.92.179.107
+0 6 4 725010 2 1594930889 0 0
+/
+66.249.71.140
+0 30 21 329307 9 1594970795 0 0
+/login
+40.77.167.238
+0 1 0 35528 1 1593831055 0 0
+-
+114.122.134.188
+0 12 4 146449 0 0 0 0
+-
+103.89.76.3
+0 26 26 1266606 1 1594675381 0 0
+/
+46.229.168.138
+0 2 1 39684 1 1593684789 0 0
+-
+158.140.173.67
+0 4 4 47741 1 1594496151 0 0
+/
+40.114.38.74
+0 96 9 1192303 3 1594622648 0 0
+/
+114.119.162.41
+0 1 1 5487 0 0 0 0
+-
+147.92.179.111
+0 2 1 9483 1 1593945739 0 0
+/
+114.122.133.144
+0 1 1 3395 1 1594763944 0 0
+/beranda-sd-biodata
+120.188.84.103
+0 39 36 2308852 1 1594134001 0 0
+-
+114.119.163.117
+0 1 1 5487 0 0 0 0
+-
+66.249.70.18
+0 6 5 64778 3 1594419180 0 0
+-
+46.229.168.150
+0 2 2 11364 0 0 0 0
+-
+114.122.133.250
+0 16 15 310770 1 1593655284 0 0
+-
+66.249.71.149
+0 5 0 2732 2 1593943272 0 0
+/
+66.249.79.151
+0 1 0 551 0 0 0 0
+-
+46.229.168.145
+0 2 1 28303 0 0 0 0
+-
+114.119.166.38
+0 2 1 6044 0 0 0 0
+-
+114.119.162.146
+0 2 1 6044 0 0 0 0
+-
+36.84.63.203
+0 1 1 9078 1 1594027678 0 0
+/granat
+46.229.168.148
+0 3 3 23943 2 1594450197 0 0
+/
+46.229.168.151
+0 2 1 11495 1 1594598950 0 0
+-
+114.5.208.184
+0 124 113 7639593 3 1594525887 0 0
+/sd-pengumuman
+66.249.65.110
+0 11 9 121980 3 1594206993 0 0
+/dies-natalis
+103.10.67.168
+0 27 26 1213137 1 1594471128 0 0
+-
+36.82.99.150
+0 24 24 917531 1 1594287748 0 0
+/granat
+114.119.165.162
+0 1 1 5487 0 0 0 0
+-
+182.1.89.202
+0 9 5 137042 1 1593872721 0 0
+-
+114.122.134.166
+0 6 5 49951 1 1594764619 0 0
+/beranda-sd-biodata
+207.46.13.87
+0 1 0 35528 1 1593622645 0 0
+-
+114.119.164.127
+0 2 1 6044 0 0 0 0
+-
+157.55.39.191
+0 1 0 35528 1 1594401185 0 0
+-
+157.55.39.183
+0 1 0 35528 1 1594031913 0 0
+-
+66.249.79.246
+0 1 0 557 0 0 0 0
+-
+114.125.100.121
+0 1 1 576923 0 0 0 0
+-
+40.77.167.51
+0 1 0 537 1 1594541450 0 0
+/
+120.188.86.129
+0 23 23 849800 1 1593898151 0 0
+/granat
+147.92.179.117
+0 7 5 1077960 2 1594930889 0 0
+/
+36.84.63.187
+0 26 26 1261532 1 1594373385 0 0
+/
+180.249.133.141
+0 26 25 1179256 1 1594591560 0 0
+/
+123.253.233.69
+0 20 20 516916 1 1594682382 0 0
+/
+114.5.250.132
+0 25 24 822621 0 0 0 0
+-
+180.249.42.21
+0 31 27 1810689 1 1594331864 0 0
+/granat
+114.122.138.11
+0 9 9 627234 1 1593632465 0 0
+/
+114.122.133.66
+0 6 6 140903 0 0 0 0
+-
+114.122.139.123
+0 4 4 87769 0 0 0 0
+-
+46.229.168.132
+0 2 2 15793 1 1594072322 0 0
+/dies-natalis
+46.229.168.134
+0 1 0 5814 1 1593692686 0 0
+-
+114.119.160.71
+0 2 1 6044 0 0 0 0
+-
+114.5.222.185
+0 23 23 839651 1 1593872128 0 0
+/granat
+54.36.149.67
+0 1 1 5468 0 0 0 0
+-
+50.16.247.234
+0 228 208 8359983 1 1593816906 0 0
+/dies-natalis
+66.249.66.88
+0 4 0 2181 2 1594815889 0 0
+/
+180.249.116.234
+0 39 31 2294240 2 1594164487 0 0
+/gallery
+207.46.13.21
+0 1 0 537 1 1594435988 0 0
+/
+114.122.135.248
+0 2 2 72426 1 1593655263 0 0
+/gallery
+147.92.179.113
+0 2 1 9488 1 1593945740 0 0
+/
+207.46.13.20
+0 3 3 27753 3 1593659066 0 0
+/
+114.119.163.137
+0 1 1 5487 0 0 0 0
+-
+46.229.168.147
+0 2 2 18905 2 1594582429 0 0
+/sd-pengumuman
+114.122.137.79
+0 3 3 15437 0 0 0 0
+-
+182.1.108.144
+0 1 1 577118 0 0 0 0
+-
+139.180.190.94
+0 4 2 13116 0 0 0 0
+-
+114.119.167.73
+0 2 1 6044 0 0 0 0
+-
+114.119.167.242
+0 1 1 5487 0 0 0 0
+-
+114.122.143.29
+0 4 2 13011 1 1593877184 0 0
+/login
+110.139.199.211
+0 32 28 1347115 1 1594493325 0 0
+-
+207.46.13.15
+0 5 0 59797 5 1594348497 0 0
+/
+66.249.70.23
+0 2 0 1088 1 1594399109 0 0
+/
+114.122.136.232
+0 1 0 537 1 1593632464 0 0
+/
+176.9.41.28
+0 11 6 260753 1 1594067903 0 0
+/download-form-kehadiran
+180.249.117.57
+0 39 35 2290386 1 1594381623 0 0
+-
+114.122.139.110
+0 6 6 90566 0 0 0 0
+-
+114.122.133.104
+0 9 7 734045 1 1593655208 0 0
+/
+36.90.155.134
+0 26 25 1199652 1 1594018525 0 0
+/
+157.55.39.152
+0 5 4 68959 4 1593800997 0 0
+/
+114.119.164.145
+0 1 1 5487 0 0 0 0
+-
+114.119.163.21
+0 2 1 6044 0 0 0 0
+-
+114.119.167.220
+0 1 1 5487 0 0 0 0
+-
+46.229.168.146
+0 1 1 9856 1 1595030059 0 0
+/sd-pengumuman
+114.119.163.171
+0 2 1 6044 0 0 0 0
+-
+40.77.167.154
+0 1 0 537 1 1594581583 0 0
+/
+223.255.228.90
+0 25 25 1183801 1 1594667304 0 0
+/
+207.46.13.57
+0 6 5 76850 0 0 0 0
+-
+114.119.162.143
+0 2 1 6044 0 0 0 0
+-
+147.92.179.105
+0 2 2 362095 1 1593785082 0 0
+/
+114.124.247.157
+0 44 44 2014909 1 1593642134 0 0
+/
+209.17.96.250
+0 1 0 481 1 1594503377 0 0
+/
+114.122.132.46
+0 5 4 14303 1 1594763962 0 0
+/beranda-sd-biodata
+207.46.13.103
+0 1 0 537 1 1594859342 0 0
+/
+40.77.167.68
+0 1 1 9263 1 1595005994 0 0
+/
+114.122.135.177
+0 4 4 21976 2 1594765141 0 0
+/beranda-sd-cetak-berkas
+46.229.168.161
+0 1 1 8829 1 1594781089 0 0
+/gallery
+66.249.65.112
+0 9 6 114244 5 1594245230 0 0
+/dies-natalis
+114.122.134.25
+0 3 1 6899 1 1594763957 0 0
+-
+147.92.179.118
+0 2 2 362090 1 1593785082 0 0
+/
+66.249.65.121
+0 2 0 1108 0 0 0 0
+-
+157.55.39.24
+0 6 3 18828 0 0 0 0
+-
+40.77.167.22
+0 3 3 26185 0 0 0 0
+-
+46.229.168.133
+0 2 2 15783 1 1594528911 0 0
+/dies-natalis
+114.122.132.67
+0 6 5 560776 1 1593654569 0 0
+-
+207.46.13.150
+0 1 1 25130 0 0 0 0
+-
+114.122.142.108
+0 16 6 159470 1 1593707527 0 0
+/login
+114.119.162.213
+0 2 1 6044 0 0 0 0
+-
+112.215.219.60
+0 38 26 1525607 1 1594045384 0 0
+-
+46.229.168.143
+0 1 0 5813 1 1593692684 0 0
+-
+36.77.30.81
+0 4 1 33693 1 1595001299 0 0
+/
+103.122.65.230
+0 31 30 2171699 1 1594073592 0 0
+/gallery
+192.99.7.128
+0 4 4 33653 1 1594848808 0 0
+/granat
+46.229.168.152
+0 4 3 50988 1 1594279084 0 0
+-
+66.249.66.80
+0 21 14 471313 6 1594773698 0 0
+/
+114.119.167.63
+0 1 1 5487 0 0 0 0
+-
+147.92.179.110
+0 4 2 18970 2 1594492069 0 0
+/
+35.196.132.85
+0 1 1 15209 1 1594926411 0 0
+/
+114.79.22.157
+0 1 1 373854 0 0 0 0
+-
+35.194.246.104
+0 2 0 22950 1 1593722412 0 0
+-
+157.55.39.202
+0 3 0 36594 3 1593791605 0 0
+/
+5.9.61.232
+0 2 2 13175 1 1594352563 0 0
+/login
+36.71.138.7
+0 45 43 1219413 1 1594606135 0 0
+/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+66.249.66.89
+0 3 0 1651 1 1594585199 0 0
+/
+173.252.79.19
+0 1 1 9046 1 1593908758 0 0
+/
+36.93.94.98
+0 18 18 246890 1 1594333298 0 0
+/
+157.55.39.213
+0 1 1 5678 0 0 0 0
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+157.55.39.229
+0 1 1 9259 1 1594959662 0 0
+/
+40.77.167.60
+0 3 3 47594 1 1595021348 0 0
+/granat
+66.249.71.144
+0 1 1 7515 1 1594964359 0 0
+/login
+66.249.71.152
+0 1 0 551 0 0 0 0
+-
+118.99.110.144
+0 18 15 4157544 1 1595013325 0 0
+/sd-pengumuman/18
+207.46.13.33
+0 2 1 9111 1 1594997729 0 0
+/
+114.119.166.189
+0 2 1 6044 0 0 0 0
+-
+203.78.121.98
+0 24 24 864063 1 1595013410 0 0
+/granat
+46.229.168.162
+0 1 1 10100 1 1594975089 0 0
+/dies-natalis
+40.77.167.2
+0 1 0 537 1 1594952628 0 0
+/
+140.213.160.202
+0 23 20 2279922 3 1595018365 0 0
+/login
+157.55.39.2
+0 2 1 6276 0 0 0 0
+-
+114.119.165.56
+0 1 1 5487 0 0 0 0
+-
+66.249.79.130
+0 1 1 5678 0 0 0 0
+-
+207.46.13.220
+0 2 1 6276 0 0 0 0
+-
+52.204.97.54
+0 342 322 19542857 1 1594964534 0 0
+/sd-pengumuman
+140.213.170.185
+0 51 49 1544035 2 1595018424 0 0
+/granat
+103.10.67.149
+0 48 47 7217988 1 1594974245 0 0
+/gallery
+40.77.167.208
+0 1 1 8647 0 0 0 0
+-
+66.249.71.142
+0 2 2 9763 1 1594962995 0 0
+/
+114.5.216.152
+0 26 23 506356 3 1595023462 0 0
+/sd
+66.249.71.140
+0 2 1 30168 1 1594970795 0 0
+/login
+46.229.168.138
+0 1 1 5682 0 0 0 0
+-
+46.229.168.132
+0 1 1 5682 0 0 0 0
+-
+114.119.164.145
+0 1 1 5487 0 0 0 0
+-
+46.229.168.146
+0 1 1 9856 1 1595030059 0 0
+/sd-pengumuman
+114.119.163.171
+0 2 1 6044 0 0 0 0
+-
+40.77.167.68
+0 1 1 9263 1 1595005994 0 0
+/
+40.77.167.22
+0 3 3 26185 0 0 0 0
+-
+207.46.13.150
+0 1 1 25130 0 0 0 0
+-
+36.77.30.81
+0 4 1 33693 1 1595001299 0 0
+/
+# End Of Table - sites (daily)
+# -referrers- 
+http://smft.unud.ac.id/
+1 2
+http://ms839news.wordpress.com/
+0 2
+https://l.instagram.com/
+0 11
+http://smft.unud.ac.id/robots.txt
+1 6
+https://smft.unud.ac.id/prestasi
+1 2
+https://smft.unud.ac.id/granat
+1 343
+https://smft.unud.ac.id/css/fontawesome-all.css
+1 103
+https://smft.unud.ac.id/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+1 1
+http://www.trifortis.ch/
+0 2
+https://smft.unud.ac.id/sd-pengumuman
+1 166
+https://smft.unud.ac.id/sd-pengumuman/23
+1 21
+http://l.instagram.com/
+0 4
+https://smft.unud.ac.id/vendor/phpunit/phpunit/src/
+1 1
+https://smft.unud.ac.id/beranda-sd-biodata
+1 50
+https://smft.unud.ac.id/vendor/phpunit/phpunit/src/Util/PHP/
+1 1
+https://www.google.co.id/
+0 5
+https://smft.unud.ac.id/bkm/
+1 2
+https://www.google.com/
+0 51
+- (Direct Request)
+0 1218
+https://smft.unud.ac.id/sd-pengumuman/24
+1 15
+https://smft.unud.ac.id/css/font-awesome.min.css
+1 25
+https://smft.unud.ac.id/login
+1 93
+https://smft.unud.ac.id/.env
+1 1
+https://smft.unud.ac.id/
+1 1270
+https://www.google.com/blank.html
+0 1
+https://smft.unud.ac.id/admin/login
+1 10
+https://smft.unud.ac.id/css/style.css
+1 70
+https://smft.unud.ac.id/sd-pengumuman/15
+1 1
+https://smft.unud.ac.id/vendor/phpunit/
+1 1
+https://smft.unud.ac.id/vendor/phpunit/phpunit/src/Util/
+1 1
+https://smft.unud.ac.id/beranda-sd-cetak-berkas
+1 14
+https://smft.unud.ac.id/beranda-sd/2727/edit
+1 30
+https://smft.unud.ac.id/vendor/
+1 5
+https://smft.unud.ac.id/ganti-password
+1 20
+http://smft.unud.ac.id/wp-login.php
+1 2
+http://www.mildredhome.top/blog/59340010/view/
+0 2
+https://smft.unud.ac.id/gallery
+1 214
+https://smft.unud.ac.id/beranda-sd
+1 38
+https://smft.unud.ac.id/organisasi
+1 11
+http://blogger-net.com/
+0 2
+https://smft.unud.ac.id/vendor/phpunit/phpunit/
+1 1
+https://smft.unud.ac.id/check
+1 1
+https://smft.unud.ac.id/sd-pengumuman/23.0
+1 20
+https://smft.unud.ac.id/dies-natalis
+1 136
+https://smft.unud.ac.id/sd
+1 201
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+0 48
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.122 Mobile 
+0 8
+Mozilla/5.0 (compatible; MegaIndex.ru/2.0; +http://megaindex.com/crawler)
+0 11
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Safari/537.36
+0 9
+Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)
+0 7
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.92 Mobile S
+0 82
+Mozilla/5.0 (Linux; U; Android 9; en-us; Redmi Note 7 Build/PKQ1.180904.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4
+0 38
+Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)
+0 1
+Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/53
+0 56
+Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
+0 3
+Mozilla/5.0 (Linux; Android 9; SM-A307GN Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 1
+Mozilla/5.0 (Linux; Android 9; RMX1911) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36
+0 27
+Mozilla/5.0 (Linux; Android 8.1.0; vivo 1816 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0
+0 19
+facebookexternalhit/1.1;line-poker/1.0
+0 43
+Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)
+0 1
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0
+0 2
+Mozilla/5.0 (Linux; Android 10; SM-G960F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 37
+Mozilla/6.0
+0 2
+Mozilla/5.0 (Linux; Android 9; ASUS_X00TD) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36
+0 27
+Mozilla/5.0 (Linux; Android 5.1.1; Redmi 3 Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Sa
+0 25
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+0 1
+Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)
+0 4
+'Mozilla/5.0 (compatible; DuckDuckBot-Https/1.1; https://duckduckgo.com/duckduckbot)'
+0 786
+Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+0 113
+Safari/14607.3.9 CFNetwork/978.0.7 Darwin/18.7.0 (x86_64)
+0 132
+python-requests/2.23.0
+0 1
+Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+0 188
+python-requests/2.24.0
+0 14
+Mozilla/5.0 (Linux; Android 9; RMX1911) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36
+0 26
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36 OPR/68.0.
+0 97
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+0 540
+Mozilla/5.0 (Linux; Android 7.1.2; Redmi 4X Build/N2G47H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.
+0 28
+Mozilla/5.0 (Linux; Android 9; Redmi Note 6 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/53
+0 25
+Mozilla/5.0 (compatible; DuckDuckBot-Https/1.1; https://duckduckgo.com/duckduckbot)
+0 12
+Mozilla/5.0 (Linux; Android 5.1; A1601) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36
+0 27
+Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50
+0 11
+Googlebot-Image/1.0
+0 42
+Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/28.0
+0 29
+Mozilla/5.0 (Linux; Android 6.0; NX573J) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36
+0 23
+Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.
+0 44
+(compatible;PetalBot;+https://aspiegel.com/petalbot)
+0 68
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36
+0 20
+Mozilla/5.0 (Linux; Android 10; Redmi Note 5 Build/QQ2A.200501.001.B3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0
+0 28
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+0 20
+MobileSafari/604.1 CFNetwork/1126 Darwin/19.5.0
+0 5
+Mozilla/5.0 (Linux; Android 10; SM-A507FN) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36
+0 26
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0
+0 2
+Mozilla/5.0 (Windows NT 6.1; ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+0 59
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari Line/1
+0 19
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.119 Mobile 
+0 3
+Mozilla/5.0 (Linux; Android 10; SM-N960N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.99 Mobile Safari/537.36
+0 25
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E14
+0 37
+Mozilla/5.0 (Linux; Android 9; SM-A305F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Mobile Safari/537.36
+0 1
+facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
+0 13
+Mozilla/5.0 (Linux; Android 8.0.0; SM-A520F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36
+0 26
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1
+0 4
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 148
+0 26
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36
+0 42
+Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:28.0) Gecko/20100101 Firefox/72.0
+0 2
+Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+0 1
+Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101 Firefox/78.0
+0 27
+Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://
+0 3
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 143
+0 39
+Mozilla/5.0 (Linux; Android 10; SM-A207F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.117 Mobile Safari/537.36
+0 27
+Mozilla/5.0 (Linux; U; Android 8.1.0; id-id; Redmi 5 Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.
+0 56
+Mozilla/5.0 (Linux; Android 10; SM-A515F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 26
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 147
+0 26
+Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)
+0 6
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+0 40
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 147
+0 31
+Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)
+0 13
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Mobile/15E14
+0 29
+curl/7.70.0
+0 3
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/83.0.41
+0 21
+Mozilla/5.0 (Linux; U; Android 9; en-US; SM-G955F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 C
+0 2
+Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Sa
+0 1
+Mozilla/5.0 (Linux; Android 5.1; A1601 Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.
+0 3
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 148
+0 31
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 
+0 22
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+0 4
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E14
+0 24
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 143.0
+0 27
+Mozilla/5.0 (compatible; SemrushBot/6~bl; +http://www.semrush.com/bot.html)
+0 41
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+0 441
+Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E14
+0 30
+Mozilla/5.0 (Linux; Android 7.0; SM-J530Y Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.39
+0 26
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/
+0 1
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko)
+0 22
+Mozilla/5.0 (Linux; Android 6.0.1; SM-G610F Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.89 Mobile S
+0 27
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/116.0.320332172 Mobile/15
+0 24
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 146
+0 27
+Mozilla/5.0 (Windows NT 6.1; rv:77.0) Gecko/20100101 Firefox/77.0
+0 1
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.118 Mobile 
+0 6
+Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safa
+0 1
+Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 
+0 47
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
