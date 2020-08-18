@@ -39,6 +39,15 @@
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td>Cover Buku Panduan Student Day</td>
+                        <td>A4 Format Buku Bolak Balik (A4 dibagi 2)</td>
+                        <td>Berwarna</td>
+                        <td>
+                            <a target="_blank" class="btn btn-success" href="/buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
                         <td>Buku Panduan Student Day</td>
                         <td>A4 Format Buku Bolak Balik (A4 dibagi 2)</td>
                         <td>Putih</td>

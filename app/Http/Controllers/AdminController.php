@@ -53,7 +53,7 @@ class AdminController extends Controller
         $sudah_verifikasi = DB::table('users')
                             ->select('users.*', 'logs.*')
                             ->where('users.lengkap', '>=', 4)
-                            ->count();              
+                            ->count();
         return view('admin.index', compact('mahasiswa', 'verifikasi', 'belum_verifikasi', 'sudah_verifikasi'));
     }
 
@@ -92,14 +92,14 @@ class AdminController extends Controller
         //     ]);
 
         // }
-        
-        if($req->has('lengkap')){  
+
+        if($req->has('lengkap')){
             if($req['lengkap'] == 0 || $req['lengkap'] == 1 || $req['lengkap'] == 2 || $req['lengkap'] == 3 || $req['lengkap'] == 4 || $req['lengkap'] == 5 || $req['lengkap'] == 6 || $req['lengkap'] == 7 || $req['lengkap'] == 8 || $req['lengkap'] == 9){
                 $data->where('lengkap', $req->lengkap);
                 $filter['lengkap'] = $req->lengkap;
             }
         }
-        
+
         if($req->has('prodi')){
             foreach($prodis as $prodi){
                 if($prodi->id == $req->prodi){
@@ -175,7 +175,7 @@ class AdminController extends Controller
 
         return response()->download($file, 'tugas-'.$mahasiswa->nim.'.pdf', $headers);
     }
-    
+
     public function getKrmPdf($id){
         $mahasiswa = User::find($id);
 
@@ -333,12 +333,12 @@ class AdminController extends Controller
         $messages = [
             'required' => 'Kolom :attribute Wajib Diisi!',
 		];
-		
+
 		$this->validate($request, [
 			'judul' => 'required|string',
 	    	'konten' => 'required|string',
         ],$messages);
-        
+
         $pengumuman = new PengumumanStudentDay;
         $pengumuman->judul = $request->judul;
         $pengumuman->konten = $request->konten;
@@ -666,7 +666,8 @@ class AdminController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'note' => 'required|string'
+                'note' => 'required|string',
+                'note_ilmiah' => 'required|string'
             ]
         );
 
@@ -684,6 +685,7 @@ class AdminController extends Controller
             $note = Notes::create([
                 'user_id' => $mahasiswa->id,
                 'notes' => $request->note,
+                'notes_ilmiah' => $request->note_ilmiah,
                 'tipe' => 'verifikasi'
             ]);
 
@@ -707,7 +709,7 @@ class AdminController extends Controller
         $messages = [
             'required' => 'Kolom :attribute Wajib Diisi!',
 		];
-		
+
 		$this->validate($request, [
             'judul' => 'required|string',
             'konten' => 'required|string',
@@ -716,7 +718,7 @@ class AdminController extends Controller
         $pengumuman = PengumumanStudentDay::find($id);
         $pengumuman->judul = $request->judul;
         $pengumuman->konten = $request->konten;
-        
+
         if ($request->hasFile('gambar')) {
             $oldFileName = $pengumuman->gambar;
             File::delete('thumbnail/'. $oldFileName);
@@ -863,10 +865,10 @@ class AdminController extends Controller
 
     public function excel(){
     //     protected $fillable = [
-    //     'nim', 'password', 'nama', 'nama_panggilan', 'program_studi', 'jenis_kelamin', 
-    //     'gol_darah', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'alamat_sekarang', 
-    //     'no_telepon', 'no_hp', 'email', 'asal_sekolah', 'hobi', 'cita-cita', 'idola', 
-    //     'moto', 'jumlah_saudara', 'nama_ayah', 'nama_ibu', 'vegetarian', 'penyakit_khusus', 
+    //     'nim', 'password', 'nama', 'nama_panggilan', 'program_studi', 'jenis_kelamin',
+    //     'gol_darah', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'alamat_sekarang',
+    //     'no_telepon', 'no_hp', 'email', 'asal_sekolah', 'hobi', 'cita-cita', 'idola',
+    //     'moto', 'jumlah_saudara', 'nama_ayah', 'nama_ibu', 'vegetarian', 'penyakit_khusus',
     //     'mahasiswa_baru', 'angkatan', 'ganti_pass'
     // ];
         // $data = User::with([
@@ -991,7 +993,7 @@ class AdminController extends Controller
                 $query->where('tipe', 1)->orderBy('id', 'desc');
             }
         ]);
-        
+
         if($req->has('lengkap')){
             if($req->lengkap == 0 || $req->lengkap == 1 || $req->lengkap == 2 || $req->lengkap == 3 || $req->lengkap == 4 || $req->lengkap == 5 || $req->lengkap == 6 || $req->lengkap == 7 || $req->lengkap == 8 || $req->lengkap == 9){
                 $data->where('lengkap', $req->lengkap);
@@ -1015,14 +1017,14 @@ class AdminController extends Controller
         }
 
         $data = $data->get();
-        
+
         // Initialize the array which will be passed into the Excel
         // generator.
-        $mahasiswa = []; 
+        $mahasiswa = [];
 
         // Define the Excel spreadsheet headers
         $mahasiswa[] = [
-            'NIM', 
+            'NIM',
             'Nama',
             'Nama Panggilan',
             'Program studi',
@@ -1050,12 +1052,12 @@ class AdminController extends Controller
             'Penyakit Khusus',
             'Jalur Masuk',
             'Angkatan',
-            'Prestasi', 
-            'Pengalaman Organisasi', 
+            'Prestasi',
+            'Pengalaman Organisasi',
             'Terakhir login'
         ];
 
-        
+
         // Convert each member of the returned collection into an array,
         // and append it to the payments array.
         foreach ($data as $row) {
@@ -1063,7 +1065,7 @@ class AdminController extends Controller
             if(count($row->logs) > 0){
                 $login = $row->logs[0]->created_at->format('l, d F Y - H:i');
             }
-            
+
             $prestasi = "Tidak Ada";
             $p = "";
             if(count($row->prestasi) > 0){
@@ -1072,7 +1074,7 @@ class AdminController extends Controller
                 }
                 $prestasi = $p;
             }
-            
+
             $organisasi = "Tidak Ada";
             $o = "";
             if(count($row->organisasi) > 0){
@@ -1081,11 +1083,11 @@ class AdminController extends Controller
                 }
                 $organisasi = $o;
             }
-            
+
             $mhs  = "";
             if($row->mahasiswa_baru){
                 if($row->mahasiswa_baru == 2){
-                    $mhs = "Mahasiswa Lama";
+                    $mhs = "-";
                 }elseif($row->mahasiswa_baru == 1){
                     $mhs = "SNMPTN";
                 }elseif($row->mahasiswa_baru == 3){
@@ -1145,7 +1147,7 @@ class AdminController extends Controller
 
     public function buatbaruakun2020(){
         dd('x');
-        
+
         $mahasiswa = new User;
     }
 

@@ -36,18 +36,17 @@
                                 <td><label for="ket">Keterangan</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="keterangan" rows="3"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="keterangan" rows="3" placeholder="Masukan keterangan tugas disini..."></textarea>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="tugas">File</label>
-                                    <small>Format .pdf</small>
+                                <td><label for="tugas">Link Tugas</label>
+                                    <!-- <small>Format .pdf</small> -->
                                 </td>
                                 <td>
-                                    <div class="col-12">
-                                        <input type="file" class="custom-file-input berkas" id="tugas" name="tugas">
-                                        <label id="label-tugas" class="custom-file-label" for="tugas">Choose file</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="link" rows="3" placeholder="Masukan link form tugas disini..."></textarea>
                                     </div>
                                 </td>
                             </tr>

@@ -87,6 +87,7 @@
                 <li class="@yield('active2')"><a href="{{ route('admin.mahasiswa') }}"><i class="fa fa-fw fa-user"></i> Mahasiswa</a></li>
                 <li class="@yield('active3')"><a href="{{ route('admin.note-mahasiswa') }}"><i class="fa fa-fw fa fa-sticky-note"></i> List Note</a></li>
                 <li class="@yield('active4')"><a href="{{ route('admin.sd-pengumuman') }}"><i class="fa fa-fw fa-bell"></i> Pengumuman</a></li>
+                <!--
                 <li class="@yield('penugasan')">
                     <a href="{{ route('penugasan.setting') }}">
                         <i class="fas fa-fw fa-file-pdf"></i> Penugasan
@@ -101,6 +102,7 @@
                         <li class="@yield('activeR2')"><a href="{{ route('admin.resume-index') }}">Resume Data</a></li>
                     </ul>
                 </li>
+                -->
                 <li class="@yield('master_data')">
                     <a href="#sm_expand_1" data-toggle="collapse">
                         <i class="fa fa-fw fa-database"></i> Master Data

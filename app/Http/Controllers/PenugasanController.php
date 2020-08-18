@@ -41,7 +41,7 @@ class PenugasanController extends Controller
         $validator = Validator::make($request->all(),
             [
                 'keterangan' => 'required|string',
-                'tugas' => 'mimes:pdf',
+                'tugas' => 'string',
                 'tipe' => 'required|string',
             ]
         );
@@ -52,19 +52,11 @@ class PenugasanController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-        
+
         $tugas = new PenugasanSetting;
         $tugas->keterangan = $request->keterangan;
         $tugas->tipe = $request->tipe;
-        
-        if ($request->hasFile('tugas')) {
-            $data = $request->file('tugas');
-            $name = time().'.'.$data->getClientOriginalExtension();
-            $destinationPath = public_path('/tugas');
-            $data->move($destinationPath, $name);
-            
-            $tugas->file = '/tugas/'.$name;
-        }
+        $tugas->file = $request->link;
         $tugas->save();
         Session::flash('success', 'Tugas berhasil ditambahkan');
         return redirect()->route('penugasan.setting');

@@ -84,8 +84,27 @@
     @else
     <div class="alert alert-success">
         <i class="fa fa-check-circle"></i> 
-            Verifikasi Ulang Berhasil, Silahkan Cetak Berkas Student Day 2020.
+            Verifikasi Ulang Berhasil, Silahkan Cetak Berkas Student Day 2020 <a class="btn btn-info" href="{{ route('beranda-sd.cetak-berkas') }}" >Klik Disini</a>
         <br>
+    </div>
+    @endif
+    @if(Auth::user()->lengkap == 6)
+    <div class="alert alert-primary">
+        <h5>Kamu Mendapatkan Tugas Khusus</h5>
+        <p>Tugas Khusus dikirim 1 jam setelah hari-h Student Day berakhir bersamaan dengan tugas-tugas lainnya.
+        <br><strong>PESERTA DIHARAPKAN UNTUK MENDOWNLOAD SOAL DAN MENCATAT NOTE YANG DIBERIKAN SEBELUM HILANG DARI HALAMAN INI!</strong></p>
+        <?php
+            $i = count($ilmiah);
+        ?>
+        @foreach ($ilmiah as $khusus)
+        @if ($khusus->notes_ilmiah != null)
+            <p>
+                <i class="fa fa-exclamation-circle"></i> Note dari ADMIN: <strong>{{$khusus->notes_ilmiah}}</strong>
+                <p style="margin-left:18px;">Dikirim Pada: {{date($note->created_at)}}</p>
+            </p>
+        @endif
+        @endforeach
+        <a style="margin-left:18px;" class="btn btn-primary" href="https://drive.google.com/drive/folders/1IV9a69E5z11QD11X8hpw5pIVlol2LBab?usp=sharing">Link Soal Tugas Khusus</a>
     </div>
     @endif
     <div class="card mb-4">
@@ -100,12 +119,12 @@
                 <div class="row">
                     <div class="col-md-8 px-5">
                         {{ csrf_field() }}
+                        @if(Auth::user()->penyakit_khusus != null)
                         <label for="riwayat"><strong>Riwayat Penyakit</strong></label>
                         <div class="mb-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}">
+                                <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}" readonly>
                             </div>
-                            <small class="">* tambahkan bila ada.</small>
                             @if($errors->has('riwayat'))
                                 <span class="text-danger mx-2" role="alert">
                                     <strong>{{ $errors->first('riwayat') }}</strong>
@@ -126,7 +145,7 @@
                                 </span> 
                             @endif
                         </div>
-
+                        @endif
                         <label for="basic-url"><strong>Youtube URL</strong></label>
                         <div class="mb-3">
                             <div class="input-group">
@@ -184,6 +203,7 @@
             @elseif(Auth::user()->lengkap == 5 || Auth::user()->lengkap == 6 || Auth::user()->lengkap == 7 || Auth::user()->lengkap == 8)
             <div class="row">
                 <div class="col-md-8 px-5">
+                    @if(Auth::user()->penyakit_khusus != null)
                     <label for="riwayat"><strong>Riwayat Penyakit</strong></label>
                     <div class="mb-3">
                         <div class="input-group">
@@ -199,16 +219,13 @@
                         <a href="/beranda-sd-verifikasi-scan-download/{{Auth::user()->id}}">Download</a>
                         @endif
                     </div>
-
+                    @endif
                     <label for="basic-url"><strong>Youtube URL</strong></label>
                     <div class="mb-3">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 {{-- <span class="input-group-text" id="span-url">{{Auth::user()->youtube}}</span> --}}
                                 <a>{{Auth::user()->youtube}}</a>
-                                @if(Auth::user()->lengkap == 6)
-                                    <a href="{{ route('beranda-sd.verifikasi-youtube', ['id'=>Auth::user()->id]) }}" class="ml-2">Edit</a>
-                                @endif
                             </div>
                         </div>
                     </div>
@@ -224,7 +241,7 @@
                     </div>
                     @endif
                     @if(Auth::user()->lengkap == 6)
-                    <a href="/beranda-sd/verifikasi/{{ Auth::user()->id }}/edit" class="btn btn-secondary"><i class="fa fa-edit"></i> Ubah Data Verifikasi</a>
+                    <a href="/beranda-sd/verifikasi/edit/{{ Auth::user()->id }}" class="btn btn-secondary"><i class="fa fa-edit"></i> Ubah Data Verifikasi</a>
                     @endif
                 </div>
                 <div class="col-md-4 px-5 border-left">
