@@ -1119,7 +1119,7 @@ class DashboardSdController extends Controller
             'user_id' => Auth::user()->id,
             'tipe' => 'ilmiah'
         ])->orderBy('created_at', 'desc')->get();
-        dd($cek);
+        //dd($cek);
 
         $now = Carbon::now();
         $checktime = ResumeTime::where('prodi_id', Auth::user()->program_studi)->first();

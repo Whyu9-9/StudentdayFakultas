@@ -104,7 +104,7 @@
                     </ul>
                 </li>
                 @if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap != 9)
-                    @if ($datecond == 0)
+                    @if ($datecond != 0)
                     <li class="@yield('active6')"><a href="{{ route('beranda-sd.verifikasi') }}"><i class="fas fa-check-circle fa-fw"></i> Verifikasi</a></li>
                     @if(Auth::user()->lengkap == 8)
                     <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Cetak Berkas</a></li>

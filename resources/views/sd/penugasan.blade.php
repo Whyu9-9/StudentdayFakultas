@@ -161,21 +161,21 @@
                     </table>
                 </td>
             </tr>
-            @if($cek != null && $cek != [])
+            @if(count($cek) > 0)
             <tr>
                 <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <td bgcolor="#010000" align="center">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                             <tr>
-                                <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #ff0000">TUGAS KHUSUS</p>
+                                <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #c3862d">TUGAS KHUSUS</p>
                             </tr>
                         </table>
                     </td>
                         <tr>
-                            <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #ff0000; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                                 
-                                <p>{{$cek}} Silahkan Melakukan Pengumpulan Tugas Khusus Dengan Menekan Tombol dibawah ini <br><br> <a style="background-color:#ff0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tombol</a> </p>
+                                <p> Silahkan Melakukan Pengumpulan Tugas Khusus Dengan Menekan Tombol dibawah ini <br><br> <a style="background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tombol</a> </p>
                                 
                             </td>
                         </tr>
