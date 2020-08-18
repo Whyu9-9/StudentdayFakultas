@@ -24,7 +24,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Keterangan</th>
                             <th scope="col">Tipe</th>
-                            <th scope="col">File</th>
+                            <th scope="col">Link Tugas</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -34,17 +34,11 @@
                             <td>{{$i + 1}}</td>
                             <td>{{$setting->keterangan}}</td>
                             <td>{{$setting->tipe}}</td>
-                            <td>
-                                @if (isset($setting->file))
-                                    <a href="{{ route('penugasan.seting-download', ['id'=>$setting->id]) }}" class="btn btn-success">Download</a>
-                                @else
-                                    -
-                                @endif
-                            </td>
+                            <td>{{$setting->file}}</td>
                             <td>
                                 <a href="{{ route('penugasan.seting-delete', ['id'=>$setting->id]) }}" class="btn btn-danger">Delete</a>
                             </td>
-                            
+
                         </tr>
                         @endforeach
                     </tbody>
@@ -53,5 +47,5 @@
         </div>
     </div>
 
-    
+
 @endsection
