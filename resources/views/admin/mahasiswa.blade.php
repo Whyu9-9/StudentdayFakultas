@@ -38,18 +38,15 @@
     <div class="card mb-4">
         <div class="card-body">
             <!--<a href="{{ route('admin.mahasiswa-create') }}" class="btn btn-primary mb-3"><i class="fa fa-plus-circle mr-1"></i>Tambah mahasiswa</a>-->
-            <a href="/export-excel?lengkap={{isset($filter['lengkap']) ? $filter['lengkap'] : ''}}&prodi={{isset($filter['prodi']) ? $filter['prodi'] : ''}}&maba={{isset($filter['maba']) ? $filter['maba'] : ''}}"
-            {{-- @if(isset($filter['lengkap']))
-                href="/export-excel?lengkap={{$filter['lengkap']}}"
-            @else
-                href="/export-excel"
-            @endif --}}
-             class="btn btn-success mb-3"><i class="fa fa-file mr-1"></i>Export Excel</a>
+            <a style="margin-top: 5px;margin-right: 3px;" href="/export-excel?lengkap={{isset($filter['lengkap']) ? $filter['lengkap'] : ''}}&prodi={{isset($filter['prodi']) ? $filter['prodi'] : ''}}&maba={{isset($filter['maba']) ? $filter['maba'] : ''}}"
+            class="btn btn-outline-success mb-3"><i class="fa fa-file mr-1"></i>Rekap Registrasi</a>
+            <a style="margin-top: 5px;margin-left: 3px;" href="/export-excel-verif?lengkap={{isset($filter['lengkap']) ? $filter['lengkap'] : ''}}&prodi={{isset($filter['prodi']) ? $filter['prodi'] : ''}}&maba={{isset($filter['maba']) ? $filter['maba'] : ''}}"
+            class="btn btn-outline-info mb-3"><i class="fa fa-file mr-1"></i>Rekap Verifikasi</a>
             <hr>
             <form action="/admin-mahasiswa" action="GET">
                 <div class="form-group row">
                     <div class="col-md-8 col-sm-12 row">
-                        <select name="lengkap" class="form-control col-md-4 ml-3">
+                        <select style="margin-top: 5px;" name="lengkap" class="form-control col-md-4 ml-3">
                             <option value="">Semua</option>
 
                             <?php
@@ -67,7 +64,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        <select name="prodi" id="prodi" class="form-control col-md-4 ml-3">
+                        <select style="margin-top: 5px;" name="prodi" id="prodi" class="form-control col-md-4 ml-3">
                             <option value="">Semua</option>
                             @foreach ($prodis as $prodi)
                                 <option value="{{ $prodi->id }}"
@@ -79,7 +76,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        <select name="maba" id="maba" class="form-control col-md-3 ml-3 mr-0">
+                        <select style="margin-top: 5px;" name="maba" id="maba" class="form-control col-md-3 ml-3 mr-0">
                             <option value="">Semua</option>
                             <option value="1"
                                 @if(isset($filter['maba']))
@@ -104,7 +101,7 @@
                         </select>
                     </div>
                     <div class="col-md-2 col-sm-12">
-                        <button type="submit" class="btn btn-primary"><span class="fa fa-filter"></span> Filter</button>
+                        <button style="margin-top: 5px;" type="submit" class="btn btn-primary"><span class="fa fa-filter"></span> Filter</button>
                     </div>
                 </div>
             </form>
@@ -131,7 +128,7 @@
                                         data-profile="{{ $mahasiswa->profile }}"
                                         data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":{{ $mahasiswa->kelamin['nama'] }} "
@@ -192,7 +189,7 @@
                                         data-profile="{{ $mahasiswa->profile }}"
                                         data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":
@@ -261,7 +258,7 @@
                                         data-profile="{{ $mahasiswa->profile }}"
                                         data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":
@@ -323,14 +320,14 @@
 
                                         style="cursor:pointer"
                                     >
-                                        {{ $mahasiswa->nama }} <strong>{{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}</strong>
+                                        {{ $mahasiswa->nama }} <strong>{{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}</strong>
                                     </td>
                                     <td
                                         data-toggle="modal" data-target="#mahasiswa"
                                         data-profile="{{ $mahasiswa->profile }}"
                                         data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":
@@ -403,7 +400,7 @@
                                         data-profile="{{ $mahasiswa->profile }}"
                                         data-nim=": {{ $mahasiswa->nim }}"
                                         data-krm="{{ $mahasiswa->krm }}"
-                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === 1 || $mahasiswa->koordinator === 1 ? '(koordinator)' : ''}}"
+                                        data-nama=": {{ $mahasiswa->nama }} {{$mahasiswa->koordinator === '1' || $mahasiswa->koordinator === '1' ? '(koordinator)' : ''}}"
                                         data-nama-panggilan=": {{ $mahasiswa->nama_panggilan }}"
                                         data-prodi=": {{ $mahasiswa->prodi['nama'] }}"
                                         data-jenis-kelamin=":

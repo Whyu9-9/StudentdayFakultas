@@ -82,6 +82,7 @@ Route::post('/admin-program-studi', 'AdminController@programStudiStore')->name('
 Route::put('/admin-program-studi/{id}', 'AdminController@programStudiUpdate')->name('admin.program-studi-update');
 Route::delete('/admin-program-studi/{id}', 'AdminController@programStudiDestroy')->name('admin.program-studi-destroy');
 Route::get('/export-excel', 'AdminController@exportExcel');
+Route::get('/export-excel-verif', 'AdminController@exportExcelverif');
 Route::resource('/log', 'LogController');
 Route::resource('/note', 'NotesController');
 Route::get('/penugasan-download/{id}', 'PenugasanController@getPdf')->name('penugasan.download');
