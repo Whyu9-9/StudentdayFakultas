@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use Auth;
 use Response;
+use Validator;
 use App\PembelianBaju;
 use App\Iklans;
+use App\UserIklans;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -118,13 +120,42 @@ class IklanController extends Controller
     }
 
     public function getPembelianBaju(){
-        return 0;
         $id = Auth::user()->id;
-        $check = PembelianBaju::where('user_id', $id)->get();
-        if(count($check) > 0){
+        $dies = UserIklans::where('user_id', $id)->where('kegiatan', 'dies')->first();
+        $granat = UserIklans::where('user_id', $id)->where('kegiatan', 'granat')->first();
+        $bursa = UserIklans::where('user_id', $id)->where('kegiatan', 'bursa')->first();
+        if(isset($dies) && isset($granat)){
             return 1;
+        }else if(isset($dies) && !isset($granat)){
+            return 2;
+        }else if(!isset($dies) && isset($granat)){
+            return 3;
         }else{
             return 0;
         }
+    }
+
+    public function addPembeli(Request $request){
+        $validator = Validator::make($request->all(),
+            [
+                 'nama' => 'required|string',
+                 'telepon' => 'required|numeric',
+                 'keterangan' => 'required|string',
+            ]);
+
+        if ($validator->fails()) {
+            return back()
+            ->with('failedIklan','Gagal Melakukan Pembelian!');
+        }
+
+        $id = Auth::user()->id;
+        $beli = new PembelianBaju();
+        $beli->user_id = $id;
+        $beli->nama = $request->nama;
+        $beli->telp = $request->telepon;
+        $beli->ukuran = $request->keterangan;
+        $beli->save();
+
+        return back()->with('successIklan','Berhasil Menambahkan Pembelian');
     }
 }

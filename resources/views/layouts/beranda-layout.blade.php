@@ -119,8 +119,23 @@
 
         <div class="content" style="background-color:#f5f5f5">
             <div class="p-4">
+                @if (session('failedIklan'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="text-danger fas fa-check mr-1"></i> {{session('failedIklan')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @elseif (session('successIklan'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="text-success fas fa-check mr-1"></i> {{session('successIklan')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <!-- Modal -->
-                <div class="modal fade" id="modalIklan" tabindex="-1" aria-labelledby="modalIklantitle" aria-hidden="true">
+                <div class="modal fade" id="modalIklan" tabindex="-1" aria-labelledby="modalIklantitle" aria-hidden="false">
                     <div class="modal-dialog">
                           <div class="modal-content">
                                 <div class="modal-header">
@@ -131,14 +146,12 @@
                                 </div>
                             <div class="modal-body">
                                 <p id="modalIklantext"></p>
-                                <img src="" alt="" id="modalIklanimage">
+                                <img src="" alt="" id="modalIklanimage" style="width: 100%;">
                             </div>
                             <div class="modal-footer">
                                 <div class="" id="modalIklanform">
 
                                 </div>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                           </div>
                     </div>
@@ -165,28 +178,56 @@
                 }
             });
 
-            function getIklan(){
-                $.ajax({
-                    url: '/get/iklan/pembelianBaju',
-                    type: "get"
-                }).done(function(hasil){
-                    // alert(hasil);
-                    var x = Math.floor((Math.random() * 10) + 1);
-                    var y = x % 2;
-                    if(hasil == 0){
+            function getPembelianBaju(){
+                var check = $('#modalIklan').hasClass('show');
+                if(!check){
+                    $.ajax({
+                      url: '/get/iklan/pembelianBaju',
+                      type: "get"
+                    }).done(function(hasil){
+                      // alert(hasil);
+                      var x = Math.floor((Math.random() * 10) + 1);
+                      var y = x % 2;
+                      var csrf = $('meta[name="csrf-token"]').attr('content');
+                      var form = '<form action="/add/data/pembeli" method="post"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
+                      if(hasil == 0){
                         if(y == 0){
-                            $('#alert-iklan').css("display", "block");
-                            $('#alert-iklan').html('Text Iklan Aatau apa aja');
+                          $('#modalIklan').modal('show');
+                          $('#modalIklan #modalIklantitle').html('MODAL IKLAN GRANAT');
+                          $('#modalIklan #modalIklantext').html('Text di modalll');
+                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                          $('#modalIklan #modalIklanform').html(form);
                         }else{
-                            $('#alert-iklan').css("display", "none");
+                          $('#modalIklan').modal('show');
+                          $('#modalIklan #modalIklantitle').html('MODAL IKLAN DIES');
+                          $('#modalIklan #modalIklantext').html('Text di modalll');
+                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                          $('#modalIklan #modalIklanform').html(form);
                         }
-                    }else{
-                        $('#alert-iklan').css("display", "none");
-                    }
-                });
+                      }else if(hasil == 1){
+                        $('#modalIklan').modal('hide');
+                      }else if(hasil == 2){
+                        $('#modalIklan').modal('show');
+                        $('#modalIklan #modalIklantitle').html('MODAL IKLAN DIES');
+                        $('#modalIklan #modalIklantext').html('Text di modalll');
+                        $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                        $('#modalIklan #modalIklanform').html(form);
+                      }else if(hasil == 3){
+                        $('#modalIklan').modal('show');
+                        $('#modalIklan #modalIklantitle').html('MODAL IKLAN GRANAT');
+                        $('#modalIklan #modalIklantext').html('Text di modalll');
+                        $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                        $('#modalIklan #modalIklanform').html(form);
+                      }else{
+                        $('#modalIklan').modal('hide');
+                      }
+                    });
+                }
             }
 
-            getIklan();
+            window.setInterval(function(){
+                getPembelianBaju();
+            }, 15000);
         });
     </script>
     @yield('custom_javascript')

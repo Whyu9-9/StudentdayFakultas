@@ -166,6 +166,7 @@ Route::get('/get/time/resume', 'DashboardSdController@getTimeResume');
 Route::get('/get/krm/{id}', 'DashboardSdController@getKrmPdf')->name('beranda-sd-get-krm');
 Route::get('/beranda-sd-qrcode/link', 'DashboardSdController@qrcodelink')->name('beranda-sd-qrcode-link');
 Route::get('/get/iklan/pembelianBaju', 'IklanController@getPembelianBaju');
+Route::post('/add/data/pembeli', 'IklanController@addPembeli');
 // End Student Day Mahasiswa
 
 Route::get('/bkm', function () {
