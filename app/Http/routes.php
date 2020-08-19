@@ -102,6 +102,10 @@ Route::post('/admin-resume-setting/post', 'AdminController@resumePost')->name('a
 Route::get('/admin-resume-setting/delete/{id}', 'AdminController@resumeDelete')->name('admin.resume-setting-delete');
 Route::get('/admin-get/krm/{id}', 'AdminController@getKrmPdf')->name('admin-get-krm');
 Route::get('/admin-get/prestasi/{id}', 'AdminController@getPrestasiPdf')->name('admin-get-prestasi');
+Route::get('/admin-iklan-setting', 'IklanController@index')->name('admin-iklan');
+Route::get('/admin-iklan-setting/create', 'IklanController@create')->name('admin-iklan-create');
+Route::post('/admin-iklan-setting/post', 'IklanController@store')->name('admin-iklan-post');
+Route::get('/admin-iklan-setting/destroy/{id}', 'IklanController@destroy')->name('admin-iklan-destroy');
 Route::get('/cekemail', function(){
     $data = User::find(2727);
 
@@ -161,6 +165,7 @@ Route::get('/beranda-sd-perbaikan/{id}', 'DashboardSdController@perbaikanBiodata
 Route::get('/get/time/resume', 'DashboardSdController@getTimeResume');
 Route::get('/get/krm/{id}', 'DashboardSdController@getKrmPdf')->name('beranda-sd-get-krm');
 Route::get('/beranda-sd-qrcode/link', 'DashboardSdController@qrcodelink')->name('beranda-sd-qrcode-link');
+Route::get('/get/iklan/pembelianBaju', 'IklanController@getPembelianBaju');
 // End Student Day Mahasiswa
 
 Route::get('/bkm', function () {

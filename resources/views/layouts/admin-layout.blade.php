@@ -27,7 +27,7 @@
         body::-webkit-scrollbar-track {
             box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             background-color:#222222;
-        } 
+        }
 
         body::-webkit-scrollbar-thumb {
             background-color:#666666;
@@ -36,7 +36,7 @@
         }
         /*--------------------------------------------------------------
         # Footer
-        --------------------------------------------------------------*/        
+        --------------------------------------------------------------*/
         .footer {
             background: #292e33;
             bottom: 0;
@@ -49,7 +49,9 @@
             color: #999;
             text-decoration: none;
         }
+
     </style>
+    @yield('custom_css')
 
 </head>
 <body class="bg-light">
@@ -87,6 +89,7 @@
                 <li class="@yield('active2')"><a href="{{ route('admin.mahasiswa') }}"><i class="fa fa-fw fa-user"></i> Mahasiswa</a></li>
                 <li class="@yield('active3')"><a href="{{ route('admin.note-mahasiswa') }}"><i class="fa fa-fw fa fa-sticky-note"></i> List Note</a></li>
                 <li class="@yield('active4')"><a href="{{ route('admin.sd-pengumuman') }}"><i class="fa fa-fw fa-bell"></i> Pengumuman</a></li>
+                <!-- <li class="@yield('activeIklan')"><a href="{{ route('admin-iklan') }}"><i class="fa fa-fw fa-bullhorn"></i> Iklan</a></li> -->
                 <!--
                 <li class="@yield('penugasan')">
                     <a href="{{ route('penugasan.setting') }}">
@@ -133,9 +136,9 @@
     <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/js/bootadmin.min.js') }}"></script>
     <script src="{{ asset('/js/datatables.min.js') }}"></script>
-    
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
-    
+
     <script>
         $(document).ready(function() {
             $('#table').DataTable();

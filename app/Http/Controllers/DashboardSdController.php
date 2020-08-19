@@ -839,13 +839,8 @@ class DashboardSdController extends Controller
         $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
         $mahasiswa->save();
 
-<<<<<<< HEAD
-        return redirect('/beranda-sd-verifikasi')->withSuccess('Berhasil Update URL Youtube');
-
-=======
         return redirect('/beranda-sd/verifikasi/edit/'.Auth::user()->id)->withSuccess('Berhasil Update URL Youtube');
-        
->>>>>>> 6a3d8ea2deb6c20ca377fdabbc32616d2078f293
+
     }
 
     /**

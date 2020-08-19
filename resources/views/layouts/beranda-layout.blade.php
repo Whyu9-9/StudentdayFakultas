@@ -23,7 +23,7 @@
     <style>
         /*--------------------------------------------------------------
         # Footer
-        --------------------------------------------------------------*/        
+        --------------------------------------------------------------*/
         .footer {
             background: #292e33;
             bottom: 0;
@@ -43,14 +43,14 @@
         body::-webkit-scrollbar-track {
             box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             background-color:#222222;
-        } 
+        }
 
         body::-webkit-scrollbar-thumb {
             background-color:#666666;
             opacity: 0.6;
             border-radius: 10px;
         }
-        
+
     </style>
 
 </head>
@@ -84,7 +84,7 @@
     <div class="d-flex">
         <div class="sidebar sidebar-dark bg-dark">
             <ul class="list-unstyled">
-                <?php 
+                <?php
                     $serverdate = date("d-m-Y");
                     if($serverdate == '18-08-2020'){
                         $datecond = 1;
@@ -119,6 +119,30 @@
 
         <div class="content" style="background-color:#f5f5f5">
             <div class="p-4">
+                <!-- Modal -->
+                <div class="modal fade" id="modalIklan" tabindex="-1" aria-labelledby="modalIklantitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                      <h5 class="modal-title" id="modalIklantitle"></h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                </div>
+                            <div class="modal-body">
+                                <p id="modalIklantext"></p>
+                                <img src="" alt="" id="modalIklanimage">
+                            </div>
+                            <div class="modal-footer">
+                                <div class="" id="modalIklanform">
+
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
                 @yield('content')
             </div>
         </div>
@@ -132,6 +156,39 @@
     <script src="{{ asset('/js/bootadmin.min.js') }}"></script>
     <script src="{{ asset('/js/datatables.min.js') }}"></script>
     <script src="{{ asset('/js/all.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        /*Script Umum*/
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            function getIklan(){
+                $.ajax({
+                    url: '/get/iklan/pembelianBaju',
+                    type: "get"
+                }).done(function(hasil){
+                    // alert(hasil);
+                    var x = Math.floor((Math.random() * 10) + 1);
+                    var y = x % 2;
+                    if(hasil == 0){
+                        if(y == 0){
+                            $('#alert-iklan').css("display", "block");
+                            $('#alert-iklan').html('Text Iklan Aatau apa aja');
+                        }else{
+                            $('#alert-iklan').css("display", "none");
+                        }
+                    }else{
+                        $('#alert-iklan').css("display", "none");
+                    }
+                });
+            }
+
+            getIklan();
+        });
+    </script>
     @yield('custom_javascript')
 </body>
 </html>
