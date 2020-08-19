@@ -6,14 +6,14 @@
 
 @section('custom_style')
     <style type="text/css">
-    #demo {
-        text-align: center;
-        font-size: 30px;
-        background-color: #dc3545;
-        color:#FFF;
-        padding: 10px;
-        margin :0px 230px 40px 230px;
+    .title-right {
+        float: right;
     }
+
+    .title-left {
+        display: inline;
+}
+
         @media screen {
             @font-face {
                 font-family: 'Lato';
@@ -72,6 +72,10 @@
             text-decoration: none;
         }
 
+        background{
+            opacity: 0.5;
+        }
+
         table {
             border-collapse: collapse !important;
         }
@@ -109,7 +113,13 @@
         @endsection
 
 @section('content')
-    <h2 class="mb-4"><i class="fa fa-sticky-note"></i> Penugasan</h2>
+    <h2 class="mb-4"><i class="fas fa-fw fa-file-pdf"></i> Penugasan</h2>
+    <div class=" alert alert-danger">
+        <i class="fa fa-exclamation-circle text-danger"></i> <strong>Sisa Waktu Pengumpulan Tugas:</strong>
+        <span class="badge badge-pill badge-danger" id="demo"></span>
+        <br>
+        <span>Upload Semua Penugasan melalui Google Form yang Telah Disediakan Sebelum Tenggat Waktu Pengumpulan Berakhir</span>
+    </div>
     
     @if ($errors->any())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -137,34 +147,43 @@
             </button>
         </div>  
     @endif
-    <h3 style="text-align: center;">Sisa Waktu Pengumpulan Tugas</h3>
-    <p id="demo"></p>
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <?php 
+                    $serverdate = date("d-m-Y");
+                    if($serverdate == '19-08-2020'){
+                        $datecond = 1;
+                    }else{
+                        $datecond = 0;
+                    }
+            ?>
             <!-- LOGO -->
             <tr>
-                <td bgcolor="#fff" align="center">
+                <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <td bgcolor="#010000" align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                            <tr>
+                                <p style="font-size: 40px; font-weight:400px; color: #c3862d; margin-top:20px;">PENGUMPULAN PENUGASAN<br>STUDENT DAY 2020</p>
+                            </tr>
+                        </table>
+                    </td>
+                    <tr>
+                        <td bgcolor="#010000" align="center" style=" background-position: center;background-image:url('{{ asset('/img/logo-sd-2020.png') }}');background-size: 200px 200px; background-repeat: no-repeat; padding: 90px 110px 120px 110px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            
+                        </td>
+                    </tr>
                         <tr>
-                            <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #c3862d">PENGUMPULAN</p>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#fff" align="center" style="padding: 0px 10px 0px 10px;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                        <tr>
-                            <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 10px 0px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 3px; line-height: 48px;">
-                                <h1 style="font-size: 20px; font-weight: 700; margin: 2;"></h1> 
-                                {{-- <img src="https://pasargro.com/assets/img/cart-template/logo.png" width="155" height="150" style="display: block; border: 0px;" /> --}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 20px 20px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 400;">
-                                <p>Silahkan Mengumpulkan Penugasan Dengan Menekan Tombol Dibawah Ini.</p>
-                                <p>
-                                    <a style="background-color:goldenrod;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" style="color: #d8a547 !important;"><strong>Tombol</strong></a>
+                            <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                
+                                <p> Silahkan Melakukan Pengumpulan Penugasan dengan Menekan Tombol dibawah ini <br><br> 
+                                    @if ($datecond != 0)
+                                    <a style="background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Link Google Form</a>
+                                    @else
+                                    <button style="background-color:#8B0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" disabled>Waktu Habis</button>
+                                    @endif
                                 </p>
+                                    
+
                             </td>
                         </tr>
                     </table>
@@ -173,19 +192,30 @@
             @foreach ($cek as $ceks)
             @if($ceks->notes_ilmiah != NULL)
             <tr>
-                <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
+                <td bgcolor="#fff" align="center" style="padding: 0px 10px 0px 10px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <td bgcolor="#010000" align="center">
+                    <td bgcolor="#fff" align="center">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                             <tr>
-                                <p style="font-size: 40px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight:400px; color: #c3862d">TUGAS KHUSUS</p>
+                                <p style="font-size: 40px; font-weight:400px; color: #010000;margin-top:20px;">PENGUMPULAN PENUGASAN KHUSUS</p>
                             </tr>
                         </table>
                     </td>
+                    <tr>
+                        <td bgcolor="#fff" align="center" style=" background-position: center;background-image:url('{{ asset('/img/logo-sd-2020-black.png') }}');background-size: 200px 200px; background-repeat: no-repeat; padding: 60px 110px 120px 110px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            
+                        </td>
+                    </tr>
                         <tr>
-                            <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            <td bgcolor="#fff" align="center" style="padding: 20px 30px 40px 30px; color: #010000; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                                 
-                                <p> Silahkan Melakukan Pengumpulan Tugas Khusus Dengan Menekan Tombol dibawah ini <br><br> <a style="background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tombol</a> </p>
+                                <p> Silahkan Melakukan Pengumpulan Penugasan Khusus Dengan Menekan Tombol dibawah ini <br><br> 
+                                    @if($datecond != 0)
+                                    <a style="background-color:#010000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Link Google Form</a>
+                                    @else
+                                    <button style="background-color:#8B0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" disabled>Waktu Habis</button>
+                                    @endif
+                                </p>
                                 
                             </td>
                         </tr>
@@ -200,7 +230,7 @@
 @section('custom_javascript')
 <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Sep 12, 2020 17:00:00").getTime();
+    var countDownDate = new Date("Sep 11, 2020 17:00:00").getTime();
     
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -218,8 +248,7 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
       // Output the result in an element with id="demo"
-      document.getElementById("demo").innerHTML = days + " Hari " + hours + " Jam "
-      + minutes + " Menit " + seconds + " Detik ";
+      document.getElementById("demo").innerHTML = minutes + " Menit " + seconds + " Detik ";
         
       // If the count down is over, write some text 
       if (distance < 0) {

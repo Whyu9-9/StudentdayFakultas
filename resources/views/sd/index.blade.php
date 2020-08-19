@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <p class="text-center">
-                            <a href="/login" style="border-radius:22px" class="btn btn-secondary" aria-disabled="true">Login</a>
+                            <a href="/login" style="border-radius:23px;margin-top:10px" class="btn btn-secondary btn-lg" aria-disabled="true">Login</a>
                         </p>
                     </div>
                 </section>
