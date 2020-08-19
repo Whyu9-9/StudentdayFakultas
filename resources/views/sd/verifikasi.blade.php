@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+    <script src="https://apis.google.com/js/platform.js"></script>
+
     <div class="col-12 row mb-4">
         <h2 class="mr-3"><i class="fa fa-check-circle"></i> Verifikasi</h2>
         @if(Auth::user()->lengkap == 5)
@@ -44,22 +46,22 @@
             </button>
         </div>
     @endif
-            
+
     @if(Auth::user()->lengkap == 0 || Auth::user()->lengkap == 1 || Auth::user()->lengkap == 2 || Auth::user()->lengkap == 3)
     <div class="alert alert-primary">
-        <i class="fa fa-check-circle"></i> 
+        <i class="fa fa-check-circle"></i>
             Kamu Belum Terdaftar Student Day! Silahkan Mendaftar Terlebih dahulu.
         <br>
     </div>
     @elseif(Auth::user()->lengkap == 4)
     <div class="alert alert-success">
-        <i class="fa fa-check-circle"></i> 
+        <i class="fa fa-check-circle"></i>
             Terdaftar Student Day, Silahkan Verifikasi Ulang!
         <br>
     </div>
     @elseif(Auth::user()->lengkap == 5)
     <div class="alert alert-warning">
-        <i class="fa fa-check-circle"></i> 
+        <i class="fa fa-check-circle"></i>
             Admin Sedang Memvalidasi Data Verifikasi.
         <br>
     </div>
@@ -77,13 +79,13 @@
     </div>
     @elseif(Auth::user()->lengkap == '7')
     <div class="alert alert-warning">
-        <i class="fa fa-check-circle"></i> 
+        <i class="fa fa-check-circle"></i>
             Admin Sedang Memvalidasi Data Verifikasi.
         <br>
     </div>
     @else
     <div class="alert alert-success">
-        <i class="fa fa-check-circle"></i> 
+        <i class="fa fa-check-circle"></i>
             Verifikasi Ulang Berhasil, Silahkan Cetak Berkas Student Day 2020 <a class="btn btn-info" href="{{ route('beranda-sd.cetak-berkas') }}" >Klik Disini</a>
         <br>
     </div>
@@ -128,7 +130,7 @@
                             @if($errors->has('riwayat'))
                                 <span class="text-danger mx-2" role="alert">
                                     <strong>{{ $errors->first('riwayat') }}</strong>
-                                </span> 
+                                </span>
                             @endif
                         </div>
 
@@ -142,7 +144,7 @@
                             @if($errors->has('scan-riwayat'))
                                 <span class="text-danger mx-2" role="alert">
                                     <strong>{{ $errors->first('scan-riwayat') }}</strong>
-                                </span> 
+                                </span>
                             @endif
                         </div>
                         @endif
@@ -157,10 +159,10 @@
                             @if($errors->has('url'))
                                 <span class="text-danger mx-2" role="alert">
                                     <strong>{{ $errors->first('url') }}</strong>
-                                </span> 
+                                </span>
                             @endif
                         </div>
-                        
+
                         @if (Auth::user()->mahasiswa_baru == 2)
                             <label for="bukti-pembayaran"><strong>Bukti Pembayaran</strong></label>
                             <small class="">*format pdf.</small>
@@ -172,11 +174,11 @@
                                 @if($errors->has('bukti-pembayaran'))
                                     <span class="text-danger mx-2" role="alert">
                                         <strong>{{ $errors->first('bukti-pembayaran') }}</strong>
-                                    </span> 
+                                    </span>
                                 @endif
                             </div>
                         @endif
-                        
+
                     </div>
                     <div class="col-md-4 px-5 border-left">
                         <label for="basic-url"><strong>Profile Picture</strong></label>
@@ -191,11 +193,11 @@
                             @if($errors->has('profileimage'))
                                 <span class="text-danger mx-2" role="alert">
                                     <strong>{{ $errors->first('profileimage') }}</strong>
-                                </span> 
+                                </span>
                             @endif
                         </div>
                     </div>
-                </div>        
+                </div>
                 <div class="col-12 text-center mt-3">
                     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Verifikasi Ulang</button>
                 </div>
@@ -210,7 +212,7 @@
                             <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}" readonly>
                         </div>
                     </div>
-                    
+
                     <label for="scan-riwayat"><strong>Scan Bukti Riwayat Penyakit</strong></label>
                     <div class="mb-3">
                         @if(Auth::user()->scan_penyakit == null)
@@ -254,9 +256,11 @@
             @endif
         </div>
     </div>
+
 @endsection
 
 @section('custom_javascript')
+    <script src="https://apis.google.com/js/api.js"></script>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {

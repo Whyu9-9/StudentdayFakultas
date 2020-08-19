@@ -229,7 +229,7 @@
 
             window.setInterval(function(){
                 getPembelianBaju();
-            }, 15000);
+            }, 300000); // 1 detik = 1000
         });
     </script>
     @yield('custom_javascript')

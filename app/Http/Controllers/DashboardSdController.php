@@ -25,6 +25,7 @@ use App\ResumeTime;
 use App\Resume;
 use App\Organisasi;
 use App\Prestasi;
+use App\UserIklans;
 use \Carbon\now;
 use App\PenugasanSetting;
 
@@ -342,10 +343,39 @@ class DashboardSdController extends Controller
         }
     }
 
+    public function subscribeView(){
+        $dies = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'dies')->get();
+        $granat = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'granat')->get();
+        if(count($dies) > 0 && count($granat) > 0){
+            return redirect()->route('beranda-sd.verifikasi');
+        }
+        return view('sd.subscribe-youtube', compact('dies','granat'));
+    }
+
+    public function subscribedRedirect($id){
+        $iduser = Auth::user()->id;
+        $mahasiswa = new UserIklans;
+        $mahasiswa->user_id = $iduser;
+        $mahasiswa->flag = 1;
+        if($id == 1){
+            $mahasiswa->kegiatan = 'dies';
+        }else if($id == 2){
+            $mahasiswa->kegiatan = 'granat';
+        }else{
+            return redirect('/beranda-sd/verifikasi/subscribe-youtube')->withErrors('Gagal melakukan subscribe');
+        }
+        $mahasiswa->save();
+        return redirect('/beranda-sd/verifikasi/subscribe-youtube')->withSuccess('Berhasil Melakukan Subscribe');
+    }
+
     public function verifikasi(){
-        /*if(Auth::user()->lengkap != 8){
-            return redirect()->route('beranda-sd.biodata');
-        }*/
+        $dies = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'dies')->get();
+        $granat = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'granat')->get();
+
+        if(count($dies) == 0 || count($granat) == 0){
+            return redirect()->route('beranda-sd.subscribe-youtube');
+        }
+
         if(Auth::user()->lengkap == 0){
             return redirect()->route('beranda-sd.biodata');
         }else if(Auth::user()->lengkap == 4 || Auth::user()->lengkap == 5 || Auth::user()->lengkap == 6 || Auth::user()->lengkap == 7 || Auth::user()->lengkap == 8){
