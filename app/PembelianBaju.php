@@ -10,6 +10,6 @@ class PembelianBaju extends Model
     protected $table = 'pembelian_baju';
 
     protected $fillable = [
-        'user_id', 'nama', 'telp', 'ukuran'
+        'user_id', 'nama', 'telp', 'ukuran', 'kegiatan'
     ];
 }

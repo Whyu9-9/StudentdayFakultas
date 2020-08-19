@@ -121,9 +121,8 @@ class IklanController extends Controller
 
     public function getPembelianBaju(){
         $id = Auth::user()->id;
-        $dies = UserIklans::where('user_id', $id)->where('kegiatan', 'dies')->first();
-        $granat = UserIklans::where('user_id', $id)->where('kegiatan', 'granat')->first();
-        $bursa = UserIklans::where('user_id', $id)->where('kegiatan', 'bursa')->first();
+        $dies = PembelianBaju::where('user_id', $id)->where('kegiatan', 'dies')->first();
+        $granat = PembelianBaju::where('user_id', $id)->where('kegiatan', 'granat')->first();
         if(isset($dies) && isset($granat)){
             return 1;
         }else if(isset($dies) && !isset($granat)){
@@ -141,6 +140,7 @@ class IklanController extends Controller
                  'nama' => 'required|string',
                  'telepon' => 'required|numeric',
                  'keterangan' => 'required|string',
+                 'tipe' => 'required|string'
             ]);
 
         if ($validator->fails()) {
@@ -154,6 +154,7 @@ class IklanController extends Controller
         $beli->nama = $request->nama;
         $beli->telp = $request->telepon;
         $beli->ukuran = $request->keterangan;
+        $beli->kegiatan = $request->tipe;
         $beli->save();
 
         return back()->with('successIklan','Berhasil Menambahkan Pembelian');

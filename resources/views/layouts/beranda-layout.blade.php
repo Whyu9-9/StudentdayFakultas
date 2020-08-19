@@ -189,35 +189,37 @@
                       var x = Math.floor((Math.random() * 10) + 1);
                       var y = x % 2;
                       var csrf = $('meta[name="csrf-token"]').attr('content');
-                      var form = '<form action="/add/data/pembeli" method="post"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
+                      var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
+
+                      var formDies = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="dies"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
                       if(hasil == 0){
                         if(y == 0){
                           $('#modalIklan').modal('show');
                           $('#modalIklan #modalIklantitle').html('MODAL IKLAN GRANAT');
                           $('#modalIklan #modalIklantext').html('Text di modalll');
                           $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                          $('#modalIklan #modalIklanform').html(form);
+                          $('#modalIklan #modalIklanform').html(formGranat);
                         }else{
                           $('#modalIklan').modal('show');
                           $('#modalIklan #modalIklantitle').html('MODAL IKLAN DIES');
                           $('#modalIklan #modalIklantext').html('Text di modalll');
                           $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                          $('#modalIklan #modalIklanform').html(form);
+                          $('#modalIklan #modalIklanform').html(formDies);
                         }
                       }else if(hasil == 1){
                         $('#modalIklan').modal('hide');
                       }else if(hasil == 2){
                         $('#modalIklan').modal('show');
-                        $('#modalIklan #modalIklantitle').html('MODAL IKLAN DIES');
-                        $('#modalIklan #modalIklantext').html('Text di modalll');
-                        $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                        $('#modalIklan #modalIklanform').html(form);
-                      }else if(hasil == 3){
-                        $('#modalIklan').modal('show');
                         $('#modalIklan #modalIklantitle').html('MODAL IKLAN GRANAT');
                         $('#modalIklan #modalIklantext').html('Text di modalll');
                         $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                        $('#modalIklan #modalIklanform').html(form);
+                        $('#modalIklan #modalIklanform').html(formGranat);
+                      }else if(hasil == 3){
+                        $('#modalIklan').modal('show');
+                        $('#modalIklan #modalIklantitle').html('MODAL IKLAN DIES');
+                        $('#modalIklan #modalIklantext').html('Text di modalll');
+                        $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                        $('#modalIklan #modalIklanform').html(formDies);
                       }else{
                         $('#modalIklan').modal('hide');
                       }
