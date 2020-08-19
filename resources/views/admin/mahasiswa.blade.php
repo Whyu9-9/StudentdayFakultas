@@ -496,7 +496,7 @@
                                         <!--<a style="margin-bottom: 3px; display: block;" href="{{ route('admin.mahasiswa-edit', $mahasiswa->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>-->
                                         <!-- Note Buton -->
                                         <a style="margin-bottom: 3px; display: block;" href="/note/{{ $mahasiswa->id }}" class="btn btn-secondary btn-sm"><i class="fa fa-sticky-note"></i> Note</a>
-                                        <a style="margin-bottom: 3px; display: block;" href="/penugasan/{{ $mahasiswa->id }}" class="btn btn-success btn-sm"><i class="fa fa-sticky-note"></i> Tugas</a>
+                                        <!--<a style="margin-bottom: 3px; display: block;" href="/penugasan/{{ $mahasiswa->id }}" class="btn btn-success btn-sm"><i class="fa fa-sticky-note"></i> Tugas</a>-->
                                         {{-- @if($mahasiswa->youtube != null)
                                         <button style="margin-bottom: 3px;" data-toggle="modal" data-target="#youtube" class="btn btn-block btn-danger btn-sm"
                                         data-youtube="{{ $mahasiswa->youtube }}">

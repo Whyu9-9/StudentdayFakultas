@@ -60,13 +60,15 @@
         </div>
     @endif
     @if(Auth::user()->mahasiswa_baru == 2)
+    @if(Auth::user()->bukti_pembayaran == null)
         <div class="alert alert-warning">
             <i class="fa fa-exclamation-circle"></i> Pengumuman Bagi Mahasiswa Lama
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#pengumumanmala">
                 Lihat
             </button>
         </div>
-
+    @endif
+        @if(Auth::user()->bukti_pembayaran == null)
         <div class="modal fade" id="pengumumanmala" tabindex="-1" aria-labelledby="pengumumanmalaLabel" aria-hidden="show">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -87,6 +89,7 @@
                 </div>
             </div>
         </div>
+        @endif
     @endif
     @if(Auth::user()->lengkap == 4)
             <div class="alert alert-info">

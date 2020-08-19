@@ -1087,7 +1087,7 @@ class AdminController extends Controller
             $mhs  = "";
             if($row->mahasiswa_baru){
                 if($row->mahasiswa_baru == 2){
-                    $mhs = "Mahasiswa Lama";
+                    $mhs = "-";
                 }elseif($row->mahasiswa_baru == 1){
                     $mhs = "SNMPTN";
                 }elseif($row->mahasiswa_baru == 3){

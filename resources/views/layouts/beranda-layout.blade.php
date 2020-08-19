@@ -86,7 +86,7 @@
             <ul class="list-unstyled">
                 <?php 
                     $serverdate = date("d-m-Y");
-                    if($serverdate == '17-08-2020'){
+                    if($serverdate == '18-08-2020'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;
@@ -104,10 +104,12 @@
                     </ul>
                 </li>
                 @if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap != 9)
-                    @if ($datecond == 1)
+                    @if ($datecond != 0)
                     <li class="@yield('active6')"><a href="{{ route('beranda-sd.verifikasi') }}"><i class="fas fa-check-circle fa-fw"></i> Verifikasi</a></li>
+                    @if(Auth::user()->lengkap == 8)
                     <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Cetak Berkas</a></li>
                     <li class="@yield('active9')"><a href="{{ route('beranda-sd-penugasan') }}"><i class="fas fa-fw fa-file-pdf"></i> Penugasan</a></li>
+                    @endif
                     @endif
                 <!--<li class="@yield('active7')"><a href="{{ route('beranda-sd-resume') }}"><i class="fas fa-fw fa-file-pdf"></i> Resume</a></li>-->
                 <li class="@yield('active8')"><a href="{{ route('beranda-sd-qrcode')}}"><i class="fa fa-fw fa-qrcode"></i> QR Code</a></li>

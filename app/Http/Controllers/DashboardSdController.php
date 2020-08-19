@@ -275,7 +275,7 @@ class DashboardSdController extends Controller
               'Content-Type: application/pdf',
             );
 
-        return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
+        return Response::download($file, 'Buku Panduan Student Day 2020.pdf', $headers);
     }
 
     public function coverpanduanPdf(){
@@ -288,12 +288,12 @@ class DashboardSdController extends Controller
             'tipe' => 11,
             'konten' => 'Mendownload berkas Cover Buku Panduan'
         ]);
-        $file="berkas/buku_panduan.pdf";
+        $file="berkas/cover_buku_panduan.pdf";
         $headers = array(
               'Content-Type: application/pdf',
             );
 
-        return Response::download($file, 'buku_panduan_student_day_2018.pdf', $headers);
+        return Response::download($file, 'Cover Buku Panduan.pdf', $headers);
     }
 
     public function getpdfscan($id){
@@ -354,7 +354,11 @@ class DashboardSdController extends Controller
                 'user_id' => Auth::user()->id,
                 'tipe' => 'verifikasi'
             ])->orderBy('created_at', 'desc')->take('1')->get();
-            return view('sd.verifikasi',compact('data','notes'));
+            $ilmiah = Notes::where([
+                'user_id' => Auth::user()->id,
+                'tipe' => 'verifikasi',
+            ])->get();
+            return view('sd.verifikasi',compact('data','notes','ilmiah'));
         }
     }
 
@@ -809,7 +813,8 @@ class DashboardSdController extends Controller
     }
 
     public function editVerifikasi(){
-        return view('sd.edit-verifikasi');
+        $data = User::where('id',Auth::user()->id)->first();
+        return view('sd.edit-verifikasi',compact('data'));
     }
 
     public function editYoutube(){
@@ -834,8 +839,13 @@ class DashboardSdController extends Controller
         $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
         $mahasiswa->save();
 
+<<<<<<< HEAD
         return redirect('/beranda-sd-verifikasi')->withSuccess('Berhasil Update URL Youtube');
 
+=======
+        return redirect('/beranda-sd/verifikasi/edit/'.Auth::user()->id)->withSuccess('Berhasil Update URL Youtube');
+        
+>>>>>>> 6a3d8ea2deb6c20ca377fdabbc32616d2078f293
     }
 
     /**
@@ -1110,16 +1120,14 @@ class DashboardSdController extends Controller
     }
 
     public function tugas(){
+        if(Auth::user()->lengkap != 8){
+            return redirect()->route('beranda-sd.biodata');
+        }
         $cek = Notes::where([
             'user_id' => Auth::user()->id,
-            'tipe' => 'verifikasi'
-        ])->orderBy('created_at', 'desc')->take(1)->get();
-        $listTugas = PenugasanSetting::all();
-        $tugas = Penugasan::where('user_id', Auth::user()->id)->get();
-        $tugas_khusus = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'tugas_khusus'])->get();
-        $essay = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'essay'])->get();
-        $jawab_soal = Penugasan::where(['user_id' => Auth::user()->id, 'tipe' => 'jawab_soal'])->get();
-
+            'tipe' => 'verifikasi',
+        ])->orderBy('created_at', 'desc')->take('1')->get();
+        //dd($cek);
 
         $now = Carbon::now();
         $checktime = ResumeTime::where('prodi_id', Auth::user()->program_studi)->first();
@@ -1132,7 +1140,7 @@ class DashboardSdController extends Controller
         $resumetime = ResumeTime::all();
         $resume = Resume::where('user_id', Auth::user()->id)->get();
 
-        return view('sd.penugasan', compact('tugas','cek','listTugas','essay', 'tugas_khusus', 'jawab_soal', 'resume', 'resumetime','hasil', 'checktime'));
+        return view('sd.penugasan', compact('cek', 'resumetime','hasil', 'checktime'));
     }
 
     public function penugasanPost(Request $request){
