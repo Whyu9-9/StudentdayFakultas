@@ -85,11 +85,20 @@
     <div class="d-flex">
         <div class="sidebar sidebar-dark bg-dark">
             <ul class="list-unstyled">
+                @if(Auth::user("admin")->name == 'Admin Granat')
+                    <li class="@yield('active2')"><a href="{{ route('admin.buyer-granat') }}"><i class="fa fa-fw fa-user"></i> List Buyer</a></li>
+                @elseif(Auth::user("admin")->name == 'Admin Dies')
+                    <li class="@yield('active2')"><a href="{{ route('admin.buyer-bursa') }}"><i class="fa fa-fw fa-user"></i> List Buyer</a></li>
+                @elseif(Auth::user("admin")->name == 'Admin Bursa')
+                    <li class="@yield('active2')"><a href="{{ route('admin.buyer-bursa') }}"><i class="fa fa-fw fa-user"></i> List Buyer</a></li>
+                @elseif(Auth::user("admin")->name == 'Admin BKFT')
+                    <li class="@yield('active2')"><a href="{{ route('admin.mahasiswa') }}"><i class="fa fa-fw fa-user"></i> List Buyer</a></li>
+                @else
                 <li class="@yield('active1')"><a href="{{ route('admin.index') }}"><i class="fa fa-fw fa-home"></i> Beranda</a></li>
                 <li class="@yield('active2')"><a href="{{ route('admin.mahasiswa') }}"><i class="fa fa-fw fa-user"></i> Mahasiswa</a></li>
                 <li class="@yield('active3')"><a href="{{ route('admin.note-mahasiswa') }}"><i class="fa fa-fw fa fa-sticky-note"></i> List Note</a></li>
                 <li class="@yield('active4')"><a href="{{ route('admin.sd-pengumuman') }}"><i class="fa fa-fw fa-bell"></i> Pengumuman</a></li>
-                <!-- <li class="@yield('activeIklan')"><a href="{{ route('admin-iklan') }}"><i class="fa fa-fw fa-bullhorn"></i> Iklan</a></li> -->
+               
                 <!--
                 <li class="@yield('penugasan')">
                     <a href="{{ route('penugasan.setting') }}">
@@ -117,6 +126,7 @@
                         <li class="@yield('activeM4')"><a href="{{ route('admin.program-studi-index') }}">Program Studi</a></li>
                     </ul>
                 </li>
+                @endif
             </ul>
         </div>
 

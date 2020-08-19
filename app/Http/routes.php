@@ -107,6 +107,10 @@ Route::get('/admin-iklan-setting', 'IklanController@index')->name('admin-iklan')
 Route::get('/admin-iklan-setting/create', 'IklanController@create')->name('admin-iklan-create');
 Route::post('/admin-iklan-setting/post', 'IklanController@store')->name('admin-iklan-post');
 Route::get('/admin-iklan-setting/destroy/{id}', 'IklanController@destroy')->name('admin-iklan-destroy');
+Route::get('/admin-granat', 'IklanController@granatIndex')->name('admin.buyer-granat');
+Route::get('/export-excel-granat', 'IklanController@exportExcelgranat');
+Route::get('/admin-bursa', 'IklanController@bursaIndex')->name('admin.buyer-bursa');
+Route::get('/export-excel-bursa', 'IklanController@exportExcelbursa');
 Route::get('/cekemail', function(){
     $data = User::find(2727);
 

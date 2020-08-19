@@ -135,18 +135,18 @@
                     </div>
                 @endif
                 <!-- Modal -->
-                <div class="modal fade bd-example-modal-lg" id="modalIklan" tabindex="-1" aria-labelledby="modalIklantitle" aria-hidden="false">
-                    <div class="modal-dialog modal-lg">
+                <div class="modal" id="modalIklan" tabindex="-1" aria-labelledby="modalIklantitle" aria-hidden="false">
+                    <div class="modal-dialog">
                           <div class="modal-content">
                                 <div class="modal-header">
                                       <h5 class="modal-title" id="modalIklantitle"></h5>
-                                      <img display: block;margin-left: auto;margin-right: auto;" id="iklanpict" src="">
+                                      <img style="display: block;margin-left: auto;margin-right: auto;" id="iklanpict" src=" " placeholder=" ">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                       </button>
                                 </div>
                             <div class="modal-body">
-                                <p style="font-size: 20px;" id="modalIklantext"></p>
+                                <p id="modalIklantext"></p>
                                 <img src="" alt="" id="modalIklanimage" style="width: 100%;">
                             </div>
                             <div class="modal-footer">
@@ -190,7 +190,7 @@
                       var x = Math.floor((Math.random() * 3) + 1);
                       //var y = x % 2;
                       var csrf = $('meta[name="csrf-token"]').attr('content');
-                      var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Ukuran baju</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
+                      var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Ukuran baju</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Place Order</button></div></form>'
                       var formBursa = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="bursa"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
                       var formDies = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="dies"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Keterangan</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Beli</button></div></form>'
                       if(hasil == 0){
@@ -198,14 +198,14 @@
                           $('#modalIklan').modal('show');
                           $('#modalIklan #modalIklantitle').html(' ');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
-                          $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik<br>“GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br>Pemesanan dapat dilakukan melalui web ini dengan mengisi form di bawah.<br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
+                          $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik “GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br><strong>PEMESANAN DAPAT DILAKUKAN MELALUI WEB INI DENGAN MENGISI FORM DI BAWAH</strong><br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
                           $('#modalIklan #modalIklanform').html(formGranat);
                         }else if(x == 2){
                           $('#modalIklan').modal('show');
-                          $('#modalIklan #modalIklantitle').html(' ');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/headbursa.png') }}');
-                          $('#modalIklan #modalIklantext').html(' ');
+                          $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
+                          $('#modalIklan #modalIklantext').html('Pemesanan dapat dilakukan melalui website ini dengan mengisi form di bawah.<br>HIDUP TEKNIK !!!');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                           $('#modalIklan #modalIklanform').html(formBursa);
                         }else{
@@ -235,7 +235,7 @@
                       }else if(hasil == 4){
                         $('#modalIklan').modal('show');
                         $('#modalIklan #modalIklantitle').html(' ');
-                        $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/headbursa.png') }}');
+                        $('#modalIklan #iklanpict').attr('src', ' ');
                         $('#modalIklan #modalIklantext').html(' ');
                         $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                         $('#modalIklan #modalIklanform').html(formBursa);

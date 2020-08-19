@@ -10,6 +10,7 @@ use Validator;
 use App\PembelianBaju;
 use App\Iklans;
 use App\UserIklans;
+use Excel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -161,5 +162,98 @@ class IklanController extends Controller
         $beli->save();
 
         return back()->with('successIklan','Berhasil Menambahkan Pembelian');
+    }
+    public function granatIndex()
+    {
+        $granat = PembelianBaju::where('kegiatan', 'granat')->get();
+        return view('admin.buyer-granat', compact('granat'));
+    }
+
+    public function exportExcelgranat() {
+
+        $data = PembelianBaju::where('kegiatan','granat');
+        $data = $data->get();
+
+        // Initialize the array which will be passed into the Excel
+        // generator.
+        $mahasiswa = [];
+
+        // Define the Excel spreadsheet headers
+        $mahasiswa[] = [
+            'Nama',
+            'No Telp',
+            'Ukuran Baju'
+        ];
+
+
+        // Convert each member of the returned collection into an array,
+        // and append it to the payments array.
+        foreach ($data as $row) {
+            $mahasiswa[] = [
+                $row->nama,
+                $row->telp,
+                $row->ukuran
+            ];
+        }
+
+        // Generate and return the spreadsheet
+        Excel::create('Rekap Granat', function($excel) use ($mahasiswa) {
+
+            // Set the spreadsheet title, creator, and description
+            $excel->setTitle('Granat 2020 via Website');
+
+            // Build the spreadsheet, passing in the payments array
+            $excel->sheet('sheet1', function($sheet) use ($mahasiswa) {
+                $sheet->fromArray($mahasiswa, null, 'A1', false, false);
+            });
+
+        })->download('xlsx');
+    }
+
+    public function bursaIndex()
+    {
+        $bursa = PembelianBaju::where('kegiatan', 'bursa')->get();
+        return view('admin.buyer-bursa', compact('bursa'));
+    }
+
+    public function exportExcelbursa() {
+
+        $data = PembelianBaju::where('kegiatan','bursa');
+        $data = $data->get();
+
+        // Initialize the array which will be passed into the Excel
+        // generator.
+        $mahasiswa = [];
+
+        // Define the Excel spreadsheet headers
+        $mahasiswa[] = [
+            'Nama',
+            'No Telp',
+            'Keterangan'
+        ];
+
+
+        // Convert each member of the returned collection into an array,
+        // and append it to the payments array.
+        foreach ($data as $row) {
+            $mahasiswa[] = [
+                $row->nama,
+                $row->telp,
+                $row->ukuran
+            ];
+        }
+
+        // Generate and return the spreadsheet
+        Excel::create('Rekap Bursa', function($excel) use ($mahasiswa) {
+
+            // Set the spreadsheet title, creator, and description
+            $excel->setTitle('Bursa 2020 via Website');
+
+            // Build the spreadsheet, passing in the payments array
+            $excel->sheet('sheet1', function($sheet) use ($mahasiswa) {
+                $sheet->fromArray($mahasiswa, null, 'A1', false, false);
+            });
+
+        })->download('xlsx');
     }
 }
