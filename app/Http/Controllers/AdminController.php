@@ -979,6 +979,113 @@ class AdminController extends Controller
         return 1;
     }
 
+    public function exportExcelverif(Request $req) {
+
+        $data = User::with([
+            'prodi',
+            'kelamin',
+            'mhsangkatan',
+            'logs' => function($query){
+                $query->where('tipe', 1)->orderBy('id', 'desc');
+            }
+        ]);
+
+        if($req->has('lengkap')){
+            if($req->lengkap == 0 || $req->lengkap == 1 || $req->lengkap == 2 || $req->lengkap == 3 || $req->lengkap == 4 || $req->lengkap == 5 || $req->lengkap == 6 || $req->lengkap == 7 || $req->lengkap == 8 || $req->lengkap == 9){
+                $data->where('lengkap', $req->lengkap);
+            }
+        }
+
+        if($req->has('prodi')){
+            $prodis = ProgramStudi::all();
+            foreach($prodis as $prodi){
+                if($prodi->id == $req->prodi){
+                    $data->where('program_studi', $req->prodi);
+                    break;
+                }
+            }
+        }
+
+        if($req->has('maba')){
+            if($req->maba == 1 || $req->maba == 2|| $req->maba == 3|| $req->maba == 4){
+                $data->where('mahasiswa_baru', $req->maba);
+            }
+        }
+
+        $data = $data->get();
+
+        // Initialize the array which will be passed into the Excel
+        // generator.
+        $mahasiswa = [];
+
+        // Define the Excel spreadsheet headers
+        $mahasiswa[] = [
+            'NIM',
+            'Nama',
+            'Program studi',
+            'Jenis Kelamin',
+            'Jalur Masuk',
+            'Pembayaran Kontribusi(Khusus Mala)',
+            'Link Youtube',
+            'Terakhir login'
+        ];
+
+
+        // Convert each member of the returned collection into an array,
+        // and append it to the payments array.
+        foreach ($data as $row) {
+            $login = "Tidak ada";
+            if(count($row->logs) > 0){
+                $login = $row->logs[0]->created_at->format('l, d F Y - H:i');
+            }
+
+            $mhs  = "";
+            if($row->mahasiswa_baru){
+                if($row->mahasiswa_baru == 2){
+                    $mhs = "-";
+                }elseif($row->mahasiswa_baru == 1){
+                    $mhs = "SNMPTN";
+                }elseif($row->mahasiswa_baru == 3){
+                    $mhs = "SBMPTN";
+                }elseif($row->mahasiswa_baru == 4){
+                    $mhs = "MANDIRI";
+                }
+            }
+
+            $kon = "";
+            if($row->bukti_pembayaran){
+                if($row->bukti_pembayaran == NULL){
+                    $kon = "-";
+                }elseif($row->bukti_pembayaran != NULL){
+                    $kon = "Sudah Bayar";
+                }
+            }
+            $mahasiswa[] = [
+                $row->nim,
+                $row->nama,
+                $row->prodi['nama'],
+                $row->kelamin['nama'],
+                $mhs,
+                $kon,
+                $row->youtube,
+                $login
+            ];
+        }
+
+        // Generate and return the spreadsheet
+        Excel::create('Rekap Verifikasi', function($excel) use ($mahasiswa) {
+
+            // Set the spreadsheet title, creator, and description
+            $excel->setTitle('Peserta Student Day');
+
+            // Build the spreadsheet, passing in the payments array
+            $excel->sheet('sheet1', function($sheet) use ($mahasiswa) {
+                $sheet->fromArray($mahasiswa, null, 'A1', false, false);
+            });
+
+        })->download('xlsx');
+    }
+
     public function exportExcel(Request $req) {
 
         $data = User::with([
@@ -1011,7 +1118,7 @@ class AdminController extends Controller
         }
 
         if($req->has('maba')){
-            if($req->maba == 1 || $req->maba == 2){
+            if($req->maba == 1 || $req->maba == 2|| $req->maba == 3|| $req->maba == 4){
                 $data->where('mahasiswa_baru', $req->maba);
             }
         }
@@ -1132,7 +1239,7 @@ class AdminController extends Controller
         }
 
         // Generate and return the spreadsheet
-        Excel::create('peserta', function($excel) use ($mahasiswa) {
+        Excel::create('Rekap Registrasi', function($excel) use ($mahasiswa) {
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Peserta Student Day');

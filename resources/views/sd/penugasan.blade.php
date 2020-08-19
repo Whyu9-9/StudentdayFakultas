@@ -177,7 +177,8 @@
                                 
                                 <p> Silahkan Melakukan Pengumpulan Penugasan dengan Menekan Tombol dibawah ini <br><br> 
                                     @if ($datecond != 0)
-                                    <a style="background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Link Google Form</a>
+                                    <a style="border-radius:7px;margin-right: 10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tugas Biasa</a>
+                                    <a style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume</a>
                                     @else
                                     <button style="background-color:#8B0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" disabled>Waktu Habis</button>
                                     @endif
