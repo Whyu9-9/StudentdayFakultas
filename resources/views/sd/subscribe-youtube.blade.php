@@ -107,13 +107,13 @@
                     var user = GoogleAuth.currentUser.get();
                     var isAuthorized = user.hasGrantedScopes(SCOPE);
                     if (isAuthorized) {
-                        $('#sign-in-or-out-button').html('Keluar');
+                        $('#sign-in-or-out-button').html('Sign Out');
                         // $('#revoke-access-button').css('display', 'inline-block');
                         $('#subscribe-dies-button').css('display', 'inline-block');
                         $('#subscribe-granat-button').css('display', 'inline-block');
                         $('#auth-status').html('Akun Youtube Telah Masuk.');
                     } else {
-                        $('#sign-in-or-out-button').html('Masuk');
+                        $('#sign-in-or-out-button').html('Sign In ke Youtube');
                         $('#subscribe-dies-button').css('display', 'none');
                         $('#subscribe-granat-button').css('display', 'none');
                         // $('#revoke-access-button').css('display', 'none');
@@ -155,32 +155,46 @@
                 // var x = authenticate().then(loadClient);
                 // console.log(x);
             </script>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#010000" align="center" style="padding: 0px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+            <td bgcolor="#010000" align="center">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <p style="font-size: 30px; font-weight:500px; color: #c3862d; margin-top:20px;">Silahkan Melakukan Subscribe Channel Youtube dibawah Sebelum Melanjutkan ke Proses Verifikasi.</p>
+                    </tr>
+                </table>
+            </td>
+            <tr>
+                <td bgcolor="#010000" align="center" style=" background-position: center;background-image:url('{{ asset('/img/ftunud.png') }}');background-size: 200px 200px; background-repeat: no-repeat; padding: 90px 110px 120px 110px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                    
+                </td>
+            </tr>
+                <tr>
+                    <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <p> Login Akun Youtube <br> Pastikan Email yang digunakan sama dengan di biodata. <br><br> 
+                            <button id="sign-in-or-out-button" class="btn btn-primary my-2"></button>
+                            <p id="auth-status"></p>
+                        </p>
+                            @if(count($dies) == 0)
+                                <button id="subscribe-dies-button" class="btn btn-danger my-2 subscribe-access-button dies"><i class="fab fa-youtube"></i> Subscribe Dies</button>
+                            @endif
+                            
+                            @if(count($granat) == 0)
+                                <button id="subscribe-granat-button" class="btn btn-danger subscribe-access-button my-2 granat"><i class="fab fa-youtube"></i> Subscribe Granat</button>
+                            @endif
+                        </p>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                        <script async defer src="https://apis.google.com/js/api.js"
+                                onload="this.onload=function(){};handleClientLoad()"
+                                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+                        </script>
 
-            <div class="col-12 px-0">
-                <label for="bukti-pembayaran"><strong>Login Akun Youtube</strong><span class="text-danger">*</span></label>
-                <small>Pastikan Email yang digunakan sama dengan di biodata.</small>
-            </div>
-            <div class="col-12 px-0">
-                <button id="sign-in-or-out-button" class="btn btn-primary my-2"><i class="fa fa-edit"></i> Masuk</button>
-                <p id="auth-status"></p>
-            </div>
-
-            <div class="col-12 px-0">
-                <label for="bukti-pembayaran"><strong>Subscribe Akun Youtube</strong><span class="text-danger">*</span></label>
-            </div>
-            <div class="col-12 px-0">
-                @if(count($dies) == 0)
-                    <button id="subscribe-dies-button" class="btn btn-danger my-2 subscribe-access-button dies"><i class="fab fa-youtube"></i> Subscribe Dies</button>
-                @endif
-                @if(count($granat) == 0)
-                    <button id="subscribe-granat-button" class="btn btn-danger subscribe-access-button my-2 granat"><i class="fab fa-youtube"></i> Subscribe Granat</button>
-                @endif
-            </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-            <script async defer src="https://apis.google.com/js/api.js"
-                    onload="this.onload=function(){};handleClientLoad()"
-                    onreadystatechange="if (this.readyState === 'complete') this.onload()">
-            </script>
-        </div>
-    </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 @endsection
