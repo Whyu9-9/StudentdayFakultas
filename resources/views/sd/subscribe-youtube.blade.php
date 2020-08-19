@@ -80,7 +80,7 @@
                             3 = sudah subscribe keduanya
                         */
                         $('#subscribe-granat-button').click(function(){
-                            addSubscription('UCre86jyive2sXJMBLLzlsAA',2);
+                            addSubscription('UCJiGAXqyzXC74Cli2PDXJuQ',2);
                         });
                         $('#subscribe-dies-button').click(function(){
                             addSubscription('UCre86jyive2sXJMBLLzlsAA',1);
