@@ -17,23 +17,50 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <a style="margin-top: 5px;margin-right: 3px;" href="/export-excel-granat"
-            class="btn btn-outline-success mb-3"><i class="fa fa-file mr-1"></i>Rekap Pembeli</a>
+                <div class="col-12">
+                    <div class="row">
+                      <a style="margin-top: 5px;margin-right: 3px;" href="/export-excel-granat?prodi={{isset($filter['prodi']) ? $filter['prodi'] : ''}}"
+                      class="btn btn-outline-success mb-3 mr-3"><i class="fa fa-file mr-1"></i>Rekap Pembeli</a>
+                      <form action="{{ route('admin.buyer-granat') }}" action="GET">
+                        <div class="form-group row">
+                          <div class="col-md-8 col-sm-12 row ml-3 mr-1">
+                            <select style="margin-top: 5px;" name="prodi" id="prodi" class="form-control col-12 ml-3">
+                              <option value="">Semua</option>
+                              @foreach ($prodis as $prodi)
+                              <option value="{{ $prodi->id }}"
+                                @if(isset($filter['prodi']))
+                                @if($prodi->id == $filter['prodi']) selected @endif
+                                @endif
+                                >
+                                {{ $prodi->nama }}
+                              </option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <button style="margin-top: 5px;" type="submit" class="btn btn-primary"><span class="fa fa-filter"></span> Filter</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
                 <table id="table" class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Mahasiswa</th>
+                            <th scope="col">Program Studi</th>
                             <th scope="col">No telp</th>
                             <th scope="col">Ukuran Baju</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($granat))
+                        @if (isset($granat))
                             @foreach ($granat as $i =>$granatd)
                             <tr>
                                 <td>{{ $i + 1 }}</td>
                                 <td>{{ $granatd->nama }}</td>
+                                <td>{{ $granatd->prodi_name }}</td>
                                 <td>{{ $granatd->telp }}</td>
                                 <td>{{ $granatd->ukuran }}</td>
                             </tr>
@@ -45,5 +72,5 @@
         </div>
     </div>
 
-    
+
 @endsection

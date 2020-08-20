@@ -10,6 +10,7 @@ use Validator;
 use App\PembelianBaju;
 use App\Iklans;
 use App\UserIklans;
+use App\ProgramStudi;
 use Excel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -157,15 +158,45 @@ class IklanController extends Controller
 
         return back()->with('successIklan','Berhasil Menambahkan Pembelian');
     }
-    public function granatIndex()
+    public function granatIndex(Request $req)
     {
-        $granat = PembelianBaju::where('kegiatan', 'granat')->get();
-        return view('admin.buyer-granat', compact('granat'));
+        $filter = [];
+        $prodis = ProgramStudi::all();
+        $granat = PembelianBaju::select('*', 'users.program_studi', 'users.nama', 'program_studis.nama as prodi_name')
+                  ->join('users', 'users.id', '=', 'user_id')
+                  ->join('program_studis', 'program_studis.id', '=', 'users.program_studi')
+                  ->where('pembelian_baju.kegiatan', 'granat');
+
+        if($req->has('prodi')){
+            foreach($prodis as $prodi){
+                if($prodi->id == $req->prodi){
+                    $granat->where('program_studi', $req->prodi);
+                    $filter['prodi'] = $req->prodi;
+                    break;
+                }
+            }
+        }
+        $granat = $granat->get();
+        return view('admin.buyer-granat', compact('granat', 'filter', 'prodis'));
     }
 
-    public function exportExcelgranat() {
+    public function exportExcelgranat(Request $req) {
 
-        $data = PembelianBaju::where('kegiatan','granat');
+        // $data = PembelianBaju::where('kegiatan','granat');
+        $prodis = ProgramStudi::all();
+        $data = PembelianBaju::select('*', 'users.program_studi', 'program_studis.nama as prodi_name')
+                  ->join('users', 'users.id', '=', 'user_id')
+                  ->join('program_studis', 'program_studis.id', '=', 'users.program_studi')
+                  ->where('pembelian_baju.kegiatan', 'granat');
+
+        if($req->has('prodi')){
+            foreach($prodis as $prodi){
+                if($prodi->id == $req->prodi){
+                    $data->where('program_studi', $req->prodi);
+                    break;
+                }
+            }
+        }
         $data = $data->get();
 
         // Initialize the array which will be passed into the Excel
@@ -175,6 +206,7 @@ class IklanController extends Controller
         // Define the Excel spreadsheet headers
         $mahasiswa[] = [
             'Nama',
+            'prodi',
             'No Telp',
             'Ukuran Baju'
         ];
@@ -185,6 +217,7 @@ class IklanController extends Controller
         foreach ($data as $row) {
             $mahasiswa[] = [
                 $row->nama,
+                $row->prodi_name,
                 $row->telp,
                 $row->ukuran
             ];

@@ -12,4 +12,5 @@ class PembelianBaju extends Model
     protected $fillable = [
         'user_id', 'nama', 'telp', 'ukuran', 'kegiatan'
     ];
+
 }
