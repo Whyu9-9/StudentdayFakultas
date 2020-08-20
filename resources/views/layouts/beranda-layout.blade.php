@@ -181,6 +181,12 @@
 
             function getPembelianBaju(){
                 var check = $('#modalIklan').hasClass('show');
+
+                $("#modalIklan").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+
                 if(!check){
                     $.ajax({
                       url: '/get/iklan/pembelianBaju',
