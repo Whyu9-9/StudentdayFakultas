@@ -141,7 +141,7 @@
                                 <div class="modal-header">
                                       <h5 class="modal-title" id="modalIklantitle"></h5>
                                       <img style="display: block;margin-left: auto;margin-right: auto;" id="iklanpict" src=" " placeholder=" ">
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <button id="btn-close-iklan" type="button" class="close" data-dismiss="modal" aria-label="Close" style="display:none">
                                           <span aria-hidden="true">&times;</span>
                                       </button>
                                 </div>
@@ -242,13 +242,15 @@
                       }else{
                         $('#modalIklan').modal('hide');
                       }
+
+                      $('#modalIklan #btn-close-iklan').hide().delay(5000).show(0);
                     });
                 }
             }
 
             window.setInterval(function(){
                 getPembelianBaju();
-            }, 2000); // 1 detik = 1000
+            }, 10000); // 1 detik = 1000
         });
     </script>
     @yield('custom_javascript')
