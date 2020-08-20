@@ -86,7 +86,7 @@
             <ul class="list-unstyled">
                 <?php
                     $serverdate = date("d-m-Y");
-                    if($serverdate == '19-08-2020'){
+                    if($serverdate == '20-08-2020'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;
@@ -223,12 +223,12 @@
                         }else if(x == 2){
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
-                          $('#modalIklan #modalIklantext').html('Pemesanan dapat dilakukan melalui website ini dengan mengisi form di bawah.<br>HIDUP TEKNIK !!!');
+                          $('#modalIklan #modalIklantext').html(' ');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                           $('#modalIklan').modal('show');
                         }else{
-                          $('#modalIklan #modalIklantitle').html(' ');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/dies.png') }}');
+                          $('#modalIklan #modalIklantitle').html('Porseni Dies 2020');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
                           $('#modalIklan #modalIklantext').html('Text di modalll');
                           $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
                           $('#modalIklan').modal('show');
@@ -238,7 +238,7 @@
                         if(x == 1){
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
-                          $('#modalIklan #modalIklantext').html('Pemesanan dapat dilakukan melalui website ini dengan mengisi form di bawah.<br>HIDUP TEKNIK !!!');
+                          $('#modalIklan #modalIklantext').html(' ');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                           $('#modalIklan').modal('show');
                         }else{

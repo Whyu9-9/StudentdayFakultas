@@ -59,7 +59,7 @@
                             @foreach ($granat as $i =>$granatd)
                             <tr>
                                 <td>{{ $i + 1 }}</td>
-                                <td>{{ $granatd->nama }}</td>
+                                <td>{{ $granatd->namamhs }}</td>
                                 <td>{{ $granatd->prodi_name }}</td>
                                 <td>{{ $granatd->telp }}</td>
                                 <td>{{ $granatd->ukuran }}</td>

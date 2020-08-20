@@ -162,7 +162,7 @@ class IklanController extends Controller
     {
         $filter = [];
         $prodis = ProgramStudi::all();
-        $granat = PembelianBaju::select('*', 'users.program_studi', 'users.nama', 'program_studis.nama as prodi_name')
+        $granat = PembelianBaju::select('*', 'users.program_studi', 'users.nama as namamhs', 'program_studis.nama as prodi_name')
                   ->join('users', 'users.id', '=', 'user_id')
                   ->join('program_studis', 'program_studis.id', '=', 'users.program_studi')
                   ->where('pembelian_baju.kegiatan', 'granat');
@@ -184,7 +184,7 @@ class IklanController extends Controller
 
         // $data = PembelianBaju::where('kegiatan','granat');
         $prodis = ProgramStudi::all();
-        $data = PembelianBaju::select('*', 'users.program_studi', 'program_studis.nama as prodi_name')
+        $data = PembelianBaju::select('*', 'users.program_studi','users.nama as namamhs', 'program_studis.nama as prodi_name')
                   ->join('users', 'users.id', '=', 'user_id')
                   ->join('program_studis', 'program_studis.id', '=', 'users.program_studi')
                   ->where('pembelian_baju.kegiatan', 'granat');
@@ -206,7 +206,7 @@ class IklanController extends Controller
         // Define the Excel spreadsheet headers
         $mahasiswa[] = [
             'Nama',
-            'prodi',
+            'Prodi',
             'No Telp',
             'Ukuran Baju'
         ];
@@ -216,7 +216,7 @@ class IklanController extends Controller
         // and append it to the payments array.
         foreach ($data as $row) {
             $mahasiswa[] = [
-                $row->nama,
+                $row->namamhs,
                 $row->prodi_name,
                 $row->telp,
                 $row->ukuran
