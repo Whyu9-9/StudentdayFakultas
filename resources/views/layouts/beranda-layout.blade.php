@@ -179,6 +179,20 @@
                 }
             });
 
+            $('#modalIklan #btn-close-iklan').on('click', function(){
+                $('#modalIklan #modalIklantitle').html('');
+                $('#modalIklan #iklanpict').attr('src', '');
+                $('#modalIklan #modalIklantext').html('');
+                $('#modalIklan #modalIklanimage').attr('src', '');
+                $('#modalIklan #modalIklanform').html('');
+                $('#modalIklan #btn-close-iklan').hide();
+
+                window.setTimeout(function() {
+                  // console.log('first 10 secs');
+                    getPembelianBaju();
+                }, 10000);
+            })
+
             function getPembelianBaju(){
                 var check = $('#modalIklan').hasClass('show');
 
@@ -193,55 +207,47 @@
                       type: "get"
                     }).done(function(hasil){
                       // alert(hasil);
-                      var x = Math.floor((Math.random() * 3) + 1);
                       //var y = x % 2;
                       var csrf = $('meta[name="csrf-token"]').attr('content');
                       var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Ukuran baju</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Place Order</button></div></form>'
 
                       if(hasil == 0){
+                      var x = Math.floor((Math.random() * 3) + 1);
                         if(x == 1){
-                          $('#modalIklan').modal('show');
                           $('#modalIklan #modalIklantitle').html(' ');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
                           $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik “GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br><strong>PEMESANAN DAPAT DILAKUKAN MELALUI WEB INI DENGAN MENGISI FORM DI BAWAH</strong><br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
                           $('#modalIklan #modalIklanform').html(formGranat);
-                        }else if(x == 2){
                           $('#modalIklan').modal('show');
+                        }else if(x == 2){
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
                           $('#modalIklan #modalIklantext').html('Pemesanan dapat dilakukan melalui website ini dengan mengisi form di bawah.<br>HIDUP TEKNIK !!!');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
-
-                        }else{
                           $('#modalIklan').modal('show');
+                        }else{
                           $('#modalIklan #modalIklantitle').html(' ');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/dies.png') }}');
                           $('#modalIklan #modalIklantext').html('Text di modalll');
                           $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-
+                          $('#modalIklan').modal('show');
                         }
                       }else if(hasil == 1){
-                        $('#modalIklan').modal('hide');
-                      }else if(hasil == 2){
-                        $('#modalIklan').modal('show');
-                        $('#modalIklan #modalIklantitle').html(' ');
-                        $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
-                        $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik<br>“GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br>Pemesanan dapat dilakukan melalui web ini dengan mengisi form di bawah.<br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
-                        $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
-                        $('#modalIklan #modalIklanform').html(formGranat);
-                      }else if(hasil == 3){
-                        $('#modalIklan').modal('show');
-                        $('#modalIklan #modalIklantitle').html(' ');
-                        $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/dies.png') }}');
-                        $('#modalIklan #modalIklantext').html('Text di modalll');
-                        $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                      }else if(hasil == 4){
-                        $('#modalIklan').modal('show');
-                        $('#modalIklan #modalIklantitle').html(' ');
-                        $('#modalIklan #iklanpict').attr('src', ' ');
-                        $('#modalIklan #modalIklantext').html(' ');
-                        $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
+                      var x = Math.floor((Math.random() * 2) + 1);
+                        if(x == 1){
+                          $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
+                          $('#modalIklan #modalIklantext').html('Pemesanan dapat dilakukan melalui website ini dengan mengisi form di bawah.<br>HIDUP TEKNIK !!!');
+                          $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
+                          $('#modalIklan').modal('show');
+                        }else{
+                          $('#modalIklan #modalIklantitle').html(' ');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/dies.png') }}');
+                          $('#modalIklan #modalIklantext').html('Text di modalll');
+                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                          $('#modalIklan').modal('show');
+                        }
                       }else{
                         $('#modalIklan').modal('hide');
                       }
@@ -251,9 +257,10 @@
                 }
             }
 
-            window.setInterval(function(){
+            window.setTimeout(function() {
+              // console.log('first 10 secs');
                 getPembelianBaju();
-            }, 10000); // 1 detik = 1000
+            }, 10000);
         });
     </script>
     @yield('custom_javascript')

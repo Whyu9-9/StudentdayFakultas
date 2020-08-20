@@ -125,14 +125,8 @@ class IklanController extends Controller
         $dies = PembelianBaju::where('user_id', $id)->where('kegiatan', 'dies')->first();
         $granat = PembelianBaju::where('user_id', $id)->where('kegiatan', 'granat')->first();
         $bursa = PembelianBaju::where('user_id', $id)->where('kegiatan', 'bursa')->first();
-        if(isset($dies) && isset($granat) && isset($granat)){
+        if(isset($granat)){
             return 1;
-        }else if(isset($dies) && !isset($granat) && isset($bursa)){
-            return 2;
-        }else if(!isset($dies) && isset($granat) && isset($bursa)){
-            return 3;
-        }else if(isset($dies) && isset($granat) && !isset($bursa)){
-            return 4;
         }else{
             return 0;
         }
