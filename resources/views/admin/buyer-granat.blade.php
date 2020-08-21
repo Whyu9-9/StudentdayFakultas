@@ -49,9 +49,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Mahasiswa</th>
+                            <th scope="col">NIM</th>
                             <th scope="col">Program Studi</th>
                             <th scope="col">No telp</th>
-                            <th scope="col">Ukuran Baju</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,9 +60,9 @@
                             <tr>
                                 <td>{{ $i + 1 }}</td>
                                 <td>{{ $granatd->namamhs }}</td>
+                                <td>{{ $granatd->nim }}</td>
                                 <td>{{ $granatd->prodi_name }}</td>
                                 <td>{{ $granatd->telp }}</td>
-                                <td>{{ $granatd->ukuran }}</td>
                             </tr>
                             @endforeach
                         @endif

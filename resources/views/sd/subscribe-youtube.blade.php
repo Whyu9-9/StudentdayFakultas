@@ -83,7 +83,7 @@
                             addSubscription('UCJiGAXqyzXC74Cli2PDXJuQ',2);
                         });
                         $('#subscribe-dies-button').click(function(){
-                            addSubscription('UCre86jyive2sXJMBLLzlsAA',1);
+                            addSubscription('UCn8o1JITHP5p1oemyqyLOSA',1);
                         });
 
                     });
@@ -173,12 +173,12 @@
             </tr>
                 <tr>
                     <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                        <p> Login Akun Youtube <br> Pastikan Email yang digunakan sama dengan di biodata. <br><br> 
+                        <p> Login Akun Youtube <br> <br> 
                             <button id="sign-in-or-out-button" class="btn btn-primary my-2"></button>
                             <p id="auth-status"></p>
                         </p>
                             @if(count($dies) == 0)
-                                <button id="subscribe-dies-button" class="btn btn-danger my-2 subscribe-access-button dies"><i class="fab fa-youtube"></i> Subscribe Dies</button>
+                                <button id="subscribe-dies-button" class="btn btn-danger my-2 subscribe-access-button dies"><i class="fab fa-youtube"></i> Subscribe SMFT</button>
                             @endif
                             
                             @if(count($granat) == 0)

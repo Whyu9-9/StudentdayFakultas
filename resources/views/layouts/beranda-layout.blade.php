@@ -140,7 +140,7 @@
                           <div class="modal-content">
                                 <div class="modal-header">
                                       <h5 class="modal-title" id="modalIklantitle"></h5>
-                                      <img style="display: block;margin-left: auto;margin-right: auto;" id="iklanpict" src=" " placeholder=" ">
+                                      <img style="width: auto ;max-width: 100% ;height: auto ; display: block;margin-left: auto;margin-right: auto;" id="iklanpict" src=" " placeholder=" ">
                                       <button id="btn-close-iklan" type="button" class="close" data-dismiss="modal" aria-label="Close" style="display:none">
                                           <span aria-hidden="true">&times;</span>
                                       </button>
@@ -209,16 +209,15 @@
                       // alert(hasil);
                       //var y = x % 2;
                       var csrf = $('meta[name="csrf-token"]').attr('content');
-                      var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Data Pembeli</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="telepon">Nomor Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div><div class="form-group col-md-4"><label for="keterangan">Ukuran baju</label><input type="text" class="form-control" id="keterangan" name="keterangan"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Place Order</button></div></form>'
+                      var formGranat = '<form action="/add/data/pembeli" method="post"><input type="hidden" class="form-control" name="tipe" value="granat"><input name="_token" value="'+csrf+'" type="hidden"><p><strong>Form</strong></p><div class="form-row"><div class="form-group col-md-4"><label for="nama">Nama</label><input type="text" class="form-control" id="nama" name="nama"></div><div class="form-group col-md-4"><label for="nim">NIM</label><input type="text" class="form-control" id="nim" name="nim"></div><div class="form-group col-md-4"><label for="telepon">No Telepon</label><input type="text" class="form-control" id="telepon" name="telepon"></div></div><div class="col-12 px-0"><button type="submit" class="btn btn-success col-12"><i class="fa fa-save"></i> Simpan Data</button></div></form>'
 
                       if(hasil == 0){
-                      var x = Math.floor((Math.random() * 3) + 1);
-                        if(x == 1){
-                          $('#modalIklan #modalIklantitle').html(' ');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
-                          $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik “GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br><strong>PEMESANAN DAPAT DILAKUKAN MELALUI WEB INI DENGAN MENGISI FORM DI BAWAH</strong><br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
-                          $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
-                          $('#modalIklan #modalIklanform').html(formGranat);
+                      var x = Math.floor((Math.random() * 5) + 1);
+                        if(x == 1){  
+                          $('#modalIklan #modalIklantitle').html('Porseni Dies 2020');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
+                          $('#modalIklan #modalIklantext').html('Text di modalll');
+                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
                           $('#modalIklan').modal('show');
                         }else if(x == 2){
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
@@ -227,10 +226,11 @@
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                           $('#modalIklan').modal('show');
                         }else{
-                          $('#modalIklan #modalIklantitle').html('Porseni Dies 2020');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
-                          $('#modalIklan #modalIklantext').html('Text di modalll');
-                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
+                          $('#modalIklan #modalIklantitle').html(' ');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
+                          $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik “GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br><strong>PEMESANAN DAPAT DILAKUKAN MELALUI WEB INI DENGAN MENGISI FORM DI BAWAH</strong><br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
+                          $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
+                          $('#modalIklan #modalIklanform').html(formGranat);
                           $('#modalIklan').modal('show');
                         }
                       }else if(hasil == 1){
@@ -243,7 +243,7 @@
                           $('#modalIklan').modal('show');
                         }else{
                           $('#modalIklan #modalIklantitle').html(' ');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/dies.png') }}');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
                           $('#modalIklan #modalIklantext').html('Text di modalll');
                           $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
                           $('#modalIklan').modal('show');

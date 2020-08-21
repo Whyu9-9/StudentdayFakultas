@@ -138,7 +138,7 @@ class IklanController extends Controller
             [
                  'nama' => 'required|string',
                  'telepon' => 'required|numeric',
-                 'keterangan' => 'required|string',
+                 'nim' => 'required|numeric',
                  'tipe' => 'required|string'
             ]);
 
@@ -151,8 +151,8 @@ class IklanController extends Controller
         $beli = new PembelianBaju();
         $beli->user_id = $id;
         $beli->nama = $request->nama;
+        $beli->nim = $request->nim;
         $beli->telp = $request->telepon;
-        $beli->ukuran = $request->keterangan;
         $beli->kegiatan = $request->tipe;
         $beli->save();
 
@@ -206,9 +206,9 @@ class IklanController extends Controller
         // Define the Excel spreadsheet headers
         $mahasiswa[] = [
             'Nama',
+            'NIM',
             'Prodi',
-            'No Telp',
-            'Ukuran Baju'
+            'No Telp'
         ];
 
 
@@ -217,9 +217,9 @@ class IklanController extends Controller
         foreach ($data as $row) {
             $mahasiswa[] = [
                 $row->namamhs,
+                $row->nim,
                 $row->prodi_name,
-                $row->telp,
-                $row->ukuran
+                $row->telp
             ];
         }
 
@@ -228,53 +228,6 @@ class IklanController extends Controller
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Granat 2020 via Website');
-
-            // Build the spreadsheet, passing in the payments array
-            $excel->sheet('sheet1', function($sheet) use ($mahasiswa) {
-                $sheet->fromArray($mahasiswa, null, 'A1', false, false);
-            });
-
-        })->download('xlsx');
-    }
-
-    public function bursaIndex()
-    {
-        $bursa = PembelianBaju::where('kegiatan', 'bursa')->get();
-        return view('admin.buyer-bursa', compact('bursa'));
-    }
-
-    public function exportExcelbursa() {
-
-        $data = PembelianBaju::where('kegiatan','bursa');
-        $data = $data->get();
-
-        // Initialize the array which will be passed into the Excel
-        // generator.
-        $mahasiswa = [];
-
-        // Define the Excel spreadsheet headers
-        $mahasiswa[] = [
-            'Nama',
-            'No Telp',
-            'Keterangan'
-        ];
-
-
-        // Convert each member of the returned collection into an array,
-        // and append it to the payments array.
-        foreach ($data as $row) {
-            $mahasiswa[] = [
-                $row->nama,
-                $row->telp,
-                $row->ukuran
-            ];
-        }
-
-        // Generate and return the spreadsheet
-        Excel::create('Rekap Bursa', function($excel) use ($mahasiswa) {
-
-            // Set the spreadsheet title, creator, and description
-            $excel->setTitle('Bursa 2020 via Website');
 
             // Build the spreadsheet, passing in the payments array
             $excel->sheet('sheet1', function($sheet) use ($mahasiswa) {

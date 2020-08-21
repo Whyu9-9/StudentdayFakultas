@@ -149,8 +149,8 @@
     @endif
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <?php 
-                    $serverdate = date("d-m-Y");
-                    if($serverdate == '19-08-2020'){
+                    $serverdate = date("d-m-Y H:i:s");
+                    if($serverdate == '19-08-2020 17:00:00'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;
@@ -177,10 +177,10 @@
                                 
                                 <p> Silahkan Melakukan Pengumpulan Penugasan dengan Menekan Tombol dibawah ini <br><br> 
                                     @if ($datecond != 0)
-                                    <a style="border-radius:7px;margin-right: 10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Tugas Biasa</a>
+                                    <a style="border-radius:7px;margin-right: 10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Penugasan</a>
                                     <a style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume</a>
                                     @else
-                                    <button style="background-color:#8B0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" disabled>Waktu Habis</button>
+                                    <a style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume</a>
                                     @endif
                                 </p>
                                     
