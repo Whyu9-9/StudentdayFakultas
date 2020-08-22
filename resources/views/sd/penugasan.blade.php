@@ -175,12 +175,11 @@
                         <tr>
                             <td bgcolor="#010000" align="center" style="padding: 20px 30px 40px 30px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                                 
-                                <p> Silahkan Melakukan Pengumpulan Penugasan dengan Menekan Tombol dibawah ini <br><br> 
+                                <p id="tugas"> Silahkan Melakukan Pengumpulan Penugasan dengan Menekan Tombol dibawah ini <br><br> 
                                     @if ($datecond != 0)
-                                    <a style="border-radius:7px;margin-right: 10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Penugasan</a>
-                                    <a style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume</a>
-                                    @else
-                                    <a style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume</a>
+                                        <a id="tugas1" style="border-radius:7px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Penugasan</a>
+                                        <a id="tugas2" style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume 2</a>
+                                        <a id="tugas3" style="border-radius:7px;margin-left:10px;background-color:#c3862d ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Resume 1</a>
                                     @endif
                                 </p>
                                     
@@ -210,11 +209,9 @@
                         <tr>
                             <td bgcolor="#fff" align="center" style="padding: 20px 30px 40px 30px; color: #010000; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                                 
-                                <p> Silahkan Melakukan Pengumpulan Penugasan Khusus Dengan Menekan Tombol dibawah ini <br><br> 
+                                <p id="khusus1"> Silahkan Melakukan Pengumpulan Penugasan Khusus Dengan Menekan Tombol dibawah ini <br><br> 
                                     @if($datecond != 0)
-                                    <a style="background-color:#010000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Link Google Form</a>
-                                    @else
-                                    <button style="background-color:#8B0000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#" disabled>Waktu Habis</button>
+                                    <a id="khusus" style="background-color:#010000 ;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="#">Link Google Form</a>
                                     @endif
                                 </p>
                                 
@@ -231,7 +228,7 @@
 @section('custom_javascript')
 <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Sep 11, 2020 17:00:00").getTime();
+    var countDownDate = new Date("Sep 11, 2020 10:15:00").getTime();
     
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -255,7 +252,41 @@
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("demo").innerHTML = "Waktu Pengumpulan Sudah Habis";
+        document.getElementById("tugas").innerHTML = "Waktu Pengumpulan Sudah Habis";
+        document.getElementById("khusus1").innerHTML = "Waktu Pengumpulan Sudah Habis";
+        document.getElementById("tugas1").style.display = "none";
+        document.getElementById("tugas2").style.display = "none";
+        document.getElementById("khusus").style.display = "none";
       }
     }, 1000);
     </script>
+    <script>
+        // Set the date we're counting down to
+        var countDown = new Date("Sep 11, 2020 05:30:00").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+          // Get today's date and time
+          var now = new Date().getTime();
+            
+          // Find the distance between now and the count down date
+          var distance = countDown - now;
+            
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+          // Output the result in an element with id="demo"
+          document.getElementById("demo").innerHTML = minutes + " Menit " + seconds + " Detik ";
+            
+          // If the count down is over, write some text 
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("tugas3").style.display = "none";
+          }
+        }, 1000);
+        </script>
 @endsection

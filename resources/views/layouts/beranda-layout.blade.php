@@ -112,7 +112,6 @@
                         <a href="#base" data-toggle="collapse" aria-expanded="false">
                             <i class="far fa-address-card fa-fw"></i> Organisasi di FT
                         </a>
-                        
                         <ul id="base" class="list-unstyled collapse hide">
                             <li class="@yield('active10')"><a href="/beranda-sd-lembaga"><i class="fa fa-fw fa-user"></i> Lembaga</a></li>
                             <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Himpunan</a></li>
