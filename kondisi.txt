@@ -1,0 +1,10 @@
+0 - Mahasiswa Belum Registrasi (data masih original dari unud)
+1 - Mahasiswa mengajukan Registrasi (data telah di cek dan dianggap sesuai)
+2 - Registrasi di tolak. Terdapat kesalahan.
+3 - Mahasiswa mengajukan perbaikan kesalahan Registrasi.
+4 - Registrasi di terima. mahasiswa belum verifikasi ulang.
+
+5 - Mahasiswa mengajukan Verifikasi Ulang.
+6 - Verifikasi ulang ditolak. terdapat kesalahan.
+7 - Mahasiswa mengajukan perbaikan kesalahan verifikasi ulang.
+8 - Verifikasi Ulang diterima.
