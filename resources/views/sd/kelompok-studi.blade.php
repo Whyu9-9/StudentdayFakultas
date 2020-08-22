@@ -50,7 +50,7 @@
             <img style="width: auto ;max-width: 100% ;height: auto ; display: block;margin-left: auto;margin-right: auto;" class="card-img-top" src="{{asset('/public/'.$kelompok->gambar)}}" alt="Card image" style="width:100%">
             </a>
             <div class="card-body">
-              <h4 align="center" class="card-title">{{$kelompok->nama}}</h4>
+              <h4 align="center" class="card-title"><strong>{{$kelompok->nama}}</strong></h4>
             </div>
           </div>
         @endforeach
