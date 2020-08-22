@@ -149,8 +149,8 @@
     @endif
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <?php 
-                    $serverdate = date("d-m-Y H:i:s");
-                    if($serverdate == '19-08-2020 17:00:00'){
+                    $serverdate = date("d-m-Y");
+                    if($serverdate == '22-08-2020'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;

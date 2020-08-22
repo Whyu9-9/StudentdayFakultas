@@ -86,7 +86,7 @@
             <ul class="list-unstyled">
                 <?php
                     $serverdate = date("d-m-Y");
-                    if($serverdate == '20-08-2020'){
+                    if($serverdate == '22-08-2020'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;
@@ -108,6 +108,17 @@
                     <li class="@yield('active6')"><a href="{{ route('beranda-sd.verifikasi') }}"><i class="fas fa-check-circle fa-fw"></i> Verifikasi</a></li>
                     @if(Auth::user()->lengkap == 8)
                     <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Unduh Berkas</a></li>
+                    <li class="@yield('activepengenalan')">
+                        <a href="#base" data-toggle="collapse" aria-expanded="false">
+                            <i class="far fa-address-card fa-fw"></i> Organisasi di FT
+                        </a>
+                        
+                        <ul id="base" class="list-unstyled collapse hide">
+                            <li class="@yield('active10')"><a href="/beranda-sd-lembaga"><i class="fa fa-fw fa-user"></i> Lembaga</a></li>
+                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Himpunan</a></li>
+                            <li class="@yield('active12')"><a href="/beranda-sd-kelompokstudi"><i class="fa fa-fw fa-building"></i> Kelompok Studi</a></li>
+                        </ul>
+                    </li>
                     <li class="@yield('active9')"><a href="{{ route('beranda-sd-penugasan') }}"><i class="fas fa-fw fa-file-pdf"></i> Penugasan</a></li>
                     @endif
                     @endif
@@ -213,13 +224,7 @@
 
                       if(hasil == 0){
                       var x = Math.floor((Math.random() * 5) + 1);
-                        if(x == 1){  
-                          $('#modalIklan #modalIklantitle').html('Porseni Dies 2020');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
-                          $('#modalIklan #modalIklantext').html('Text di modalll');
-                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                          $('#modalIklan').modal('show');
-                        }else if(x == 2){
+                        if(x == 1){
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
                           $('#modalIklan #modalIklantext').html(' ');
@@ -234,25 +239,24 @@
                           $('#modalIklan').modal('show');
                         }
                       }else if(hasil == 1){
-                      var x = Math.floor((Math.random() * 2) + 1);
+                      var x = Math.floor((Math.random() * 8) + 1);
                         if(x == 1){
+                          $('#modalIklan #modalIklantitle').html(' ');
+                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/granat2020.png') }}');
+                          $('#modalIklan #modalIklantext').html('<strong>GrAnaT 2020</strong> <br> Open Pre-Order Baju Identitas Teknik “GrAnaT Edition” Design by Andre Yoga<br><strong>HARGA KHUSUS UNTUK MAHASISWA BARU IDR 135.000</strong><br>DP IDR 100.000<br>Pelunasan Dapat Dilakukan Pada Saat Pengambilan Baju<br>Stock Terbatas!!!<br><strong>PEMESANAN DAPAT DILAKUKAN MELALUI WEB INI DENGAN MENGISI FORM DI BAWAH</strong><br>Bukti Transfer dikirim ke CP via WhatsApp Yogi (082236302253), atau melalui korti jurusan masing-masing.<br>Batas Pemesanan: <br> <strong>PO 1 24 Agustus – 3 September 2020<br>PO 2 Dimulai Tanggal 4 September 2020</strong> DENGAN HARGA NORMAL.<br>HIDUP TEKNIK !!!<br><strong>#GrAnaT2020</strong><br><strong>#GandaraGardapati</strong>');
+                          $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/postergranat.jpg') }}');
+                          $('#modalIklan').modal('show');
+                        }else{
                           $('#modalIklan #modalIklantitle').html('Bursa SMFT 2020');
                           $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }} ');
                           $('#modalIklan #modalIklantext').html(' ');
                           $('#modalIklan #modalIklanimage').attr('src', '{{ asset('/img/bursa.jpg') }}');
                           $('#modalIklan').modal('show');
-                        }else{
-                          $('#modalIklan #modalIklantitle').html(' ');
-                          $('#modalIklan #iklanpict').attr('src', '{{ asset('/img/null.png') }}');
-                          $('#modalIklan #modalIklantext').html('Text di modalll');
-                          $('#modalIklan #modalIklanimage').attr('src', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png');
-                          $('#modalIklan').modal('show');
                         }
                       }else{
                         $('#modalIklan').modal('hide');
                       }
-
-                      $('#modalIklan #btn-close-iklan').hide().delay(5000).show(0);
+                        $('#modalIklan #btn-close-iklan').hide().delay(3000).show(0);
                     });
                 }
             }
@@ -260,7 +264,7 @@
             window.setTimeout(function() {
               // console.log('first 10 secs');
                 getPembelianBaju();
-            }, 10000);
+            }, 30000);
         });
     </script>
     @yield('custom_javascript')

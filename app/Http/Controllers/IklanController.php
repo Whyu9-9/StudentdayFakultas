@@ -123,7 +123,6 @@ class IklanController extends Controller
 
     public function getPembelianBaju(){
         $id = Auth::user()->id;
-        $dies = PembelianBaju::where('user_id', $id)->where('kegiatan', 'dies')->first();
         $granat = PembelianBaju::where('user_id', $id)->where('kegiatan', 'granat')->first();
         $bursa = PembelianBaju::where('user_id', $id)->where('kegiatan', 'bursa')->first();
         if(isset($granat)){

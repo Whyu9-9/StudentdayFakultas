@@ -947,20 +947,20 @@
                 modal.find('#pills-verifikasi .modal-body #link-bukti-pembayaran').css('display', 'block')
 
                 if(bukti_pembayaran === ""){
-                    modal.find('#pills-verifikasi .modal-body #link-bukti-pembayaran').attr('href', '#')
+                    modal.find('#pills-verifikasi .modal-body #link-bukti-pembayaran').css('display', 'none')
                 }else{
                     modal.find('#pills-verifikasi .modal-body #link-bukti-pembayaran').attr('href', '/admin-mahasiswa/'+mahasiswaid+'/download/bukti-pembayaran')
                 }
             }
 
             if(youtube === ""){
-                modal.find('#pills-verifikasi .modal-body #link-youtube-mahasiswa').attr('href','#')
+                modal.find('#pills-verifikasi .modal-body #link-youtube-mahasiswa').css('display', 'none')
             }else{
                 modal.find('#pills-verifikasi .modal-body #link-youtube-mahasiswa').attr('href',gantilinkyoutube(youtube))
             }
 
             if(scan_penyakit === ""){
-                modal.find('#pills-verifikasi .modal-body #scan-penyakit-mahasiswa').attr('href','#')
+                modal.find('#pills-verifikasi .modal-body #scan-penyakit-mahasiswa').css('display', 'none')
             }else{
                 modal.find('#pills-verifikasi .modal-body #scan-penyakit-mahasiswa').attr('href','/admin-mahasiswa/'+mahasiswaid+'/download/surat-sakit')
             }

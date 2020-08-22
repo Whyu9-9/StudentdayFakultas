@@ -174,6 +174,9 @@ Route::get('/get/krm/{id}', 'DashboardSdController@getKrmPdf')->name('beranda-sd
 Route::get('/beranda-sd-qrcode/link', 'DashboardSdController@qrcodelink')->name('beranda-sd-qrcode-link');
 Route::get('/get/iklan/pembelianBaju', 'IklanController@getPembelianBaju');
 Route::post('/add/data/pembeli', 'IklanController@addPembeli');
+Route::get('/beranda-sd-lembaga', 'DashboardSdController@getLembaga')->name('beranda-sd.lembaga');
+Route::get('/beranda-sd-himpunan', 'DashboardSdController@getHimpunan')->name('beranda-sd.himpunan');
+Route::get('/beranda-sd-kelompokstudi', 'DashboardSdController@getKS')->name('beranda-sd.kelompok-studi');
 // End Student Day Mahasiswa
 
 Route::get('/bkm', function () {

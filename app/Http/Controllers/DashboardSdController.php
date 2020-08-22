@@ -26,6 +26,7 @@ use App\Resume;
 use App\Organisasi;
 use App\Prestasi;
 use App\UserIklans;
+use App\Materi;
 use \Carbon\now;
 use App\PenugasanSetting;
 
@@ -1449,6 +1450,24 @@ class DashboardSdController extends Controller
                 return redirect('https://line.me/R/ti/g/jpnsleyUIX'); //industri
             }
         }
+    }
+
+    public function getLembaga(){
+        $lembagas = Materi::where('jenis','lembaga')->get();
+
+        return view('sd.lembaga',compact('lembagas'));
+    }
+
+    public function getHimpunan(){
+        $himpunans = Materi::where('jenis','jurusan')->get();
+
+        return view('sd.himpunan',compact('himpunans'));
+    }
+
+    public function getKS(){
+        $kelompoks = Materi::where('jenis','kelompok_studi')->get();
+
+        return view('sd.kelompok-studi',compact('kelompoks'));
     }
 
     /**
