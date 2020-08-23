@@ -83,11 +83,11 @@
 
                         <td>Dicetak dengan Format Booklet</td>
 
-                        <td>Putih</td>
+                        <td>Berwarna</td>
 
                         <td>
 
-                            <a target="_blank" class="btn btn-success" href="/ketentuan-buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                            <a target="_blank" class="btn btn-success" href="/ketentuan-buku-panduan"><span class="fa fa-download"></span> Unduh Berkas</a>
 
                         </td>
 
@@ -105,7 +105,7 @@
 
                         <td>
 
-                            <a target="_blank" class="btn btn-success" href="/cover-buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                            <a target="_blank" class="btn btn-success" href="/cover-buku-panduan"><span class="fa fa-download"></span> Unduh Berkas</a>
 
                         </td>
 
@@ -123,7 +123,7 @@
 
                         <td>
 
-                            <a target="_blank" class="btn btn-success" href="/buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                            <a target="_blank" class="btn btn-success" href="/buku-panduan"><span class="fa fa-download"></span> Unduh Berkas</a>
 
                         </td>
 
