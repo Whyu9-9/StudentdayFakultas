@@ -262,6 +262,24 @@ class DashboardSdController extends Controller
         return $pdf->setPaper('a5', 'landscape')->stream();
     }
 
+    public function ketentuanpanduanPdf(){
+
+        if(Auth::user()->lengkap != 8){
+            return redirect('/beranda-sd-biodata');
+        }
+        Log::create([
+            'mahasiswa_id' => Auth::user()->id,
+            'tipe' => 10,
+            'konten' => 'Mendownload berkas Buku Panduan'
+        ]);
+        $file="berkas/ketentuan_buku_panduan.pdf";
+        $headers = array(
+              'Content-Type: application/pdf',
+            );
+
+        return Response::download($file, 'Ketentuan Buku Panduan Student Day 2020.pdf', $headers);
+    }
+
     public function panduanPdf(){
 
         if(Auth::user()->lengkap != 8){

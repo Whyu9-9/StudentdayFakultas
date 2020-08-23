@@ -143,6 +143,7 @@ Route::get('/beranda-sd-biodata-pdf', 'DashboardSdController@biodataPdf')->name(
 Route::get('/beranda-sd-evaluasi-pdf', 'DashboardSdController@evaluasiPdf')->name('beranda-sd.evaluasi-pdf');
 Route::get('/beranda-sd-verifikasi', 'DashboardSdController@verifikasi')->name('beranda-sd.verifikasi');
 Route::post('/beranda-sd-verifikasi/{id}', 'DashboardSdController@verifikasipost')->name('beranda-sd.verifikasi-post');
+Route::get('/ketentuan-buku-panduan', 'DashboardSdController@ketentuanpanduanPdf');
 Route::get('/buku-panduan', 'DashboardSdController@panduanPdf');
 Route::get('/cover-buku-panduan', 'DashboardSdController@coverpanduanPdf');
 Route::get('/ganti-password', 'PasswordController@gantiPasswordForm');

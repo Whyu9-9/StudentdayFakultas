@@ -86,7 +86,7 @@
             <ul class="list-unstyled">
                 <?php
                     $serverdate = date("d-m-Y");
-                    if($serverdate == '22-08-2020'){
+                    if($serverdate == '23-08-2020'){
                         $datecond = 1;
                     }else{
                         $datecond = 0;

@@ -25,6 +25,9 @@
     <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="text-info fas fa-check mr-1"></i> Tonton semua video dibawah dan buatlah Resume dari apa yang kamu sudah tonton
     </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="text-success fas fa-check mr-1"></i> Klik pada gambar untuk menonton video
+    </div>
     <style>
         .myIframe {
      position: relative;
@@ -45,7 +48,7 @@
     </style>
     <div class="card-columns" style="width:100%;">
         @foreach ($kelompoks as $kelompok)
-        <div class="card" >
+        <div class="card text-white" style="background-color:#010000;" >
             <a data-toggle="modal" data-target="#youtube" class="btn btn-block" data-youtube="{{ $kelompok->link }}" class="stretched-link">
             <img style="width: auto ;max-width: 100% ;height: auto ; display: block;margin-left: auto;margin-right: auto;" class="card-img-top" src="{{asset('/public/'.$kelompok->gambar)}}" alt="Card image" style="width:100%">
             </a>

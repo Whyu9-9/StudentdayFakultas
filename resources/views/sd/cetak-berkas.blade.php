@@ -87,7 +87,7 @@
 
                         <td>
 
-                            <a target="_blank" class="btn btn-success" href="/buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
+                            <a target="_blank" class="btn btn-success" href="/ketentuan-buku-panduan"><span class="fa fa-download"></span> Download Berkas</a>
 
                         </td>
 
