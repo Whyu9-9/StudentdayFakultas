@@ -69,16 +69,11 @@
                         $('#sign-in-or-out-button').click(function() {
                             handleAuthClick();
                         });
-                        // $('#revoke-access-button').click(function() {
-                        //     revokeAccess();
-                        // });
 
-                        /*
-                            0 = belom subscribe keduanya
-                            1 = sudah subscribe Dies
-                            2 = sudah subscribe granat
-                            3 = sudah subscribe keduanya
-                        */
+                        $('#revoke-access-button').click(function() {
+                            revokeAccess();
+                        });
+
                         $('#subscribe-granat-button').click(function(){
                             addSubscription('UCJiGAXqyzXC74Cli2PDXJuQ',2);
                         });
@@ -99,16 +94,11 @@
                     }
                 }
 
-                function revokeAccess() {
-                    GoogleAuth.disconnect();
-                }
-
                 function setSigninStatus(isSignedIn) {
                     var user = GoogleAuth.currentUser.get();
                     var isAuthorized = user.hasGrantedScopes(SCOPE);
                     if (isAuthorized) {
                         $('#sign-in-or-out-button').html('Sign Out');
-                        // $('#revoke-access-button').css('display', 'inline-block');
                         $('#subscribe-dies-button').css('display', 'inline-block');
                         $('#subscribe-granat-button').css('display', 'inline-block');
                         $('#auth-status').html('Akun Youtube Telah Masuk.');
@@ -116,7 +106,6 @@
                         $('#sign-in-or-out-button').html('Sign In ke Youtube');
                         $('#subscribe-dies-button').css('display', 'none');
                         $('#subscribe-granat-button').css('display', 'none');
-                        // $('#revoke-access-button').css('display', 'none');
                         $('#auth-status').html('Akun Youtube Belum Masuk');
                     }
                 }
@@ -143,17 +132,9 @@
                             window.location.replace("/beranda-sd/verifikasi/subscribed/"+flag);
                         } else {
                             window.location.replace("/beranda-sd/verifikasi/subscribed/"+flag);
-                            // alert("Subscripion failed");
-                            // console.log(response);
                         }
                     });
                 }
-
-                //762488036227-brcukcoud1kmvg61guud23u2vhif3t0b.apps.googleusercontent.com client_id
-                //MMgLpypJYtd6FOOdKowCW1iK gaktau apa
-                //AIzaSyD3-XWcUh6WBkCMm52idLuOPL-scuoV03Y api
-                // var x = authenticate().then(loadClient);
-                // console.log(x);
             </script>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
@@ -197,4 +178,54 @@
         </td>
     </tr>
 </table>
+
+
+
+<!-- Modal -->
+
+<div class="modal" id="modalReminderYoutube" tabindex="-1" aria-labelledby="modalReminderYoutubetitle" aria-hidden="false">
+    <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="modalReminderYoutubetitle"></h5>
+                        <button id="btn-close-reminder-youtube" type="button" class="close" data-dismiss="modal" aria-label="Close" style="display:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalReminderYoutubetext"></p>
+                    <img src="" alt="" id="modalReminderYoutubeimage" style="width: 100%;">
+                </div>
+
+                <div class="modal-footer">
+                    <div style="width: 100%;" id="modalReminderYoutubeform">
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        function reminderYoutube(){
+            var check = $('#modalReminderYoutube').hasClass('show');
+
+            $("#modalReminderYoutube").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            if(!check){
+                $('#modalReminderYoutube #modalReminderYoutubetitle').html('REMINDER! Baca Sebelum Subscribe');
+                $('#modalReminderYoutube #modalReminderYoutubetext').html('Selama Proses Subscribe diperlukan Login Menggunakan Akun GMAIL yang terhubung ke youtube. ketika login apabila ditampilkan gambar seperti dibawah ini, silahkan klik Advanced, Kemudian tekan Go To StudentDay Fakultas Teknik');
+                $('#modalReminderYoutube #modalReminderYoutubeimage').attr('src', '{{ asset('/img/reminder_youtube.jpg') }}');
+                $('#modalReminderYoutube').modal('show');
+            }
+            
+            $('#modalReminderYoutube #btn-close-reminder-youtube').hide().delay(3000).show(0);
+        }
+
+        reminderYoutube();
+    });
+</script>
 @endsection
