@@ -129,6 +129,24 @@
 
                     </tr>
 
+                    <tr>
+
+                        <td>4</td>
+
+                        <td>Contoh Atribut dan Kelengkapan Student Day</td>
+
+                        <td>Tidak Dicetak</td>
+
+                        <td>-</td>
+
+                        <td>
+
+                            <a target="_blank" class="btn btn-success" href="/atribut-kelengkapan"><span class="fa fa-download"></span> Unduh Berkas</a>
+
+                        </td>
+
+                    </tr>
+
                 </tbody>
 
             </table>

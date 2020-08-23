@@ -292,6 +292,8 @@ Route::get('/ketentuan-buku-panduan', 'DashboardSdController@ketentuanpanduanPdf
 
 Route::get('/buku-panduan', 'DashboardSdController@panduanPdf');
 
+Route::get('/atribut-kelengkapan', 'DashboardSdController@ketentuanpakaianPdf');
+
 Route::get('/cover-buku-panduan', 'DashboardSdController@coverpanduanPdf');
 
 Route::get('/ganti-password', 'PasswordController@gantiPasswordForm');

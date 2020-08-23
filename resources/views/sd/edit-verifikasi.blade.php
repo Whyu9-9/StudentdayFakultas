@@ -37,7 +37,7 @@
                         <small class="">Jika ada kesalahan, Segera ubah. Jika tidak, langsung klik tombol "Ajukan Verifikasi Ulang"</small>
                         <div class="mb-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}">
+                                <input type="text" class="form-control" id="riwayat" name="riwayat" value="{{Auth::user()->penyakit_khusus}}" readonly>
                             </div>
                             <small class="">* tambahkan bila ada.</small>
                             @if($errors->has('riwayat'))
