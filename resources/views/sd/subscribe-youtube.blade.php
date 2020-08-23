@@ -69,16 +69,11 @@
                         $('#sign-in-or-out-button').click(function() {
                             handleAuthClick();
                         });
-                        // $('#revoke-access-button').click(function() {
-                        //     revokeAccess();
-                        // });
 
-                        /*
-                            0 = belom subscribe keduanya
-                            1 = sudah subscribe Dies
-                            2 = sudah subscribe granat
-                            3 = sudah subscribe keduanya
-                        */
+                        $('#revoke-access-button').click(function() {
+                            revokeAccess();
+                        });
+
                         $('#subscribe-granat-button').click(function(){
                             addSubscription('UCJiGAXqyzXC74Cli2PDXJuQ',2);
                         });
@@ -99,16 +94,11 @@
                     }
                 }
 
-                function revokeAccess() {
-                    GoogleAuth.disconnect();
-                }
-
                 function setSigninStatus(isSignedIn) {
                     var user = GoogleAuth.currentUser.get();
                     var isAuthorized = user.hasGrantedScopes(SCOPE);
                     if (isAuthorized) {
                         $('#sign-in-or-out-button').html('Sign Out');
-                        // $('#revoke-access-button').css('display', 'inline-block');
                         $('#subscribe-dies-button').css('display', 'inline-block');
                         $('#subscribe-granat-button').css('display', 'inline-block');
                         $('#auth-status').html('Akun Youtube Telah Masuk.');
@@ -116,7 +106,6 @@
                         $('#sign-in-or-out-button').html('Sign In ke Youtube');
                         $('#subscribe-dies-button').css('display', 'none');
                         $('#subscribe-granat-button').css('display', 'none');
-                        // $('#revoke-access-button').css('display', 'none');
                         $('#auth-status').html('Akun Youtube Belum Masuk');
                     }
                 }
@@ -143,17 +132,9 @@
                             window.location.replace("/beranda-sd/verifikasi/subscribed/"+flag);
                         } else {
                             window.location.replace("/beranda-sd/verifikasi/subscribed/"+flag);
-                            // alert("Subscripion failed");
-                            // console.log(response);
                         }
                     });
                 }
-
-                //762488036227-brcukcoud1kmvg61guud23u2vhif3t0b.apps.googleusercontent.com client_id
-                //MMgLpypJYtd6FOOdKowCW1iK gaktau apa
-                //AIzaSyD3-XWcUh6WBkCMm52idLuOPL-scuoV03Y api
-                // var x = authenticate().then(loadClient);
-                // console.log(x);
             </script>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
@@ -241,7 +222,7 @@
                 $('#modalReminderYoutube').modal('show');
             }
             
-            $('#modalReminderYoutub #btn-close-reminder-youtube').hide().delay(3000).show(0);
+            $('#modalReminderYoutube #btn-close-reminder-youtube').hide().delay(3000).show(0);
         }
 
         reminderYoutube();

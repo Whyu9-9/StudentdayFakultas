@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Auth;
 
 */
 
+Route::get('/testsubs', function(){
+    return view('testsubs');
+});
 
 
 Route::get('/', function () {
