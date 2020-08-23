@@ -197,4 +197,54 @@
         </td>
     </tr>
 </table>
+
+
+
+<!-- Modal -->
+
+<div class="modal" id="modalReminderYoutube" tabindex="-1" aria-labelledby="modalReminderYoutubetitle" aria-hidden="false">
+    <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <h5 class="modal-title" id="modalReminderYoutubetitle"></h5>
+                        <button id="btn-close-reminder-youtube" type="button" class="close" data-dismiss="modal" aria-label="Close" style="display:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalReminderYoutubetext"></p>
+                    <img src="" alt="" id="modalReminderYoutubeimage" style="width: 100%;">
+                </div>
+
+                <div class="modal-footer">
+                    <div style="width: 100%;" id="modalReminderYoutubeform">
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        function reminderYoutube(){
+            var check = $('#modalReminderYoutube').hasClass('show');
+
+            $("#modalReminderYoutube").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            if(!check){
+                $('#modalReminderYoutube #modalReminderYoutubetitle').html('REMINDER! Baca Sebelum Subscribe');
+                $('#modalReminderYoutube #modalReminderYoutubetext').html('Selama Proses Subscribe diperlukan Login Menggunakan Akun GMAIL yang terhubung ke youtube. ketika login apabila ditampilkan gambar seperti dibawah ini, silahkan klik Advanced, Kemudian tekan Go To StudentDay Fakultas Teknik');
+                $('#modalReminderYoutube #modalReminderYoutubeimage').attr('src', '{{ asset('/img/reminder_youtube.jpg') }}');
+                $('#modalReminderYoutube').modal('show');
+            }
+            
+            $('#modalReminderYoutub #btn-close-reminder-youtube').hide().delay(3000).show(0);
+        }
+
+        reminderYoutube();
+    });
+</script>
 @endsection
