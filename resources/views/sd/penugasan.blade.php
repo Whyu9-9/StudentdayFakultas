@@ -227,11 +227,47 @@
 
 @section('custom_javascript')
 <script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $("meta[name='csrf-token']").attr("content")
+            }
+        });
+
+        function getCount(){
+            var data;
+            $.ajax({
+                url: "/getCountPenugasan/",
+                async: false,
+                type: "GET",
+                success: function(result){
+                    data = result;
+                }
+            });
+
+            var d = new Date();
+            var theDate = d.getFullYear() + '-' + ( d.getMonth() ) + '-' + d.getDate();
+            var theTime = theDate + " " + data;
+
+            return theTime;
+        }
+
+        var times = getCount();
+        var countone = new Date(times).getTime();
+        var countDownDate = new Date("Sep 11, 2020 10:15:00").getTime();
+      // Get today's date and time
+      var now = new Date().getTime();
+        
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+        console.log(countone);
+        console.log(distance);
+    });
     // Set the date we're counting down to
-    var countDownDate = new Date("Sep 11, 2020 10:15:00").getTime();
     
     // Update the count down every 1 second
     var x = setInterval(function() {
+        var countDownDate = new Date("Sep 11, 2020 10:15:00").getTime();
     
       // Get today's date and time
       var now = new Date().getTime();

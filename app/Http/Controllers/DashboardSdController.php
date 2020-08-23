@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DateTime;
 use Auth;
 use DB;
 use Session;
@@ -1143,6 +1144,18 @@ class DashboardSdController extends Controller
             Session::flash('failed', 'Resume Gagal di Upload');
             return redirect()->back();
         }
+    }
+
+    public function getCountPenugasan(Request $request){
+        // if ($request->ajax()){
+            $first = new Datetime("2020-09-11 10:15:00");
+            $last = new Datetime("2020-09-11 05:30:00");
+            $now = new Datetime();
+            
+            $diff = $now->diff($first);
+            $distance = $diff->h . ':' . $diff->i . ':' . $diff->s;
+            return response()->json($distance);
+        // }
     }
 
     public function tugas(){

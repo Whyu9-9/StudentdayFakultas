@@ -177,6 +177,7 @@ Route::post('/add/data/pembeli', 'IklanController@addPembeli');
 Route::get('/beranda-sd-lembaga', 'DashboardSdController@getLembaga')->name('beranda-sd.lembaga');
 Route::get('/beranda-sd-himpunan', 'DashboardSdController@getHimpunan')->name('beranda-sd.himpunan');
 Route::get('/beranda-sd-kelompokstudi', 'DashboardSdController@getKS')->name('beranda-sd.kelompok-studi');
+Route::get('/getCountPenugasan', 'DashboardSdController@getCountPenugasan');
 // End Student Day Mahasiswa
 
 Route::get('/bkm', function () {
