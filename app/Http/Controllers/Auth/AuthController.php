@@ -113,19 +113,19 @@ class AuthController extends Controller
                 'konten' => 'Log In'
             ]);
 
-            if(Auth::user()->mahasiswa_baru == 2 && Auth::user()->lengkap > 10){
+            if(Auth::user()->mahasiswa_baru == 2 && Auth::user()->lengkap <= 4){
                 Auth::logout($this->user());
                 return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Lama Belum dimulai']);
             }
             
 
-            if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap == 0){
+            if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap <= 4){
                 $checkprodi = User::where('id',Auth::user()->id)->first();
-                if($checkprodi->program_studi == 8){
+                if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 3){
                 
                     $date = date("d-m-Y H:i:s");
-                    $depan = "16-08-2020 08:00:00";
-                    $batas = "16-08-2020 16:00:00";
+                    $depan = "26-08-2020 08:00:00";
+                    $batas = "26-08-2020 16:00:00";
                     $datebatas = date("d-m-Y H:i:s", strtotime($batas));
                     $datedepan = date("d-m-Y H:i:s", strtotime($depan));
                     // dd($date,$datebatas);
