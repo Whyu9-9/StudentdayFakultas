@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h2 class="mb-4"><i class="fa fa-check-circle"></i> Verifikasi
+    <h2 class="mb-4"><i class="fa fa-check-circle"></i> Ubah Link
     </h2>
     @if(Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

@@ -174,7 +174,7 @@
 
                     $serverdate = date("d-m-Y");
 
-                    if($serverdate == '23-08-2020'){
+                    if($serverdate == '29-08-2020'){
 
                         $datecond = 1;
 
@@ -185,7 +185,7 @@
                     }
 
                 ?>
-
+                @if(Auth::user()->mahasiswa_baru<3)
                 <li class="@yield('active1')"><a href="{{ route('beranda-sd.index') }}"><i class="fa fa-fw fa-home"></i> Beranda</a></li>
 
                 <li class="@yield('activeregistrasi')">
@@ -250,7 +250,67 @@
                 <li class="@yield('active8')"><a href="{{ route('beranda-sd-qrcode')}}"><i class="fa fa-fw fa-qrcode"></i> QR Code</a></li>
 
                 @endif
+            @elseif(Auth::user()->mahasiswa_baru>2)
+            <li class="@yield('active1')"><a href="{{ route('beranda-sd.index') }}"><i class="fa fa-fw fa-home"></i> Beranda</a></li>
 
+                <li class="@yield('activeregistrasi')">
+
+                    <a href="#sm_base" data-toggle="collapse" aria-expanded="false">
+
+                        <i class="fas fa-pencil-alt fa-fw"></i> Pendaftaran
+
+                    </a>
+
+                    <ul id="sm_base" class="list-unstyled collapse hide">
+
+                        <li class="@yield('active2')"><a href="{{ route('beranda-sd.biodata') }}"><i class="fa fa-fw fa-user"></i> Biodata</a></li>
+
+                        <li class="@yield('active4')"><a href="/prestasis"><i class="fa fa-fw fa-trophy"></i> Prestasi</a></li>
+
+                        <li class="@yield('active5')"><a href="/organisasi"><i class="fa fa-fw fa-building"></i> Organisasi</a></li>
+
+                    </ul>
+
+                </li>
+
+                @if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap != 9)
+
+                    @if(Auth::user()->lengkap == 8)
+
+                    <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Unduh Berkas</a></li>
+
+                    <li class="@yield('activepengenalan')">
+
+                        <a href="#base" data-toggle="collapse" aria-expanded="false">
+
+                            <i class="far fa-address-card fa-fw"></i> Video Pengenalan
+
+                        </a>
+
+                        
+
+                        <ul id="base" class="list-unstyled collapse hide">
+
+                            <li class="@yield('active10')"><a href="/beranda-sd-lembaga"><i class="fa fa-fw fa-user"></i> Lembaga</a></li>
+
+                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Himpunan</a></li>
+
+                            <li class="@yield('active12')"><a href="/beranda-sd-kelompokstudi"><i class="fa fa-fw fa-building"></i> Kelompok Studi</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="@yield('active9')"><a href="{{ route('beranda-sd-penugasan') }}"><i class="fas fa-fw fa-file-pdf"></i> Penugasan</a></li>
+
+                    @endif
+
+                <!--<li class="@yield('active7')"><a href="{{ route('beranda-sd-resume') }}"><i class="fas fa-fw fa-file-pdf"></i> Resume</a></li>-->
+                @if(Auth::user()->lengkap == 8)
+                    <li class="@yield('active8')"><a href="{{ route('beranda-sd-qrcode')}}"><i class="fa fa-fw fa-qrcode"></i> QR Code</a></li>
+                @endif
+                @endif
+            @endif
             </ul>
 
         </div>

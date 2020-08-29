@@ -113,44 +113,48 @@ class AuthController extends Controller
                 'konten' => 'Log In'
             ]);
 
-            if(Auth::user()->mahasiswa_baru == 2 && Auth::user()->lengkap <= 4){
+            if(Auth::user()->mahasiswa_baru == 2 && Auth::user()->lengkap < 0){
                 Auth::logout($this->user());
                 return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Lama Belum dimulai']);
             }
             
-
-            if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap <= 4){
-                $checkprodi = User::where('id',Auth::user()->id)->first();
-                if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 3){
-                
+            if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap > 3){
+              $checkprodi = User::where('id',Auth::user()->id)->first();
+                if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 2 || $checkprodi->program_studi == 3 || $checkprodi->program_studi == 4 || $checkprodi->program_studi == 5 || $checkprodi->program_studi == 6 || $checkprodi->program_studi == 7){
                     $date = date("d-m-Y H:i:s");
-                    $depan = "26-08-2020 08:00:00";
-                    $batas = "26-08-2020 16:00:00";
+                    $depan = "29-08-2020 05:00:00";
+                    $batas = "29-08-2020 23:00:00";
                     $datebatas = date("d-m-Y H:i:s", strtotime($batas));
                     $datedepan = date("d-m-Y H:i:s", strtotime($depan));
                     // dd($date,$datebatas);
-                    // if($date < $datedepan){
-                    //     Auth::logout($this->user());
-                    //     return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Belum Dimulai']);
-                    // }
-                    
+                    if($date < $datedepan){
+                         Auth::logout($this->user());
+                         return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Belum Dimulai']);
+                    }
                     if($date > $datebatas){
                         Auth::logout($this->user());
                         return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Baru Sudah Selesai']);
                     }else{
                         return $this->handleUserWasAuthenticated($request, $throttles);
                     }
-                }else{
+
+	    	}else if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 3 || Auth::user()->lengkap >= 5 ){
+		      return $this->handleUserWasAuthenticated($request, $throttles);
+            	}else{
                     Auth::logout($this->user());
                     // dd($checkprodi->program_studi == 5);
                     return redirect('/login')->withErrors(['nim' => 'Sesi Program Studi Anda Belum Dimulai']);
                 }
 
+            }else if(Auth::user()->mahasiswa_baru == 2){
+		return $this->handleUserWasAuthenticated($request, $throttles);
             }else{
-                return $this->handleUserWasAuthenticated($request, $throttles);
-            }
-
-            return $this->handleUserWasAuthenticated($request, $throttles);
+                //return $this->handleUserWasAuthenticated($request, $throttles);
+		Auth::logout($this->user());
+		return redirect('/login')->withErrors(['nim' => 'Anda Belum Registrasi Student Day 2020 !']);
+	    }
+            
+		return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts

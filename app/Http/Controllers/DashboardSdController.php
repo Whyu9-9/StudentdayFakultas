@@ -287,7 +287,7 @@ class DashboardSdController extends Controller
         // return Response::json($data);
 
 
-
+    if(Auth::user()->mahasiswa_baru <3){
         $notes = Notes::where([
 
             'user_id' => Auth::user()->id,
@@ -295,8 +295,22 @@ class DashboardSdController extends Controller
             'tipe' => 'registrasi'
 
         ])->orderBy('created_at', 'desc')->take('1')->get();
-
         return view('sd.biodata', compact('data', 'notes'));
+    }else{
+        $ilmiah = Notes::where([
+            'user_id' => Auth::user()->id,
+            'tipe' => 'verifikasi',
+        ])->get();
+
+        $notes = Notes::where([
+
+            'user_id' => Auth::user()->id,
+
+            'tipe' => 'verifikasi'
+
+        ])->orderBy('created_at', 'desc')->take('1')->get();
+        return view('sd.biodata', compact('data', 'notes','ilmiah'));
+        }
 
     }
 
@@ -1263,13 +1277,15 @@ class DashboardSdController extends Controller
             }
 
 
-
+        if(Auth::user()->mahasiswa_baru < 3){
             $user->update([
-
                 'lengkap' => 1
-
             ]);
-
+        }else{
+            $user->update([
+                'lengkap' => 5
+                ]); 
+            }
 
 
             // Session::flash('success', 'Pendaftaran Berhasil');
@@ -1390,6 +1406,7 @@ class DashboardSdController extends Controller
 
     public function postYoutube($id, Request $request){
 
+        if(Auth::user()->mahasiswa_baru < 3){
         $validator = Validator::make($request->all(),
 
             [
@@ -1426,7 +1443,43 @@ class DashboardSdController extends Controller
 
         return redirect('/beranda-sd/verifikasi/edit/'.Auth::user()->id)->withSuccess('Berhasil Update URL Youtube');
 
+    }else{
+        $validator = Validator::make($request->all(),
 
+            [
+
+                'url' => 'required',
+
+            ]
+
+        );
+
+
+
+        if ($validator->fails()) {
+
+            Session::flash('error', 'Gagal Upload Verifikasi');
+
+            return redirect()->back()
+
+                        ->withErrors($validator)
+
+                        ->withInput();
+
+        }
+
+
+
+        $mahasiswa = User::find($id);
+
+        $mahasiswa->youtube = 'https://www.youtube.com/embed/'.$request->url;
+
+        $mahasiswa->save();
+
+
+
+        return redirect('/beranda-sd/'.Auth::user()->id.'/edit')->withSuccess('Berhasil Update URL Youtube');
+    }
 
     }
 
@@ -1457,7 +1510,8 @@ class DashboardSdController extends Controller
         }
 
 
-
+        if(Auth::user()->mahasiswa_baru<3){
+        
         $checkorpres = 0;
 
 
@@ -1828,6 +1882,441 @@ class DashboardSdController extends Controller
             'konten' => 'Mengubah biodata'
 
         ]);
+
+        }else{
+            $checkorpres = 0;
+
+
+
+            $validator = Validator::make($request->all(),
+                [
+    
+                    'nama' => 'required|string',
+    
+                    'nama_panggilan' => 'required',
+    
+                    // 'program_studi' => 'required',
+    
+                    'jenis_kelamin' => 'required',
+    
+                    'agama' => 'required',
+    
+                    'gol_darah' => 'required',
+    
+                    'tempat_lahir' => 'required',
+    
+                    'tanggal_lahir' => 'required',
+    
+                    'alamat' => 'required',
+    
+                    'alamat_sekarang' => 'required',
+    
+                    'no_telepon' => 'numeric',
+    
+                    'id_line' => 'required',
+    
+                    'no_hp' => 'required',
+    
+                    'email' => 'required|email',
+    
+                    'asal_sekolah' => 'required',
+    
+                    'alasan_kuliah' => 'required',
+    
+                    'hobi' => 'string',
+    
+                    'minat_bakat' => 'required',
+    
+                    'cita_cita' => 'required',
+    
+                    'idola' => 'required',
+    
+                    'moto' => 'required',
+    
+                    'jumlah_saudara' => 'required',
+    
+                    'nama_ayah' => 'required',
+    
+                    'nama_ibu' => 'required',
+    
+                    // 'vegetarian' => 'required',
+    
+                    'penyakit_khusus' => 'string',
+
+
+    
+                    // 'mahasiswa_baru' => 'required',
+    
+                    // 'angkatan' => 'required',
+    
+                ]
+    
+            );
+    
+    
+    
+            if ($validator->fails()) {
+    
+                Session::flash('error', 'Biodata gagal diperbaharui');
+    
+                return redirect()->back()
+    
+                ->withErrors($validator)
+    
+                ->withInput();
+    
+            }
+    
+    
+    
+            $mahasiswa = User::find($id);
+    
+            $mahasiswa->nama = $request->nama;
+    
+            $mahasiswa->nama_panggilan = $request->nama_panggilan;
+    
+            // $mahasiswa->program_studi = $request->program_studi;
+    
+            $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
+    
+            $mahasiswa->agama = $request->agama;
+    
+            $mahasiswa->gol_darah = $request->gol_darah;
+    
+            $mahasiswa->tempat_lahir = $request->tempat_lahir;
+    
+            $mahasiswa->tanggal_lahir = $request->tanggal_lahir;
+    
+            $mahasiswa->alamat = $request->alamat;
+    
+            $mahasiswa->alamat_sekarang = $request->alamat_sekarang;
+    
+            $mahasiswa->no_telepon = $request->no_telepon;
+    
+            $mahasiswa->id_line = $request->id_line;
+    
+            $mahasiswa->no_hp = $request->no_hp;
+    
+            $mahasiswa->email = $request->email;
+    
+            $mahasiswa->asal_sekolah = $request->asal_sekolah;
+    
+            $mahasiswa->alasan_kuliah = $request->alasan_kuliah;
+    
+            $mahasiswa->hobi = $request->hobi;
+    
+            $mahasiswa->minat_bakat = $request->minat_bakat;
+    
+            $mahasiswa->cita_cita = $request->cita_cita;
+    
+            $mahasiswa->idola = $request->idola;
+    
+            $mahasiswa->moto = $request->moto;
+    
+            $mahasiswa->jumlah_saudara = $request->jumlah_saudara;
+    
+            $mahasiswa->nama_ayah = $request->nama_ayah;
+    
+            $mahasiswa->nama_ibu = $request->nama_ibu;
+    
+            // $mahasiswa->vegetarian = $request->vegetarian;
+    
+            if($request->penyakit_khusus != null){
+
+                if($mahasiswa->scan_penyakit == null){
+                $scan = Validator::make($request->all(),
+                    [
+                        'scan-riwayat' => 'required|mimes:pdf'
+                    ]
+                );
+
+                if ($scan->fails()) {
+    
+                    Session::flash('error', 'Biodata gagal diperbaharui');
+        
+                    return redirect()->back()
+        
+                    ->withErrors($scan)
+        
+                    ->withInput();
+        
+                }
+
+                if($request->hasFile('scan-riwayat')){
+                    $pdf = $request->file('scan-riwayat');
+                    $name = $mahasiswa->nim.'_'.time().'.'.$pdf->getClientOriginalExtension();
+                    $destination = public_path('/riwayat-penyakit');
+                    $pdf->move($destination, $name);
+                    $scanpath = '/riwayat-penyakit/'.$name;
+                }else{
+                    $scanpath = $mahasiswa->scan_penyakit;
+                }
+                $mahasiswa->scan_penyakit = $scanpath;
+                $mahasiswa->penyakit_khusus = $request->penyakit_khusus;
+    
+            }else{
+                $scan = Validator::make($request->all(),
+                    [
+                        'scan-riwayat' => 'mimes:pdf'
+                    ]
+                );
+
+                if ($scan->fails()) {
+    
+                    Session::flash('error', 'Biodata gagal diperbaharui');
+        
+                    return redirect()->back()
+        
+                    ->withErrors($scan)
+        
+                    ->withInput();
+        
+                }
+
+                if($request->hasFile('scan-riwayat')){
+                    $pdf = $request->file('scan-riwayat');
+                    $name = $mahasiswa->nim.'_'.time().'.'.$pdf->getClientOriginalExtension();
+                    $destination = public_path('/riwayat-penyakit');
+                    $pdf->move($destination, $name);
+                    $scanpath = '/riwayat-penyakit/'.$name;
+                }else{
+                    $scanpath = $mahasiswa->scan_penyakit;
+                }
+                $mahasiswa->scan_penyakit = $scanpath;
+                $mahasiswa->penyakit_khusus = $request->penyakit_khusus;
+            }
+        }else{
+                $mahasiswa->scan_penyakit = null;
+                $mahasiswa->penyakit_khusus = null;
+    
+            }
+    
+            // $mahasiswa->mahasiswa_baru = $request->mahasiswa_baru;
+    
+    
+    
+            if(isset($mahasiswa)){
+    
+                if($mahasiswa->krm == null){
+    
+                    $valid = Validator::make($request->all(),
+    
+                    [
+    
+                        'krm' => 'required|mimes:pdf'
+    
+                    ]);
+    
+                    if ($valid->fails()) {
+    
+                        Session::flash('error', 'Biodata gagal diperbaharui');
+    
+                        return redirect()->back()
+    
+                        ->withErrors($valid)
+    
+                        ->withInput();
+    
+                    }
+    
+    
+    
+                    if($request->hasFile('krm')){
+    
+                        $krm = $request->file('krm');
+    
+                        $name = Auth::user()->nim .'_'. time().'.'.$krm->getClientOriginalExtension();
+    
+                        $destinationPath = public_path('/krm');
+    
+                        $krm->move($destinationPath, $name);
+    
+    
+    
+                        $mahasiswa->krm = '/krm/'.$name;
+    
+                    }
+    
+                }else{
+    
+                    $valid = Validator::make($request->all(),
+    
+                    [
+    
+                        'krm' => 'mimes:pdf'
+    
+                    ]);
+    
+                    if ($valid->fails()) {
+    
+                        Session::flash('error', 'Biodata gagal diperbaharui');
+    
+                        return redirect()->back()
+    
+                        ->withErrors($valid)
+    
+                        ->withInput();
+    
+                    }
+    
+    
+    
+                    if($request->hasFile('krm')){
+    
+                        $krm = $request->file('krm');
+    
+                        $name = Auth::user()->nim .'_'. time().'.'.$krm->getClientOriginalExtension();
+    
+                        $destinationPath = public_path('/krm');
+    
+                        $krm->move($destinationPath, $name);
+    
+    
+    
+                        $mahasiswa->krm = '/krm/'.$name;
+    
+                    }
+    
+                }
+    
+                if($mahasiswa->profile == null){
+    
+                    $valid = Validator::make($request->all(),
+    
+                    [
+    
+                        'profileimage' => 'required|image'
+    
+                    ]);
+    
+                    if ($valid->fails()) {
+    
+                        Session::flash('error', 'Biodata gagal diperbaharui');
+    
+                        return redirect()->back()
+    
+                        ->withErrors($valid)
+    
+                        ->withInput();
+    
+                    }
+    
+    
+    
+                    if ($request->hasFile('profileimage')) {
+    
+                        $image = $request->file('profileimage');
+    
+                        $name = time().'.'.$image->getClientOriginalExtension();
+    
+                        $destinationPath = public_path('/userprofile');
+    
+                        $image->move($destinationPath, $name);
+    
+    
+    
+                        $mahasiswa->profile = '/userprofile/'.$name;
+    
+                    }
+    
+                }else{
+    
+                    $valid = Validator::make($request->all(),
+    
+                    [
+    
+                        'profileimage' => 'image'
+    
+                    ]);
+    
+                    if ($valid->fails()) {
+    
+                        Session::flash('error', 'Biodata gagal diperbaharui');
+    
+                        return redirect()->back()
+    
+                        ->withErrors($valid)
+    
+                        ->withInput();
+    
+                    }
+    
+    
+    
+                    if ($request->hasFile('profileimage')) {
+    
+                        $image = $request->file('profileimage');
+    
+                        $name = time().'.'.$image->getClientOriginalExtension();
+    
+                        $destinationPath = public_path('/userprofile');
+    
+                        $image->move($destinationPath, $name);
+    
+    
+    
+                        $mahasiswa->profile = '/userprofile/'.$name;
+    
+                    }
+    
+                }
+    
+    
+    
+            }
+    
+    
+    
+            if($request->has('check_organisasi')){
+    
+                if($request->has('check_prestasi')){
+    
+                    $checkorpres = 3;
+    
+                }else{
+    
+                    $checkorpres = 1;
+    
+                }
+    
+            }else{
+    
+                if($request->has('check_prestasi')){
+    
+                    $checkorpres = 2;
+    
+                }else{
+    
+                    $checkorpres = 0;
+    
+                }
+    
+            }
+    
+            $mahasiswa->checkorpres = $checkorpres;
+    
+            if(auth::user()->lengkap == 6){
+    
+                $mahasiswa->lengkap = "7";
+    
+                $mahasiswa->save();
+    
+            }
+    
+    
+    
+            $mahasiswa->save();
+    
+            Log::create([
+    
+                'mahasiswa_id' => Auth::user()->id,
+    
+                'tipe' => 3,
+    
+                'konten' => 'Mengubah biodata'
+    
+            ]); 
+        }
 
         // $mahasiswa->angkatan = $request->angkatan;
 

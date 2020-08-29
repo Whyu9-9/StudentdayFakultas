@@ -462,25 +462,35 @@
 
                                         style="cursor:pointer"
                                     >
-                                        @if($mahasiswa->lengkap === '0')
+                                        @if($mahasiswa->lengkap == 0)
                                             Belum Daftar
-                                        @elseif($mahasiswa->lengkap === '1')
+                                        @elseif($mahasiswa->lengkap == 1)
                                             Mengajukan Pendaftaran
-                                        @elseif($mahasiswa->lengkap === '2')
+                                        @elseif($mahasiswa->lengkap == 2)
                                             Kesalahan (Pendaftaran)
-                                        @elseif($mahasiswa->lengkap === '3')
+                                        @elseif($mahasiswa->lengkap == 3)
                                             Perbaikan (Pendaftaran)
-                                        @elseif($mahasiswa->lengkap === '4')
+                                        @elseif($mahasiswa->lengkap == 4 && $mahasiswa->mahasiswa_baru <3)
                                             Terdaftar
-                                        @elseif($mahasiswa->lengkap === '5')
+                                        @elseif($mahasiswa->lengkap == 4 && $mahasiswa->mahasiswa_baru >=3)
+                                            Belum Terdaftar
+                                        @elseif($mahasiswa->lengkap == 5 && $mahasiswa->mahasiswa_baru <3)
                                             Mengajukan Verifikasi
-                                        @elseif($mahasiswa->lengkap === '6')
+                                        @elseif($mahasiswa->lengkap == 5&& $mahasiswa->mahasiswa_baru >=3)
+                                            Mengajukan Registrasi & Verifikasi
+                                        @elseif($mahasiswa->lengkap == 6&& $mahasiswa->mahasiswa_baru <3)
                                             Kesalahan (Verifikasi)
-                                        @elseif($mahasiswa->lengkap === '7')
+                                        @elseif($mahasiswa->lengkap == 6&& $mahasiswa->mahasiswa_baru >=3)
+                                            Kesalahan (Registrasi & Verifikasi)
+                                        @elseif($mahasiswa->lengkap == 7&& $mahasiswa->mahasiswa_baru <3)
                                             Perbaikan (Verifikasi)
-                                        @elseif($mahasiswa->lengkap === '8')
+                                        @elseif($mahasiswa->lengkap == 7&& $mahasiswa->mahasiswa_baru >=3)
+                                            Perbaikan (Registrasi & Verifikasi)
+                                        @elseif($mahasiswa->lengkap == 8&& $mahasiswa->mahasiswa_baru < 3)
                                             Terverifikasi
-                                        @elseif($mahasiswa->lengkap === '9')
+                                        @elseif($mahasiswa->lengkap == 8 && $mahasiswa->mahasiswa_baru >=3)
+                                            Teregistrasi & Terverifikasi
+                                        @elseif($mahasiswa->lengkap == 9)
                                             Mengajukan Perbaikan Biodata
                                         @else
                                             -

@@ -59,15 +59,21 @@
         </div>
 
     @elseif(Auth::user()->lengkap == 4)
-
+    @if(Auth::user()->mahasiswa_baru<3)
         <div class="alert alert-success">
 
             <p class="mb-0"><i class="fa fa-check text-success"></i> Pendaftaran Terverifikasi</p>
 
         </div>
+    @else
+    <div class="alert alert-warning d-inline-flex mb-0">
 
+        <p class="mb-0"><i class="fa fa-bell"></i> Belum Terdaftar Student Day.</p>
+
+    </div>
+    @endif
     @elseif(Auth::user()->lengkap == 5)
-
+    @if(Auth::user()->mahasiswa_baru<3)
         <div class="alert alert-primary">
 
             <p class="mb-0">
@@ -77,9 +83,19 @@
             </p>
 
         </div>
+    @else
+    <div class="alert alert-primary">
 
+        <p class="mb-0">
+
+            <i class="fa fa-dot-circle text-warning"></i> Mengajukan Pendaftaran Student Day
+
+        </p>
+
+    </div>
+    @endif
     @elseif(Auth::user()->lengkap == 6)
-
+    @if(Auth::user()->mahasiswa_baru<3)
         <p class="mb-0">
 
             <div class="alert alert-danger">
@@ -93,9 +109,23 @@
             </div>
 
         </p>
+    @else
+    <p class="mb-0">
 
+        <div class="alert alert-danger">
+
+            <p class="mb-0">
+
+                <i class="fa fa-exclamation-circle text-danger"></i> Terdapat Kesalahan pada Data Pendaftaran
+
+            </p>
+
+        </div>
+
+    </p>
+    @endif
     @elseif(Auth::user()->lengkap == 7)
-
+    @if(Auth::user()->mahasiswa_baru<3)
         <p class="mb-0">
 
             <div class="alert alert-primary">
@@ -105,6 +135,17 @@
             </div>
 
         </p>
+    @else
+    <p class="mb-0">
+
+        <div class="alert alert-primary">
+
+            <i class="fa fa-dot-circle text-primary"></i> Mengajukan perbaikan kesalahan Data Pendaftaran
+
+        </div>
+
+    </p>
+    @endif
 
     @elseif(Auth::user()->lengkap == 8)
 
@@ -201,9 +242,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bagi Mahasiswa yang sedang mengakses website agar membaca pamflet <strong> "Status Verifikasi Student Day Fakultas Teknik 2020" </strong> dibawah. <br> #HIDUPTEKNIK!!!
-                <br>
-                <img src="{{asset('/img/notif.png')}}" style="width: 100%">
+                Bagi Mahasiswa yang sedang mengakses website agar membaca pamflet <strong> "Contoh Atribut dan Kelengkapan Student Day Fakultas Teknik 2020" </strong> dibawah. <br> #HIDUPTEKNIK!!!
+                <br><br>
+                <img src="{{asset('/img/contoha.png')}}" style="width: 100%">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -212,6 +253,7 @@
     </div>
 </div>
 @endif
+
 
 @if(Auth::user()->lengkap == 4)
 
