@@ -16,6 +16,46 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="daftar" tabindex="-1" aria-labelledby="daftarsd" aria-hidden="show">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="daftarsd">Akses Ketentuan Pendaftaran Student Day?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Pastikan anda menyetujui <strong>"SYARAT DAN KETENTUAN AKSES KETENTUAN PENDAFTARAN STUDENT DAY 2020".</strong>
+                </div>
+                <div style="margin-left: 18px;" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" id="cek1">
+                    <label class="form-check-label" for="cek1">
+                      Saya bersedia tidak akan menyebarkan isi dari <strong>Ketentuan Pendaftaran Student Day</strong>.
+                    </label>
+                </div>
+                <div style="margin-left: 18px;" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" id="cek2">
+                    <label class="form-check-label" for="cek2">
+                      Apabila dikemudian hari saya terbukti menyebarkan isi dari <strong>Ketentuan Pendaftaran Student Day</strong>, maka saya siap dikeluarkan dari seuluruh rangkaian acara Student Day Fakultas Teknik.
+                    </label>
+                </div>
+                <div class="modal-footer">
+                        <button onclick="location.href='https://drive.google.com/file/d/1COCz71QBs56bZYdJdnqxTHJq7DWRf7sQ/view?usp=sharing';" id="tombol" name="tombol" style="margin-bottom:14px;" class="btn btn-primary mt-3"><i class="fa fa-paper-plane"></i> Menuju Google Drive</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
+                </div>
+            </div>
+        </div>
+        @section('custom_javascript')
+        <script>
+            var checker = document.getElementById('cek2');
+            var sendbtn = document.getElementById('tombol');
+            checker.onchange = function() {
+                sendbtn.disabled = !this.checked;
+            };
+        </script>
+        @endsection
+    </div>
 
     <main id="main">
         <div class="row justify-content-center m-0">
@@ -41,39 +81,29 @@
                 </div>
             </div>
 
-            <!--==========================
-              Facts Section
+           
             <div class="mb-4">
                 <section id="facts">
                     <div class="container wow fadeIn">
                         <div class="section-header">
-                            <h3 class="section-title">Verifikasi Student Day</h3>
+                            <h3 class="section-title">Ketentuan Pendaftaran<br> Student Day <script>
+                                document.write(new Date().getFullYear());
+                            </script></h3>
                         </div>
                         <div>
                             <br>
-                            <p class="text-center wow fadeInUp">Verifikasi pendaftaran Student Day Fakultas Teknik Universitas Udayana dilakukan 
-                            dengan klik tombol di bawah. selanjutnya akan diarahkan ke halaman   
-                            <span class="font-italic"><b>LOGIN.</b></span> Login dapat dilakukan dengan username dan password menggunakan NIM.
+                            <p class="text-center wow fadeInUp">Peserta diharapkan untuk benar-benar memahami isi dari ketentuan secara menyeluruh sehingga pada proses Pendaftaran Student Day tidak melakukan kesalahan.Ketentuan Pendaftaran Student Day dapat diakses melalui tombol di bawah.
                             <br>
-                            <br>
-                            <span class="text-warning">Lengkapilah form data diri yang ada
-                            untuk melakukan pendaftaran.</span>
                             </p>
                         </div>
-                        {{-- <h5 style="color: #FF4B2B" class="text-center my-5 wow fadeInUp" data-wow-delay="0.5s">Pendaftaran Student Day belum bisa diakses</h5> --}}
     
                         <p class="text-center">
-                            <?php $i = 2 ?>
-                            @if ($i == 1)
-                                <a href="#" id="verify" style="border-radius:22px" class="btn btn-secondary">Verifikasi Pendaftaran</a>
-                            @else
-                                <a href="{{ route('login') }}" id="verify" style="border-radius:22px" class="btn btn-secondary" aria-disabled="true">Verifikasi Pendaftaran</a>
-                            @endif
+                                <a data-toggle="modal" data-target="#daftar" id="verify" style="border-radius:22px;color:white;" class="btn btn-info">Link Ketentuan Pendaftaran</a>
                         </p>
                     </div>
                 </section>
             </div>
-            ============================-->
+            
 
             {{-- COMING SOON SECTION --}}
             <div class="mb-4">
@@ -153,5 +183,6 @@
                 @endforeach
 			</div>
 		</div>
-	</div>    
+    </div>
+
 @endsection

@@ -232,7 +232,7 @@
 
                             <li class="@yield('active10')"><a href="/beranda-sd-lembaga"><i class="fa fa-fw fa-user"></i> Lembaga</a></li>
 
-                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Himpunan</a></li>
+                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Program Studi</a></li>
 
                             <li class="@yield('active12')"><a href="/beranda-sd-kelompokstudi"><i class="fa fa-fw fa-building"></i> Kelompok Studi</a></li>
 
@@ -293,7 +293,7 @@
 
                             <li class="@yield('active10')"><a href="/beranda-sd-lembaga"><i class="fa fa-fw fa-user"></i> Lembaga</a></li>
 
-                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Himpunan</a></li>
+                            <li class="@yield('active11')"><a href="/beranda-sd-himpunan"><i class="fa fa-fw fa-user"></i> Program Studi</a></li>
 
                             <li class="@yield('active12')"><a href="/beranda-sd-kelompokstudi"><i class="fa fa-fw fa-building"></i> Kelompok Studi</a></li>
 

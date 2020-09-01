@@ -14,7 +14,7 @@
 
 @section('content')
 
-    <h2 class="mb-4"><i class="fa fa-user"></i> Himpunan</h2>
+    <h2 class="mb-4"><i class="fa fa-user"></i> Program Studi</h2>
 
     @if(Session::has('success'))
 
@@ -94,7 +94,7 @@
 
     </style>
 
-    <div class="card-group" style="width:100%;">
+    <div class="card-columns" style="width:100%;">
 
         @foreach ($himpunans as $himpunan)
 

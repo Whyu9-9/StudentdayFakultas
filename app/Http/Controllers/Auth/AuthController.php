@@ -118,12 +118,12 @@ class AuthController extends Controller
                 return redirect('/login')->withErrors(['nim' => 'Sesi Mahasiswa Lama Belum dimulai']);
             }
             
-            if(Auth::user()->mahasiswa_baru == 1 && Auth::user()->lengkap > 3){
+            if(Auth::user()->mahasiswa_baru == 3 && Auth::user()->lengkap > 3){
               $checkprodi = User::where('id',Auth::user()->id)->first();
                 if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 2 || $checkprodi->program_studi == 3 || $checkprodi->program_studi == 4 || $checkprodi->program_studi == 5 || $checkprodi->program_studi == 6 || $checkprodi->program_studi == 7){
                     $date = date("d-m-Y H:i:s");
-                    $depan = "29-08-2020 05:00:00";
-                    $batas = "29-08-2020 23:00:00";
+                    $depan = "01-09-2020 05:00:00";
+                    $batas = "01-09-2020 23:59:00";
                     $datebatas = date("d-m-Y H:i:s", strtotime($batas));
                     $datedepan = date("d-m-Y H:i:s", strtotime($depan));
                     // dd($date,$datebatas);
