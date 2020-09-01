@@ -146,8 +146,10 @@ class AuthController extends Controller
                     return redirect('/login')->withErrors(['nim' => 'Sesi Program Studi Anda Belum Dimulai']);
                 }
 
-            }else if(Auth::user()->mahasiswa_baru == 2){
+            }else if(Auth::user()->mahasiswa_baru == 1){
 		return $this->handleUserWasAuthenticated($request, $throttles);
+            }else if(Auth::user()->mahasiswa_baru == 2){
+                return $this->handleUserWasAuthenticated($request, $throttles);
             }else{
                 //return $this->handleUserWasAuthenticated($request, $throttles);
 		Auth::logout($this->user());
