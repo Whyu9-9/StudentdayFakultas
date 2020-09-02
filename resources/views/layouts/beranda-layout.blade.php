@@ -172,16 +172,24 @@
 
                 <?php
 
-                    $serverdate = date("d-m-Y");
+                    $serverdate = date("d-m-Y H:i:s");
+                    $depan = "06-09-2020 07:00:00";
+                    $batas = "11-09-2020 10:15:00";
+                    $datebatas = date("d-m-Y H:i:s", strtotime($batas));
+                    $datedepan = date("d-m-Y H:i:s", strtotime($depan));
 
-                    if($serverdate == '29-08-2020'){
-
-                        $datecond = 1;
-
-                    }else{
+                    if($serverdate < $datedepan){
 
                         $datecond = 0;
 
+                    }else if($serverdate > $datebatas){
+
+                        $datecond = 2;
+
+                    }else{
+
+                        $datecond = 1;
+                    
                     }
 
                 ?>
@@ -210,14 +218,14 @@
 
                 @if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap != 9)
 
-                    @if ($datecond != 0)
+                    
 
                     <li class="@yield('active6')"><a href="{{ route('beranda-sd.verifikasi') }}"><i class="fas fa-check-circle fa-fw"></i> Verifikasi</a></li>
 
                     @if(Auth::user()->lengkap == 8)
 
                     <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Unduh Berkas</a></li>
-
+                    @if ($datecond == 1)
                     <li class="@yield('activepengenalan')">
 
                         <a href="#base" data-toggle="collapse" aria-expanded="false">
@@ -276,9 +284,8 @@
                 @if(Auth::user()->lengkap >= 4 && Auth::user()->lengkap != 9)
 
                     @if(Auth::user()->lengkap == 8)
-
                     <li class="@yield('active3')"><a href="{{ route('beranda-sd.cetak-berkas') }}"><i class="fa fa-fw fa-print"></i> Unduh Berkas</a></li>
-
+                    @if ($datecond == 1)
                     <li class="@yield('activepengenalan')">
 
                         <a href="#base" data-toggle="collapse" aria-expanded="false">
@@ -302,7 +309,7 @@
                     </li>
 
                     <li class="@yield('active9')"><a href="{{ route('beranda-sd-penugasan') }}"><i class="fas fa-fw fa-file-pdf"></i> Penugasan</a></li>
-
+                    @endif
                     @endif
 
                 <!--<li class="@yield('active7')"><a href="{{ route('beranda-sd-resume') }}"><i class="fas fa-fw fa-file-pdf"></i> Resume</a></li>-->

@@ -125,9 +125,11 @@
                 <tr>
                     <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 20px 20px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 400;">
                         <p>Silahkan bergabung dengan grup LINE Program Studi dengan men-scan QR Code dibawah ini.</p>
+                        @if(auth::user()->mahasiswa_baru<3)
                         <p>
                             Ketentuan Verifikasi dapat diunduh pada tombol di bawah ini. <br> <a style="background-color:goldenrod;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="{{ route('beranda-sd.download-ketentuan') }}" style="color: #d8a547 !important;"><strong>Download</strong></a>
                         </p>
+                        @endif
                     </td>
                 </tr>
             </table>
@@ -263,9 +265,11 @@
                         <tr>
                             <td bgcolor="#fff" align="center" valign="top" style="padding: 10px 10px 20px 20px; border-radius: 4px 4px 0px 0px; color: #c3862d; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 400;">
                                 <p>Silahkan bergabung dengan grup LINE Program Studi dengan men-scan QR Code dibawah ini.</p>
+                                @if(auth::user()->mahasiswa_baru<3)
                                 <p>
                                     Ketentuan Verifikasi dapat diunduh pada tombol di bawah ini. <br> <a style="background-color:goldenrod;border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;" href="{{ route('beranda-sd.download-ketentuan') }}" style="color: #d8a547 !important;"><strong>Download</strong></a>
                                 </p>
+                                @endif
                             </td>
                         </tr>
                     </table>

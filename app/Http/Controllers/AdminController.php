@@ -667,7 +667,7 @@ class AdminController extends Controller
         $validator = Validator::make($request->all(),
             [
                 'note' => 'required|string',
-                'note_ilmiah' => 'required|string'
+                'note_ilmiah' => 'string'
             ]
         );
 
@@ -1025,6 +1025,7 @@ class AdminController extends Controller
             'Program studi',
             'Jenis Kelamin',
             'Jalur Masuk',
+            'Scan Bukti Penyakit',
             'Pembayaran Kontribusi(Khusus Mala)',
             'Link Youtube',
             'Terakhir login'
@@ -1060,12 +1061,23 @@ class AdminController extends Controller
                     $kon = "Sudah Bayar";
                 }
             }
+            
+            $buk = "Tidak Ada"; 
+            $buks = "";
+            if($row->scan_penyakit){
+                if($row->scan_penyakit == NULL){
+                    $buk = $buks;
+                }elseif($row->scan_penyakit != NULL){
+                    $buk = "Sudah Mengupload";
+                }
+            }
             $mahasiswa[] = [
                 $row->nim,
                 $row->nama,
                 $row->prodi['nama'],
                 $row->kelamin['nama'],
                 $mhs,
+                $buk,
                 $kon,
                 $row->youtube,
                 $login

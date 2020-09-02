@@ -310,14 +310,16 @@ class DashboardSdController extends Controller
             'tipe' => 'verifikasi',
         ])->get();
 
-        $notes = Notes::where([
-
+        $cek = Notes::where([
             'user_id' => Auth::user()->id,
-
             'tipe' => 'verifikasi'
+        ])->orderBy('created_at', 'desc')->take('1')->get(); 
 
+        $notes = Notes::where([
+            'user_id' => Auth::user()->id,
+            'tipe' => 'verifikasi'
         ])->orderBy('created_at', 'desc')->take('1')->get();
-        return view('sd.biodata', compact('data', 'notes','ilmiah'));
+        return view('sd.biodata', compact('data', 'notes','ilmiah','cek'));
         }
 
     }

@@ -457,7 +457,8 @@
     @endif
     @if(Auth::user()->mahasiswa_baru > 2 )
     @if(Auth::user()->lengkap == 6 )
-
+    @foreach($cek as $ceks)
+    @if($ceks->notes_ilmiah!=null)
     <div class="alert alert-primary">
 
         <h5>Kamu Mendapatkan Tugas Khusus</h5>
@@ -492,6 +493,10 @@
         <a style="margin-left:18px;" class="btn btn-primary" href="https://drive.google.com/drive/folders/1IV9a69E5z11QD11X8hpw5pIVlol2LBab?usp=sharing">Link Soal Tugas Khusus</a>
 
     </div>
+
+    @endif
+
+    @endforeach
 
     @endif
 
