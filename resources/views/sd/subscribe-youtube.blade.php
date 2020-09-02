@@ -22,9 +22,15 @@
             </button>
         </div>
     @endif
+    @if(auth::user()->mahasiswa_baru <3)
     <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="text-info fas fa-check mr-1"></i> Kamu Harus Subscribe Youtube untuk dapat melanjutkan verifikasi
     </div>
+    @else
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <i class="text-info fas fa-check mr-1"></i> Kamu Harus Subscribe Youtube untuk dapat melanjutkan pendaftaran
+    </div>
+    @endif
     <div class="card mb-4">
         <div class="card-body">
             <script type="text/javascript">

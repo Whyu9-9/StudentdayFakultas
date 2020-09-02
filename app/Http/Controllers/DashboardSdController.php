@@ -235,7 +235,7 @@ class DashboardSdController extends Controller
                 return redirect()->route('beranda-sd.subscribe-youtube');
             }
         }
-        
+
         if(Auth::user()->ganti_pass == 0){
 
             return redirect('/ganti-password')->with('info', 'Password harus diganti terlebih dahulu');
@@ -753,8 +753,11 @@ class DashboardSdController extends Controller
         $granat = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'granat')->get();
 
         if(count($dies) > 0 && count($granat) > 0){
-
-            return redirect()->route('beranda-sd.verifikasi');
+            if(auth::user()->mahasiswa_baru<3){
+                return redirect()->route('beranda-sd.verifikasi');
+            }else{
+                return redirect()->route('beranda-sd.biodata');
+            }
 
         }
 
