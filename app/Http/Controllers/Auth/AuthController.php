@@ -122,8 +122,8 @@ class AuthController extends Controller
               $checkprodi = User::where('id',Auth::user()->id)->first();
                 if($checkprodi->program_studi == 1 || $checkprodi->program_studi == 2 || $checkprodi->program_studi == 3 || $checkprodi->program_studi == 4 || $checkprodi->program_studi == 5 || $checkprodi->program_studi == 6 || $checkprodi->program_studi == 7){
                     $date = date("d-m-Y H:i:s");
-                    $depan = "01-09-2020 05:00:00";
-                    $batas = "01-09-2020 23:59:00";
+                    $depan = "02-09-2020 05:00:00";
+                    $batas = "02-09-2020 23:59:00";
                     $datebatas = date("d-m-Y H:i:s", strtotime($batas));
                     $datedepan = date("d-m-Y H:i:s", strtotime($depan));
                     // dd($date,$datebatas);

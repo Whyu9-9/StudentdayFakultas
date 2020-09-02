@@ -37,24 +37,15 @@
                 <div style="margin-left: 18px;" class="form-check">
                     <input class="form-check-input" type="checkbox" value="1" id="cek2">
                     <label class="form-check-label" for="cek2">
-                      Apabila dikemudian hari saya terbukti menyebarkan isi dari <strong>Ketentuan Pendaftaran Student Day</strong>, maka saya siap dikeluarkan dari seuluruh rangkaian acara Student Day Fakultas Teknik.
+                      Apabila dikemudian hari saya terbukti menyebarkan isi dari <strong>Ketentuan Pendaftaran Student Day</strong>, maka saya siap menerima <strong>konsekuensi</strong> dari perbuatan saya.
                     </label>
                 </div>
                 <div class="modal-footer">
-                        <button onclick="location.href='https://drive.google.com/file/d/1COCz71QBs56bZYdJdnqxTHJq7DWRf7sQ/view?usp=sharing';" id="tombol" name="tombol" style="margin-bottom:14px;" class="btn btn-primary mt-3"><i class="fa fa-paper-plane"></i> Menuju Google Drive</button>
+                        <button onclick="location.href='https://drive.google.com/drive/folders/146MhW7NY49NgSv0kQj-snjaR7PTFChVP?usp=sharing';" id="tombol" name="tombol" style="margin-bottom:14px;" class="btn btn-primary mt-3"><i class="fa fa-paper-plane"></i> Lihat Ketentuan</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Kembali</button>
                 </div>
             </div>
         </div>
-        @section('custom_javascript')
-        <script>
-            var checker = document.getElementById('cek2');
-            var sendbtn = document.getElementById('tombol');
-            checker.onchange = function() {
-                sendbtn.disabled = !this.checked;
-            };
-        </script>
-        @endsection
     </div>
 
     <main id="main">
@@ -156,6 +147,13 @@
 
     @if (count($modal))
         @section('custom_javascript')
+        <script>
+            var checker = document.getElementById('cek2');
+            var sendbtn = document.getElementById('tombol');
+            checker.onchange = function() {
+                sendbtn.disabled = !this.checked;
+            };
+        </script>
         <script>
             $(document).ready(function () {
                 $('#exampleModalCenter').modal('show');
