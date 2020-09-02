@@ -227,7 +227,15 @@ class DashboardSdController extends Controller
     public function biodata()
 
     {
+        if(Auth::user()->mahasiswa_baru >2){
+            $dies = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'dies')->get();
+            $granat = UserIklans::where('user_id', Auth::user()->id)->where('kegiatan', 'granat')->get();
 
+            if(count($dies) == 0 || count($granat) == 0){
+                return redirect()->route('beranda-sd.subscribe-youtube');
+            }
+        }
+        
         if(Auth::user()->ganti_pass == 0){
 
             return redirect('/ganti-password')->with('info', 'Password harus diganti terlebih dahulu');
@@ -1884,6 +1892,8 @@ class DashboardSdController extends Controller
         ]);
 
         }else{
+            
+            
             $checkorpres = 0;
 
 
